@@ -10,7 +10,7 @@ function App() {
   // Holding Country
   const [country, setCountry] = useState("US")
 
-  const [showListing, setShowListing] = useState([])
+  const [allListings, setAllListing] = useState([])
 
   useEffect(() => {
     // Calling the API using Axios
@@ -27,7 +27,7 @@ function App() {
 
         // console.log(response.data)
         // console.log(response.data[0]._embedded.show)
-        setShowListing(response.data)
+        setAllListing(response.data)
 
 
       })
@@ -45,7 +45,7 @@ function App() {
       <ul className="filmList">
 
       {/* Rendering products to the page */}
-        {showListing.map((show) => {
+        {allListings.map((show) => {
           return (
               // console.log(show._embedded.show.image)
               // console.log(show._embedded.show.image.original)
