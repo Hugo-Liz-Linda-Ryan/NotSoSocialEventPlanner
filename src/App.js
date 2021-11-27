@@ -1,6 +1,7 @@
 import './App.css';
 import axios from "axios";
 import { useState, useEffect } from 'react';
+import WeeklyEvents from './components/WeeklyEvents';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <h1>Not So <span>Social</span> Planner</h1>
         <div className="imageTriangle"></div>
       </header>
+      <WeeklyEvents />
 
 
       <section className="creditSocials">
