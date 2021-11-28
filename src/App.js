@@ -5,6 +5,8 @@ import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
 import MovieSection from './components/Movielist/MoviesSection';
 import WeeklyEvents from './components/WeeklyEvents';
+import ShowListing from './components/ShowListing';
+
 
 function App() {
 
@@ -46,9 +48,32 @@ function App() {
       </header>
       <main>
         <MovieSection/>
+        // <ul className="filmList">
+     {/* Rendering products to the page */}
+       {allListings.map((show) => {
+        return (
+            // console.log(show._embedded.show.image)
+            // console.log(show._embedded.show.image.original)
+          <ShowListing 
+            key={show.id}
+            name={show.name}
+            genre={show._embedded.show.genre}
+            runtime={show.runtime}
+            image = {show._embedded.show.image}
+            site={show.url}
+            language={show._embedded.show.language}
+            // schedule = {show.schedule.days}
+            // time = {show.schedule.time}
+            summary={show._embedded.show.summary}
+          />
+        )
+      })}
+
+    </ul>
       </main>
     </div>
   );
 }
 
 export default App;
+
