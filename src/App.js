@@ -2,6 +2,9 @@ import './App.css';
 import axios from "axios";
 import { useState, useEffect } from 'react';
 import ShowListing from './components/ShowListing';
+import SiteOpeningPage from './components/LandingPage/LandingPage'
+import Navigation from './components/Navigation/Navigation';
+import MovieSection from './components/Movielist/MoviesSection';
 
 function App() {
 
@@ -34,45 +37,16 @@ function App() {
     // We want API call to be made with every category change
   }, [])
 
-
+  
   return (
     <div className="App">
-
       <header>
-        <h1>Not So <span>Social</span> Planner</h1>
+        <Navigation/>
+        <SiteOpeningPage />
       </header>
-
-      <ul className="filmList">
-
-      {/* Rendering products to the page */}
-        {allListings.map((show) => {
-          return (
-              // console.log(show._embedded.show.image)
-              // console.log(show._embedded.show.image.original)
-            <ShowListing 
-              key={show.id}
-              name={show.name}
-              genre={show._embedded.show.genre}
-              runtime={show.runtime}
-              image = {show._embedded.show.image}
-              site={show.url}
-              language={show._embedded.show.language}
-              // schedule = {show.schedule.days}
-              // time = {show.schedule.time}
-              summary={show._embedded.show.summary}
-            />
-          )
-        })}
-
-      </ul>
-
-      <section className="creditSocials">
-        <p>
-          Made at <a href="https://junocollege.com/">Juno College</a>
-        </p>
-      </section>
-
-      {/* </App> */}
+      <main>
+        <MovieSection/>
+      </main>
     </div>
   );
 }

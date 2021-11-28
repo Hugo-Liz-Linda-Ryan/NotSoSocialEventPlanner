@@ -1,0 +1,42 @@
+.nav {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 30%;
+  padding: 0;
+  border: solid snow 2px;
+}
+.nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  display: flex;
+  font-size: 30px;
+  width: 100%;
+  border: solid gold 2px;
+  border-left: 0;
+  border-right: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20%;
+}
+
+.nav a {
+  list-style: none;
+  text-decoration: none;
+  list-style: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
