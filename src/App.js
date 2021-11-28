@@ -1,7 +1,14 @@
 import './App.css';
 import axios from "axios";
 import { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import ShowListing from './components/ShowListing';
+=======
+import SiteOpeningPage from './components/LandingPage/LandingPage'
+import Navigation from './components/Navigation/Navigation';
+import MovieSection from './components/Movielist/MoviesSection';
+import WeeklyEvents from './components/WeeklyEvents';
+>>>>>>> main
 
 function App() {
 
@@ -34,11 +41,11 @@ function App() {
     // We want API call to be made with every category change
   }, [])
 
-
+  
   return (
     <div className="App">
-
       <header>
+<<<<<<< HEAD
         <h1>Not So <span>Social</span> Planner</h1>
       </header>
 
@@ -73,6 +80,14 @@ function App() {
       </section>
 
       {/* </App> */}
+=======
+        <Navigation/>
+        <SiteOpeningPage />
+      </header>
+      <main>
+        <MovieSection/>
+      </main>
+>>>>>>> main
     </div>
   );
 

@@ -1,0 +1,32 @@
+.landingpage {
+  color: white;
+  background-color: var(--color-primaryBlueBlackRed);
+  height: 100vh;
+  width: 100%;
+}
+.homePageTitleContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+  z-index: 999;
+  flex-direction: column;
+}
+
+.landingpage h1 {
+  font-size: clamp(5rem, 4.5558rem + 2.4675vw, 8.9rem);
+  background-size: cover;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: gold;
+}
+
+.landingpage h2 {
+  font-size: clamp(3rem, 2.5558rem + 2.4675vw, 4.9rem);
+  font-family: "Lobster Two", cursive;
+  font-weight: 300;
+  letter-spacing: 3px;
+}

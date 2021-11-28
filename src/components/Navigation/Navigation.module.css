@@ -1,0 +1,50 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 90px;
+  background-color: #010b13;
+  color: white;
+  display: flex;
+  z-index: 999;
+  align-items: center;
+  padding: 0 1%;
+  justify-content: space-between;
+}
+.nav ul {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.nav li {
+  display: flex;
+  font-size: 30px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  color: white;
+}
+
+.nav a {
+  list-style: none;
+  text-decoration: none;
+  list-style: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+}
+.nav li:hover {
+  outline: solid lightgray 1px;
+  background-color: black;
+}
+
+.themeToggle {
+  display: flex;
+  width: 20%;
+}
