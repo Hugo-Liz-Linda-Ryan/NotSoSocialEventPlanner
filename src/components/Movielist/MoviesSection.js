@@ -1,46 +1,41 @@
 import './MovieList.css';
 import MoviesList from './MovieItemCreator';
-import MoviesFavouriteGallery from './MovieFavItem';
+//import MoviesFavouriteGallery from './MovieFavItem';
 import MovieCollection from './MovieValueList';
 import MovieSideUlNav from './MovieListSIdeUl/MovieListSideUI';
 import { useState } from 'react';
 
 const MovieSection = () => {
 
-    const [selectedItems, setSelectedItems] = useState([]);
+    // const [selectedItems, setSelectedItems] = useState([]);
     
-    const addToMovieGallery = (id) => {
+    // const addToMovieGallery = (id) => {
        
-        const ids = [];
+    //     const ids = [];
        
-        ids.push(id);
+    //     ids.push(id);
        
-        let filteredArray = MovieCollection.filter((movieCollectionObject) => {
+    //     let filteredArray = MovieCollection.filter((movieCollectionObject) => {
            
-            return ids.includes(movieCollectionObject.id)
-        });
+    //         return ids.includes(movieCollectionObject.id)
+    //     });
         
-        setSelectedItems([...selectedItems, ...filteredArray]);
+    //     setSelectedItems([...selectedItems, ...filteredArray]);
+       
+    // }
 
-        
-    }
-
-    const remove = () => {
-        console.log(selectedItems);
-        selectedItems.shift();
-        setSelectedItems([...selectedItems]);
-
-
-
-    }
-
+    // // const remove = () => {
+    //     console.log(selectedItems);
+    //     selectedItems.shift();
+    //     setSelectedItems([...selectedItems]);
+    // }
 
     return (
         <section>
             <div className="lookbookcontainer">
                 <div className="lookbookImages">
                     <MovieSideUlNav/>
-                    <MoviesList handleClick={addToMovieGallery}/>
+                    <MoviesList/>
                 </div>
                 <div className="aboutTitlePage">
                     <div className="aboutParagraph">
@@ -50,8 +45,8 @@ const MovieSection = () => {
                         <h2>Lol No</h2>
                     </div>
                 </div> 
-                <MoviesFavouriteGallery className="lookbookGallery" chosenItems={selectedItems} />
-                <button onClick={remove}>loooll</button>
+                {/* <MoviesFavouriteGallery className="lookbookGallery" chosenItems={selectedItems} /> */}
+                {/* <button onClick={remove}>loooll</button> */}
             </div>
         </section>
     );
