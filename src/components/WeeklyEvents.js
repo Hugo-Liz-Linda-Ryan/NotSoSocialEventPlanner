@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 
 function WeeklyEvents() {
     const [socialEvents, setSocialEvents] = useState([]);
-    const [userInput, setUserInput] = useState('')
+    const [userInput, setUserInput] = useState('');    
     
     useEffect(() => {
         // variable that refers to database
@@ -26,32 +26,41 @@ function WeeklyEvents() {
         setUserInput(event.target.value);
     }
 
-    const handleClick = (event) => {
-        event.preventDefault();
-        const dbRef = firebase.database().ref();
-        // push user input to Firebase database
-        dbRef.push(userInput);
-        // reset user input to empty string
-        setUserInput('');
-    }
+    // 🚨 needs to be updated; currently pushes individual properties to the main Firebase object -- need to set up so that it replaces the day objects
+    // const handleClick = (event) => {
+    //     event.preventDefault();
+    //     const dbRef = firebase.database().ref();
+    //     // push user input to Firebase database
+    //     dbRef.push(userInput);
+    //     // reset user input to empty string
+    //     setUserInput('');
+    // }
+
+    // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
+    // const removeSocialEvent = (key) => {
+    // const dbRef = firebase.database().ref();
+    // dbRef.child(key).remove();
+    // }
 
     return (
         <section className="weekCalendar">
             {/* destructuring, to access each key-value pair within each weekday object */}
                 {socialEvents.map(({ day, eventName, eventType, partySize}) => {
                     return (
-                    <ul key={day}>
-                        <li><h2>{day}</h2></li>
-                        <li><p>{eventName}</p></li>
-                        <li><p>{eventType}</p></li>
-                        <li><p>{partySize}</p></li>
-                    </ul>
+                    <li key={day}>
+                        <h2>{day}</h2>
+                        <p>{eventName}</p>
+                        <p>{eventType}</p>
+                        <p>{partySize}</p>
+                        {/* 🚨 needs to be updated; needs to be delete the entire day object in Firebase */}
+                        {/* <button onClick={() => removeSocialEvent(day)}> Remove </button> */}
+                    </li>
                     )
                 })}
                 <form action="submit">
-                    <label htmlFor="newEvent">Add a new event to your schedule</label>
-                    <input type="text" id="newEvent" onChange={handleChange} value={userInput}/>
-                    <button onClick={handleClick}>Add event</button>
+                    {/* <label htmlFor="newEvent">Add a new event to your schedule</label> */}
+                    {/* <input type="text" id="newEvent" onChange={handleChange} value={userInput}/> */}
+                    {/* <button onClick={handleClick}>Add event</button> */}
                 </form>
         </section>
     )
