@@ -47,7 +47,6 @@ function App() {
         <SiteOpeningPage />
       </header>
       <main>
-        <MovieSection/>
         // <ul className="filmList">
      {/* Rendering products to the page */}
        {allListings.map((show) => {
