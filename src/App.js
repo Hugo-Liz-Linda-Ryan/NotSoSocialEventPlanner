@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
 import MovieSection from './components/Movielist/MoviesSection';
+import WeeklyEvents from './components/WeeklyEvents';
 
 function App() {
 
