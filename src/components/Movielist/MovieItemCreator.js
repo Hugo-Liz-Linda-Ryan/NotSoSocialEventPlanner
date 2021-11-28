@@ -1,29 +1,31 @@
 import MovieItemHTML from './MovieAPIItem';
 import MovieCollection from './MovieValueList';
+import allListings from "../../App.js"
+import ShowListing from '../ShowListing';
 
 const MoviesList = (props) => {
 
-    // const itemList = MovieCollection.map((item) => (
+    const itemList = MovieCollection.map((item) => (
     
-    //     <MovieItemHTML
-    //         key={item.id}
-    //         id={item.id}
-    //         name={item.name}
-    //         description={item.description}
-    //         price={item.price}
-    //         url={item.url}
-    //         smallimg={item.imgurl}
-    //         clickHandler={props.handleClick}
-    //     />));
+        <MovieItemHTML
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            description={item.description}
+            price={item.price}
+            url={item.url}
+            smallimg={item.imgurl}
+            clickHandler={props.handleClick}
+        />));
         
-    // return (
+    return (
     
-    //     <div className="galleryImgs">
-    //         <ul>
-    //             {itemList}
-    //         </ul>
-    //     </div>
-    // );
+        <div className="galleryImgs">
+            <ul>
+                {itemList}
+            </ul>
+        </div>
+    );
 
 //************************************************************ */
 
@@ -45,12 +47,12 @@ const MoviesList = (props) => {
     //         // schedule = {show.schedule.days}
     //         // time = {show.schedule.time}
     //         summary={show._embedded.show.summary}
+    //         clickHandler={props.handleClick}
     //       />
     //     )
     //   })}
 
     // </ul>
-
 
 };
 
