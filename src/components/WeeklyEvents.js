@@ -23,18 +23,6 @@ function WeeklyEvents() {
             }
             setSocialEvents(newState)
         })
-        dbRefUserEvents.on('value', (response2) => {
-            // variable to store the new state
-            const newState2 = [];
-            // store the response from Firebase inside of a variable
-            const data2 = response2.val();
-            for (let key2 in data2) {
-                newState2.push(data2[key2])
-            }
-            setSocialEvents(newState2)
-        })
-
-
     }, [])
 
 
@@ -52,7 +40,6 @@ function WeeklyEvents() {
         setUserInputPartySize(event.target.value);
     }
 
-    // 🚨 needs to be updated; currently pushes individual properties to the main Firebase object -- need to set up so that it replaces the day objects
     const handleClick = (event) => {
         event.preventDefault();
         const dbRef = firebase.database().ref('userEvents');
@@ -62,16 +49,12 @@ function WeeklyEvents() {
             eventType: userInputEventType,
             partySize: userInputPartySize
         }
-
-        dbRef.push({
-            newEvent: newEvent
-        }).then((data) => {
-            console.log('data', data)
-        })
         // push user input to Firebase database
-        // dbRef.push(userInput);
+        dbRef.push({newEvent: newEvent})
         // reset user input to empty string
         setUserInputEventName('');
+        setUserInputEventType('');
+        setUserInputPartySize('')
     }
 
     // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
@@ -110,10 +93,6 @@ function WeeklyEvents() {
         </section>
 
         <form action="submit">
-
-            {/* <label htmlFor="newEvent">Add a new event to your schedule</label>
-            <input type="text" id="newEvent" onChange={handleChange} value={userInput}/>
-            <button onClick={handleClick}>Add event</button> */}
 
             <legend>Add a new event to your schedule
                 <label htmlFor="newEventName">New event name</label>
