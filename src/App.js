@@ -43,7 +43,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Navigation/>
+        {/* <Navigation/> */}
+        <WeeklyEvents />
         <SiteOpeningPage />
       </header>
       <main>
