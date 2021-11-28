@@ -11,11 +11,14 @@ function ShowListing( props ) {
         setDescOpen(!descOpen);
     }
 
+    console.log(props.image)
+    
     return (
+            
         <li key={props.key}>
             <div className="showContainer product">
                 <div className="image">
-                    <img src={props.image} alt={`Poster of ${props.name}`} />
+                    <img src={props.image ? props.image.original:null} alt={`Poster of ${props.name}`} />
                     {/* <img src={null} alt={`Poster of ${props.name}`} /> */}
                 </div>
                 <div className="info content">
@@ -35,7 +38,7 @@ function ShowListing( props ) {
                     <>
                         <div className="expandedShow">
                             <div className="poster-image">
-                                <img src={props.image}
+                                <img src={props.image ? props.image.original:null}
                                     alt={`Movie poster for ${props.name}`}
                                 />
                             </div>
