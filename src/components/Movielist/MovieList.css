@@ -1,0 +1,145 @@
+.lookbookcontainer {
+  background-position: center;
+  background-size: cover;
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.lookbookImages {
+  width: 100%;
+  background-color: darkgreen;
+  display: flex;
+  order: 2;
+}
+
+.lookbookImages ul {
+  list-style: none;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.product {
+  width: 300px;
+  max-height: 500px;
+  min-height: 500px;
+  padding: 5%;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  margin-bottom: 2%;
+  border-radius: 15px;
+  height: 300px;
+}
+.product .description {
+  display: none;
+}
+.product p {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+.product h3 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.product button {
+  border: none;
+  background-color: rgb(1, 47, 1);
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+.product button:hover {
+  background-color: green;
+  cursor: pointer;
+  border: lightgray solid 1px;
+}
+.product img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.lookbookpage {
+  background-color: violet;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  order: 3;
+  align-content: center;
+  padding: 5% 2%;
+}
+.h2container {
+  width: 100%;
+}
+.lookbookpage h2 {
+  min-width: 100%;
+  font-size: 68px;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 5%;
+}
+.lookbookpage ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.aboutTitlePage {
+  min-width: 100%;
+  height: 80vh;
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  background-color: lightgreen;
+  color: black;
+}
+
+.aboutParagraph {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.aboutTitlePage h2 {
+  font-size: 138px;
+  background-size: cover;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  stroke: black;
+  stroke-width: 2px;
+  color: transparent;
+}
+
+.Gallery {
+  background-color: pink;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.lookbookpage li {
+  list-style: none;
+  width: 300px;
+  height: 450px;
+}
+.GenreList {
+  height: 100%;
+}
