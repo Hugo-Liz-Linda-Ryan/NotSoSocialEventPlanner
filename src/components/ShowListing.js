@@ -13,18 +13,19 @@ function ShowListing( props ) {
 
     return (
         <li key={props.key}>
-            <div className="showContainer">
+            <div className="showContainer product">
                 <div className="image">
                     <img src={props.image} alt={`Poster of ${props.name}`} />
                     {/* <img src={null} alt={`Poster of ${props.name}`} /> */}
                 </div>
-                <div className="info">
+                <div className="info content">
                     <h3 className="showName">{props.name}</h3>
                     <p className="showRuntime">Runtime: {props.runtime} minutes</p>
                     <p className="showGenre">Genre: {props.genre}</p>
                     {/* 🚨 change onClick from button to div*/}
                     <button className="showDesc"
                         onClick={toggleShowDesc}>More information</button>
+                    <button onClick={() => props.clickHandler(props.id)}>Click to Add to Favourites</button>
                 </div>
             </div>
 
