@@ -1,19 +1,16 @@
 import './App.css';
 import axios from "axios";
 import { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import ShowListing from './components/ShowListing';
-=======
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
 import MovieSection from './components/Movielist/MoviesSection';
 import WeeklyEvents from './components/WeeklyEvents';
-<<<<<<< HEAD
->>>>>>> main
-=======
+
+
 import ShowListing from './components/ShowListing';
 
->>>>>>> main
+
 
 function App() {
 
@@ -48,32 +45,31 @@ function App() {
 
   
   return (
+    
     <div className="App">
       <header>
-<<<<<<< HEAD
         <h1>Not So <span>Social</span> Planner</h1>
       </header>
 
       <ul className="filmList">
 
-      {/* Rendering products to the page */}
+        {/* Rendering products to the page */}
         {allListings.map((show) => {
           return (
-              // console.log(show._embedded.show.image)
-              // console.log(show._embedded.show.image.original)
-            <ShowListing 
+            // console.log(show._embedded.show.image)
+            // console.log(show._embedded.show.image.original)
+            <ShowListing
               key={show.id}
               name={show.name}
               genre={show._embedded.show.genre}
               runtime={show.runtime}
-              image = {show._embedded.show.image}
+              image={show._embedded.show.image}
               site={show.url}
               language={show._embedded.show.language}
               // schedule = {show.schedule.days}
               // time = {show.schedule.time}
-              summary={show._embedded.show.summary}
-            />
-          )
+              summary={show._embedded.show.summary} />
+          );
         })}
 
       </ul>
@@ -85,44 +81,43 @@ function App() {
       </section>
 
       {/* </App> */}
-=======
-        <Navigation/>
-        <SiteOpeningPage />
-      </header>
-      <main>
-        // <ul className="filmList">
-     {/* Rendering products to the page */}
-       {allListings.map((show) => {
-        return (
-            // console.log(show._embedded.show.image)
-            // console.log(show._embedded.show.image.original)
-          <ShowListing 
-            key={show.id}
-            name={show.name}
-            genre={show._embedded.show.genre}
-            runtime={show.runtime}
-            image = {show._embedded.show.image}
-            site={show.url}
-            language={show._embedded.show.language}
-            // schedule = {show.schedule.days}
-            // time = {show.schedule.time}
-            summary={show._embedded.show.summary}
-          />
-        )
-      })}
 
-    </ul>
+      <Navigation />
+
+      {/* <Navigation/> */}
+      <WeeklyEvents />
+
+      <SiteOpeningPage />
+    
+    
+    <main>
+        <ul className="filmList">
+          {/* Rendering products to the page */}
+          {allListings.map((show) => {
+            return (
+              // console.log(show._embedded.show.image)
+              // console.log(show._embedded.show.image.original)
+              <ShowListing
+                key={show.id}
+                name={show.name}
+                genre={show._embedded.show.genre}
+                runtime={show.runtime}
+                image={show._embedded.show.image}
+                site={show.url}
+                language={show._embedded.show.language}
+                // schedule = {show.schedule.days}
+                // time = {show.schedule.time}
+                summary={show._embedded.show.summary} />
+            );
+          })}
+
+        </ul>
       </main>
->>>>>>> main
     </div>
+   
   );
 
 
 }
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
-
->>>>>>> main
