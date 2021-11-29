@@ -3,43 +3,64 @@ import axios from "axios";
 import { useState, useEffect } from 'react';
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
-import MovieSection from './components/Movielist/MoviesSection';
-import WeeklyEvents from './components/WeeklyEvents';
 import ShowListing from './components/ShowListing';
 
 
 function App() {
-
-  // Holding presented date 
   const [date, setDate] = useState("2021-11-25")
   // Holding Country
-  const [country, setCountry] = useState("US")
+  
 
   const [allListings, setAllListing] = useState([])
-
-  useEffect(() => {
-    // Calling the API using Axios
-    axios({
-      method: "GET",
-      url: ` https://api.tvmaze.com/schedule/web`,
-      responseType: "json",
-      params: {
-        date: `${date}`,
-        country: `${country}`
-      }
-    })
-      .then((response) => {
-
-        // console.log(response.data)
-        // console.log(response.data[0]._embedded.show)
-        setAllListing(response.data)
-
-
-      })
-    // We want API call to be made with every category change
-  }, [])
-
   
+  function lolo() {
+  
+    let country = "";
+
+    axios({
+        
+        method: "GET",
+        url: ` https://api.tvmaze.com/schedule/web`,
+        responseType: "json",
+        params: {
+          country: `${country}`
+        }
+      })
+        .then((response) => {
+
+          // console.log(response.data)
+          // console.log(response.data[0]._embedded.show)
+          setAllListing(response.data)
+
+
+        })
+
+
+
+}
+  function hello() {
+
+    let country = "US";
+
+    axios({
+        
+        method: "GET",
+        url: ` https://api.tvmaze.com/schedule/web`,
+        responseType: "json",
+        params: {
+          country: `${country}`
+        }
+      })
+        .then((response) => {
+
+          // console.log(response.data)
+          // console.log(response.data[0]._embedded.show)
+          setAllListing(response.data)
+
+
+        })
+
+  }
   return (
     <div className="App">
       <header>
@@ -47,8 +68,9 @@ function App() {
         <SiteOpeningPage />
       </header>
       <main>
-        // <ul className="filmList">
-     {/* Rendering products to the page */}
+      <ul className="filmList">
+          <button id=""onClick={hello}>US</button>
+          <button onClick={lolo}>All</button>
        {allListings.map((show) => {
         return (
             // console.log(show._embedded.show.image)
