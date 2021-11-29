@@ -32,12 +32,12 @@ function WeeklyEvents() {
     const dbRefUserEvents = firebase.database().ref('userEvents');
 
     dbRefUserEvents.on('value', (response) => {
-        const newState2 = [];
+        const newState = [];
         const data = response.val();
         for (let key in data) {
-            newState2.push(data[key].newEvent);
+            newState.push(data[key]);
         }
-        setNewEvents(newState2);
+        setNewEvents(newState);
         });
   }, [])
 
@@ -60,13 +60,8 @@ function WeeklyEvents() {
         event.preventDefault();
         const dbRef = firebase.database().ref('userEvents');
 
-        let newEvent = {
-            eventName: userInputEventName,
-            eventType: userInputEventType,
-            partySize: userInputPartySize
-        }
         // push user input to Firebase database
-        dbRef.push({newEvent: newEvent})
+        dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
         // reset user input to empty string
         setUserInputEventName('');
         setUserInputEventType('');
@@ -98,12 +93,12 @@ function WeeklyEvents() {
         </section>
 
         <section className="newEvents">
-            {newEvents.map(( {eventName, eventType, partySize}) => {
+            {newEvents.map(( {userInputEventName, userInputEventType, userInputPartySize}) => {
           return (
             <li>
-                <p>{eventName}</p>
-                <p>{eventType}</p>
-                <p>{partySize}</p>
+                <p>{userInputEventName}</p>
+                <p>{userInputEventType}</p>
+                <p>{userInputPartySize}</p>
             </li>
           )
         })}
