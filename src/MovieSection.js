@@ -4,7 +4,7 @@ const MovieSectionF = () => {
 
     return (
         <section>
-            <div className="lookbookcontainer">
+            <div className="MovieSection">
                 <API/>
             </div>
         </section>
