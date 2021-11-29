@@ -135,11 +135,10 @@ function WeeklyEvents() {
         </section>
 
         <form action="submit">
-
             <legend>Add a new event to your schedule
                 <label htmlFor="newEventDay">Which day of the week?</label>
-                <select name="newEventDay" id="newEventDay" value='{userDaySelect}' onChange={handleUserDaySelect}>
-                    {/* <option disabled selected value>Choose a day</option> */}
+                <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect}>
+                    <option value="" hidden disabled >Choose a day</option>
                     <option value="sunday">Sunday</option>
                     <option value="monday">Monday</option>
                     <option value="tuesday">Tuesday</option>
@@ -148,6 +147,7 @@ function WeeklyEvents() {
                     <option value="friday">Friday</option>
                     <option value="saturday">Saturday</option>
                 </select>
+
                 <label htmlFor="newEventName">New event name</label>
                 <input type="text" id="newEventName" onChange={handleChange} value={userInputEventName}/>
                 <label htmlFor="newEventName">New event type</label>
