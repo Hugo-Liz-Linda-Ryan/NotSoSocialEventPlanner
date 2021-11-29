@@ -1,9 +1,10 @@
 import firebase from '../firebase'
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 
 function WeeklyEvents() {
     const [socialEvents, setSocialEvents] = useState([]);
     const [newEvents, setNewEvents] = useState([]);
+    let [userDaySelect, setUserDaySelect] = useState('');
     let [userInputEventName, setUserInputEventName] = useState('');
     let [userInputEventType, setUserInputEventType] = useState('');  
     let [userInputPartySize, setUserInputPartySize] = useState('');  
@@ -29,16 +30,17 @@ function WeeklyEvents() {
 
     // useEffect for user generated events
     useEffect(() => {
-    const dbRefUserEvents = firebase.database().ref('userEvents');
 
-    dbRefUserEvents.on('value', (response) => {
-        const newState = [];
-        const data = response.val();
-        for (let key in data) {
-            newState.push(data[key]);
-        }
-        setNewEvents(newState);
-        });
+        const dbRefUserEvents = firebase.database().ref('userEvents');
+
+        dbRefUserEvents.on('value', (response) => {
+            const newState = [];
+            const data = response.val();
+            for (let key in data) {
+                newState.push(data[key]);
+            }
+            setNewEvents(newState);
+            });
   }, [])
 
 
@@ -55,6 +57,11 @@ function WeeklyEvents() {
     const handleChange3 = (event) => {
         setUserInputPartySize(event.target.value);
     }
+    
+    const handleUserDaySelect = useCallback((event) => {
+        setUserDaySelect(event.target.value)
+        console.log(event.target.value)
+    })
 
     const handleClick = (event) => {
         event.preventDefault();
@@ -107,6 +114,17 @@ function WeeklyEvents() {
         <form action="submit">
 
             <legend>Add a new event to your schedule
+                <label htmlFor="newEventDay">Which day of the week?</label>
+                <select name="newEventDay" id="newEventDay" value='{userDaySelect}' onChange={handleUserDaySelect}>
+                    {/* <option value="" selected="selected" disabled="disabled">Choose a day</option> */}
+                    <option value="sunday">Sunday</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                </select>
                 <label htmlFor="newEventName">New event name</label>
                 <input type="text" id="newEventName" onChange={handleChange} value={userInputEventName}/>
                 <label htmlFor="newEventName">New event type</label>
