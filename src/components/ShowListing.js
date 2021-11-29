@@ -50,15 +50,9 @@ function ShowListing( props ) {
                                 </div>
                                 <div className="dates">
                                     <p>Runtime: {props.runtime}</p>
-<<<<<<< HEAD
-                                    <p>Air date: {props.schedule}</p> 
-                                 <p>Air time: {props.time}</p>
-                                 </div>
-=======
                                     {/* <p>Air date: {props.schedule}</p> */}
                                     {/* <p>Air time: {props.time}</p> */}
                                 </div>
->>>>>>> main
                             </div>
                         </div>
                     </>
@@ -66,20 +60,10 @@ function ShowListing( props ) {
                     handleClose={toggleShowDesc}
                 />
                 : null // basically show nothing if it isn't clicked
-<<<<<<< HEAD
-            }  
-=======
             }
->>>>>>> main
 
         </li>
     )
 }
 
-<<<<<<< HEAD
 export default ShowListing;
-=======
-export default ShowListing;
-
-
->>>>>>> main

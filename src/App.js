@@ -1,13 +1,10 @@
 import './App.css';
 import axios from "axios";
 import { useState, useEffect } from 'react';
-import ShowListing from './components/ShowListing';
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
 import MovieSection from './components/Movielist/MoviesSection';
 import WeeklyEvents from './components/WeeklyEvents';
-
-
 import ShowListing from './components/ShowListing';
 
 
