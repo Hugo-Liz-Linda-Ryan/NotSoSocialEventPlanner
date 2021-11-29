@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
 import ShowListing from './components/ShowListing';
+import Calendar from './components/Calendar';
 
 
 function App() {
@@ -36,7 +37,6 @@ function App() {
         })
 
 
-
 }
   function hello() {
 
@@ -56,9 +56,8 @@ function App() {
           // console.log(response.data)
           // console.log(response.data[0]._embedded.show)
           setAllListing(response.data)
-
-
         })
+
 
   }
   return (
@@ -67,6 +66,7 @@ function App() {
         <Navigation/>
         <SiteOpeningPage />
       </header>
+        <Calendar/>
       <main>
       <ul className="filmList">
           <button id=""onClick={hello}>US</button>
