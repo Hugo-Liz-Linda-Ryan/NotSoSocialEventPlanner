@@ -15,8 +15,8 @@ function ShowListing( props ) {
         <li key={props.key}>
             <div className="showContainer product">
                 <div className="image">
-                    <img src={props.image} alt={`Poster of ${props.name}`} />
-                    {/* <img src={null} alt={`Poster of ${props.name}`} /> */}
+                <img src="https://via.placeholder.com/150"
+                alt="https://via.placeholder.com/150"/>
                 </div>
                 <div className="info content">
                     <h3 className="showName">{props.name}</h3>
@@ -35,8 +35,8 @@ function ShowListing( props ) {
                     <>
                         <div className="expandedShow">
                             <div className="poster-image">
-                                <img src={props.image}
-                                    alt={`Movie poster for ${props.name}`}
+                                <img src="https://via.placeholder.com/150"
+                                 alt="https://via.placeholder.com/150"
                                 />
                             </div>
                             <div className="filmInfo">
@@ -50,8 +50,6 @@ function ShowListing( props ) {
                                 </div>
                                 <div className="dates">
                                     <p>Runtime: {props.runtime}</p>
-                                    {/* <p>Air date: {props.schedule}</p> */}
-                                    {/* <p>Air time: {props.time}</p> */}
                                 </div>
                             </div>
                         </div>
