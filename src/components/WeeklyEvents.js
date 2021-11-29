@@ -1,5 +1,5 @@
 import firebase from '../firebase'
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useEffect} from 'react';
 
 function WeeklyEvents() {
     const [socialEvents, setSocialEvents] = useState([]);
@@ -21,29 +21,10 @@ function WeeklyEvents() {
             const data = response.val();
             for (let key in data) {
                 newState.push(data[key])
-                // console.log('data weekly events', data)
             }
-            console.log(newState)
             setSocialEvents(newState)
         })
     }, [])
-
-    // useEffect for user generated events
-    useEffect(() => {
-
-        const dbRefUserEvents = firebase.database().ref('userEvents');
-
-        dbRefUserEvents.on('value', (response) => {
-            const newState = [];
-            const data = response.val();
-            for (let key in data) {
-                newState.push(data[key]);
-            }
-            setNewEvents(newState);
-            });
-  }, [])
-
-
 
     // event handler for when there is a change in the add event input
     const handleChange = (event) => {
@@ -58,38 +39,33 @@ function WeeklyEvents() {
         setUserInputPartySize(event.target.value);
     }
     
+    // event handler to identify which day of the week the user selected
+    // 🚨 this works, but not a great solution
     const handleUserDaySelect = (event) => {
         setUserDaySelect(event.target.value)
         let userDaySelect = event.target.value;
         console.log(userDaySelect)
     }
 
+    // event handler for user creating a new event
     const handleClick = (event) => {
         event.preventDefault();
 
-        // depending on which day of the week the user selects, push the form data to that particular day's node on Firebase
-        if (userDaySelect === 'sunday') {
-            const dbRef = firebase.database().ref('newSundayEvent');
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
-        } else if (userDaySelect === 'monday') {
-            const dbRef = firebase.database().ref('newMondayEvent');
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
-        } else if (userDaySelect === 'tuesday') {
-            const dbRef = firebase.database().ref('newTuesdayEvent');
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
-        } else if (userDaySelect === 'wednesday') {
-            const dbRef = firebase.database().ref('newWednesdayEvent');
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
-        } else if (userDaySelect === 'thursday') {
-            const dbRef = firebase.database().ref('newThursdayEvent');
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
-        } else if (userDaySelect === 'friday') {
-            const dbRef = firebase.database().ref('newFridayEvent');
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
-        } else if (userDaySelect === 'saturday') {
-            const dbRef = firebase.database().ref('newSaturdayEvent');
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize})
+        // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
+        const pushNewEvent = () => {
+            const dbRef = firebase.database().ref(`User's New ${userDaySelect} Event`);
+            dbRef.push({userInputEventName, userInputEventType, userInputPartySize});
+            dbRef.on('value', (response) => {
+                const newState = [];
+                const data = response.val();
+                for (let key in data) {
+                    newState.push(data[key]);
+                }
+                setNewEvents(newState);
+            });
         }
+        // call the function
+        pushNewEvent();
 
         // reset user input to empty string
         setUserInputEventName('');
@@ -139,13 +115,13 @@ function WeeklyEvents() {
                 <label htmlFor="newEventDay">Which day of the week?</label>
                 <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect}>
                     <option value="" hidden disabled >Choose a day</option>
-                    <option value="sunday" >Sunday</option>
-                    <option value="monday">Monday</option>
-                    <option value="tuesday">Tuesday</option>
-                    <option value="wednesday">Wednesday</option>
-                    <option value="thursday">Thursday</option>
-                    <option value="friday">Friday</option>
-                    <option value="saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
                 </select>
 
                 <label htmlFor="newEventName">New event name</label>
