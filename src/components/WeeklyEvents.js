@@ -8,10 +8,10 @@ function WeeklyEvents() {
     let [userInputEventType, setUserInputEventType] = useState('');  
     let [userInputPartySize, setUserInputPartySize] = useState('');  
     
+    // useEffect for set weekly events
     useEffect(() => {
         // variable that refers to database
         const dbRef = firebase.database().ref();
-        const dbRefUserEvents = firebase.database().ref('userEvents');
         // event listener to get our data from the database ('response')
         dbRef.on('value', (response) => {
             // variable to store the new state
@@ -20,10 +20,26 @@ function WeeklyEvents() {
             const data = response.val();
             for (let key in data) {
                 newState.push(data[key])
+                // console.log('data weekly events', data)
             }
+            console.log(newState)
             setSocialEvents(newState)
         })
     }, [])
+
+    // useEffect for user generated events
+    useEffect(() => {
+    const dbRefUserEvents = firebase.database().ref('userEvents');
+
+    dbRefUserEvents.on('value', (response) => {
+        const newState2 = [];
+        const data = response.val();
+        for (let key in data) {
+            newState2.push(data[key].newEvent);
+        }
+        setNewEvents(newState2);
+        });
+  }, [])
 
 
 
@@ -82,14 +98,15 @@ function WeeklyEvents() {
         </section>
 
         <section className="newEvents">
-            {newEvents.map((newEvent) => {
+            {newEvents.map(( {eventName, eventType, partySize}) => {
           return (
             <li>
-              <p>{newEvent}</p>
+                <p>{eventName}</p>
+                <p>{eventType}</p>
+                <p>{partySize}</p>
             </li>
           )
         })}
-
         </section>
 
         <form action="submit">
