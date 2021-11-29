@@ -53,8 +53,6 @@ function ShowListing( props ) {
                                 </div>
                                 <div className="dates">
                                     <p>Runtime: {props.runtime}</p>
-                                    {/* <p>Air date: {props.schedule}</p> */}
-                                    {/* <p>Air time: {props.time}</p> */}
                                 </div>
                             </div>
                         </div>
