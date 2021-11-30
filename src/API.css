@@ -77,3 +77,20 @@
   height: 450px;
   border: solid gold;
 }
+
+.MovieGallery {
+  max-width: 80%;
+}
+
+.NavAids {
+  max-width: 20%;
+}
+
+.image {
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+}
+.image img {
+  object-fit: cover;
+}

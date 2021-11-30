@@ -11,7 +11,6 @@ function ShowListing( props ) {
         setDescOpen(!descOpen);
     }
 
-    console.log(props.image)
     
     return (
             
@@ -23,6 +22,7 @@ function ShowListing( props ) {
                 </div>
                 <div className="info content">
                     <h3 className="showName">{props.name}</h3>
+                    <p className="episodeName">{props.episodeName}</p>
                     <p className="showRuntime">Runtime: {props.runtime} minutes</p>
                     <p className="showGenre">Genre: {props.genre}</p>
                     {/* 🚨 change onClick from button to div*/}
@@ -45,6 +45,7 @@ function ShowListing( props ) {
                             <div className="filmInfo">
                                 <div className="description">
                                     <h2>{props.name}</h2>
+                                    <p className="episodeName">{props.episodeName}</p>
                                     <p>{props.summary}</p>
                                 </div>
                                 <div className="info">
