@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        {/* <Navigation/> */}
-        {/* <SiteOpeningPage /> */}
+        <Navigation/>
+        <SiteOpeningPage />
         <Calendar/>
       </header>
       <main>

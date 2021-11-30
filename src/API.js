@@ -39,26 +39,12 @@ function API() {
     e.preventDefault()
     const copyOfListings = [...allListings];
     
-    // console.log(copyOfListings)
+    const filteredShows = copyOfListings.filter(show => show._embedded.show.genres.some((g) => g === genreChoice))
 
-
-  
-    const filteredShows = 
-    copyOfListings.filter(show => show._embedded.show.genres.some((g) => 
-
-    // console.log(g)
-    // console.log(genreChoice)
-    g === genreChoice
-    ))
-    console.log(filteredShows)
-
-    
-    // const filteredShows = copyOfListings.filter((show) => {
-    //   const genreArray = show._embedded.show.genres;
-    //   console.log(genreArray);
-    // })
-
+    // 🚨🚨🚨 need to add error handling for blank, also switching filters
+    // 🚨🚨🚨 also need to add "current filter" display
     setFilteredShows(filteredShows)
+      // setAllListing(filteredShows)
   }
 
 
