@@ -15,11 +15,11 @@ function App() {
       <header>
         <Navigation/>
         <SiteOpeningPage />
+        <About/>
         </header>
       <main>
     <WeeklyEvents/>
       <Calendar/>
-        <About/>
         <MovieSectionF />
       </main>
     </div>
