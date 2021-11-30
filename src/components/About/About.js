@@ -31,7 +31,7 @@ const About = () => {
         </div>
 
         <div className="aboutTheDevs">
-          <div class="appTagLine">
+          <div className="appTagLine">
             <img src="" id="roundimage" alt="Profile Pic" />
             <h3>
               Ryan Van Den Eeckhout is an aspiring Front end Web Developer

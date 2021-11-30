@@ -7,7 +7,7 @@ import "./API.css";
 function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
-  const [filteredShows, setFilteredShows] = useState([]);
+  // const [filteredShows, setFilteredShows] = useState([]);
 
   const today = new Date()
   // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"

@@ -43,7 +43,7 @@ function WeeklyEvents() {
     // 🚨 this works, but not a great solution
     const handleUserDaySelect = (event) => {
         setUserDaySelect(event.target.value)
-        let userDaySelect = event.target.value;
+        // let userDaySelect = event.target.value;
         // console.log(userDaySelect)
     }
 
@@ -64,10 +64,7 @@ function WeeklyEvents() {
                     id:`User's New ${userDaySelect} Event`
                 }
                 newState.push(obj);
-
                 setNewEvents(newState);
-               
-                
             });
             
         }
@@ -100,7 +97,7 @@ function WeeklyEvents() {
             <p>This is what your schedule looks like this week...</p>
             {socialEvents.map(({ day, eventName, eventType, partySize}) => {
                 return (
-                <li key={day}>
+                <li key={Math.random()}>
                     <h2>{day}</h2>
                     <h3>{eventName}</h3>
                     <p>{eventType}</p>
@@ -116,7 +113,7 @@ function WeeklyEvents() {
             {newEvents.map((newEvent) => {
                const{userDaySelect, userInputEventName, userInputEventType, userInputPartySize} = newEvent
                return (
-                    <li key={`User's New ${userDaySelect} Event`}>
+                    <li key={userInputEventName}>
                         <h2>{userDaySelect}</h2>
                         <h3>{userInputEventName}</h3>
                         <p>{userInputEventType}</p>
