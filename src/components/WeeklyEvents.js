@@ -54,59 +54,61 @@ function WeeklyEvents() {
         // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
         const pushNewEvent = () => {
             const dbRef = firebase.database().ref(`User's New ${userDaySelect} Event`);
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize});
+            dbRef.update({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
             dbRef.on('value', (response) => {
                 const newState = [];
                 const data = response.val();
-                for (let key in data) {
-                    newState.push(data[key]);
-                }
+                newState.push(data);
                 setNewEvents(newState);
             });
         }
+
         // call the function
         pushNewEvent();
 
         // reset user input to empty string
         setUserInputEventName('');
         setUserInputEventType('');
-        setUserInputPartySize('')
+        setUserInputPartySize('');
     }
 
     // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
-    // const removeSocialEvent = (key) => {
-    // const dbRef = firebase.database().ref();
-    // dbRef.child(key).remove();
+    // const removeSocialEvent = () => {
+    // const dbRef = firebase.database().ref(`User's New ${userDaySelect} Event`);
+    // dbRef.child().remove();
     // }
 
     return (
         <>
         <section className="weekCalendar">
             {/* destructuring, to access each key-value pair within each weekday object */}
-                {socialEvents.map(({ day, eventName, eventType, partySize}) => {
-                    return (
-                    <li key={day}>
-                        <h2>{day}</h2>
-                        <p>{eventName}</p>
-                        <p>{eventType}</p>
-                        <p>{partySize}</p>
-                        {/* 🚨 needs to be updated; needs to be delete the entire day object in Firebase */}
-                        {/* <button onClick={() => removeSocialEvent(day)}> Remove </button> */}
-                    </li>
-                    )
-                })}
+            <p>This is what your schedule looks like this week...</p>
+            {socialEvents.map(({ day, eventName, eventType, partySize}) => {
+                return (
+                <li key={day}>
+                    <h2>{day}</h2>
+                    <h3>{eventName}</h3>
+                    <p>{eventType}</p>
+                    <p>{partySize}</p>
+                </li>
+                )
+            })}
         </section>
 
         <section className="newEvents">
-            {newEvents.map(( {userInputEventName, userInputEventType, userInputPartySize}) => {
-          return (
-            <li>
-                <p>{userInputEventName}</p>
-                <p>{userInputEventType}</p>
-                <p>{userInputPartySize}</p>
-            </li>
-          )
-        })}
+            <p>Don't like the way your week is shaping up? Add new events to your schedule:</p>
+            {console.log(newEvents)}
+            {newEvents.map(( {userDaySelect, userInputEventName, userInputEventType, userInputPartySize}) => {
+                return (
+                    <li>
+                        <h2>{userDaySelect}</h2>
+                        <h3>{userInputEventName}</h3>
+                        <p>{userInputEventType}</p>
+                        <p>{userInputPartySize}</p>
+                        {/* <button onClick={() => removeSocialEvent()}> Remove </button> */}
+                    </li>
+                )
+            })}
         </section>
 
         <form action="submit">
