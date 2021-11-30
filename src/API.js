@@ -6,32 +6,39 @@ import "./API.css";
 
 function API() {
   const [allListings, setAllListing] = useState([]);
-  
+  const [genreChoice, setGenreChoice] = useState("placeholder");
+
+
+
   const today = new Date()
   // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
   // const todayDayName = today.getDay()
   // gets today's weekday as a numerical value
   // Ex. Sunday=0, Monday=1, Tuesday=2 etc.
- 
-  const timeOffset = today.getTimezoneOffset() * 60000; 
+  const timeOffset = today.getTimezoneOffset() * 50000;
   //offset in milliseconds
-  const localISODate = (new Date(Date.now() - timeOffset)).toISOString().slice(0, -1).substr(0,10);
-  
-
+  const localISODate = (new Date(Date.now() - timeOffset)).toISOString().substr(0, 10);
   // Returns format "YYYY-MM-DD"
 
+  const [showDate, setShowDate] = useState({ localISODate });
   const endOfWeek = new Date(today)
-  endOfWeek.setDate(endOfWeek.getDate()+7)
-  const endOfWeekISODate = endOfWeek.toISOString().substr(0,10)
-
-  
-  const [showDate, setShowDate] = useState({localISODate});
+  endOfWeek.setDate(endOfWeek.getDate() + 7)
+  const endOfWeekISODate = endOfWeek.toISOString().substr(0, 10)
 
 
-  function handleDateChange (e) {
-    setShowDate(e.target.value)
+  function handleDateChange(e) {
+    setShowDate(e.target.value);
   }
-      
+
+  function handleGenreChoice(e) {
+    setGenreChoice(e.target.value);
+  }
+
+  function filterByGenre(e) {
+    e.preventDefault()
+    console.log("filtering")
+  }
+
 
   function searchByDate() {
     let country = "US";
@@ -97,23 +104,49 @@ function API() {
 
 
   return (
-    <div className="APISection">
-      {/* <h2>Select A Movie Section</h2> */}
-      <div className="contentAPISectionContainer">
+
+    <div className="contentAPISectionContainer">
+
+      {/* Genre filter */}
+      <div className="APISection">
+        <form action="submit" className="genreFilter">
+
+          <label htmlFor="genreList">Please select which genre to filter by:</label>
+          <select 
+            name="genreList" 
+            id="genreList"
+            value = {genreChoice}
+            onChange = {handleGenreChoice}
+          >
+            <option value="placeholder" disabled>Pick one:</option>
+            <option value="drama">Drama</option>
+            <option value="children">Children</option>
+            <option value="music"> Music</option>
+            <option value="supernatural">Supernatural</option>
+            <option value="comedy">Comedy</option>
+            <option value="thriller">Thriller</option>
+            <option value="food">Food</option>
+            <option value="anime">Anime</option>
+            <option value="romance">Romance</option>
+          </select>
+          <button type="submit">Genre Filter!</button>
+        </form>
+
+        {/* <h2>Select A Movie Section</h2> */}
         <nav className="NavAids">
           <ul>
             <div className="selectShowDate">
               <label htmlFor="chooseDate">Choose show date:</label>
-              <input 
-                type="date" 
-                id="chooseDate" 
+              <input
+                type="date"
+                id="chooseDate"
                 name="searchDate"
                 value={showDate}
                 min={localISODate}
                 max={endOfWeekISODate}
-                onChange =  {handleDateChange}
+                onChange={handleDateChange}
               />
-            <button onClick={searchByDate}>Search by date</button>
+              <button onClick={searchByDate}>Search by date</button>
             </div>
 
             <button id="us" onClick={hello} value="US">All Movies In All Countries/Date</button>
@@ -132,7 +165,7 @@ function API() {
                   key={show.id}
                   name={show._embedded.show.name}
                   episodeName={show.name}
-                  genre={show._embedded.show.genre}
+                  genre={show._embedded.show.genres}
                   runtime={show.runtime}
                   image={show._embedded.show.image}
                   site={show.url}

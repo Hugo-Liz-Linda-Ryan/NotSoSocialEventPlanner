@@ -18,7 +18,6 @@ function ShowListing( props ) {
             <div className="showContainer product">
                 <div className="image">
                     <img src={props.image ? props.image.original:null} alt={`Poster of ${props.name}`} />
-                    {/* <img src={null} alt={`Poster of ${props.name}`} /> */}
                 </div>
                 <div className="info content">
                     <h3 className="showName">{props.name}</h3>
