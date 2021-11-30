@@ -9,18 +9,23 @@ function API() {
   
   const today = new Date()
   // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
-  const todayDayName = today.getDay()
+  // const todayDayName = today.getDay()
   // gets today's weekday as a numerical value
   // Ex. Sunday=0, Monday=1, Tuesday=2 etc.
-  const todayISODate = today.toISOString().substr(0,10)
-  // Returns "2021-11-29"
+ 
+  const timeOffset = today.getTimezoneOffset() * 60000; 
+  //offset in milliseconds
+  const localISODate = (new Date(Date.now() - timeOffset)).toISOString().slice(0, -1).substr(0,10);
+  
+
+  // Returns format "YYYY-MM-DD"
 
   const endOfWeek = new Date(today)
   endOfWeek.setDate(endOfWeek.getDate()+7)
   const endOfWeekISODate = endOfWeek.toISOString().substr(0,10)
 
   
-  const [showDate, setShowDate] = useState({todayISODate});
+  const [showDate, setShowDate] = useState({localISODate});
 
 
   function handleDateChange (e) {
@@ -93,7 +98,7 @@ function API() {
 
   return (
     <div className="APISection">
-      <h2>Select A Movie Section</h2>
+      {/* <h2>Select A Movie Section</h2> */}
       <div className="contentAPISectionContainer">
         <nav className="NavAids">
           <ul>
@@ -104,7 +109,7 @@ function API() {
                 id="chooseDate" 
                 name="searchDate"
                 value={showDate}
-                min={todayISODate}
+                min={localISODate}
                 max={endOfWeekISODate}
                 onChange =  {handleDateChange}
               />
