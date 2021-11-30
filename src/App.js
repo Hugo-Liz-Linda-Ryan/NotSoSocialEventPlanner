@@ -1,4 +1,5 @@
 import './App.css';
+import Calendar from './components/Calendar';
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
 import About from './components/About/About';
@@ -10,9 +11,11 @@ function App() {
     <div className="App">
       <header>
         <Navigation/>
-        <SiteOpeningPage/>
+        <SiteOpeningPage />
       </header>
       <main>
+      <imageAndData/>
+     <Calendar/>
         <About/>
         <MovieSectionF />
       </main>
