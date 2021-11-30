@@ -1,0 +1,96 @@
+.NavAids {
+  display: flex;
+  flex-direction: column;
+  min-width: 15%;
+  height: 100%;
+  border: solid gold 2px;
+}
+
+.NavAids ul {
+  padding: 0;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.NavAids button {
+  border: none;
+  background-color: black;
+  color: white;
+  min-width: 100%;
+  height: 80px;
+  border: solid gold 2px;
+  margin-bottom: 30px;
+}
+
+.NavAids button:hover {
+  background-color: grey;
+  cursor: pointer;
+  color: black;
+}
+.APISection {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  background-color: rgb(2, 42, 2);
+}
+
+.contentAPISectionContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  outline: solid greenyellow 2px;
+}
+.MovieGallery {
+  width: 80%;
+  height: 100%;
+  padding: 0%;
+}
+.APISection h2 {
+  min-width: 100%;
+  color: white;
+  font-size: 98px;
+  text-align: center;
+  margin-top: 5%;
+}
+.APISection p,
+.APISection h3 {
+  color: white;
+}
+.filmList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 0;
+  outline: purple solid 2px;
+}
+
+.filmList li {
+  margin-bottom: 3%;
+  width: 300px;
+  height: 450px;
+  border: solid gold;
+}
+
+.MovieGallery {
+  max-width: 75%;
+}
+
+.NavAids {
+  max-width: 20%;
+}
+
+.image {
+  overflow: hidden;
+  height: 150px;
+  width: 150px;
+}
+.image img {
+  object-fit: cover;
+}

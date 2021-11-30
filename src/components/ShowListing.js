@@ -12,16 +12,20 @@ function ShowListing( props ) {
     }
 
     return (
+            
         <li key={props.key}>
             <div className="showContainer product">
                 <div className="image">
-                    <img src={props.image} alt={`Poster of ${props.name}`} />
-                    {/* <img src={null} alt={`Poster of ${props.name}`} /> */}
+
+                    <img src={props.image ? props.image.original:null} alt={`Poster of ${props.name}`} />
+
                 </div>
                 <div className="info content">
                     <h3 className="showName">{props.name}</h3>
+                    <p className="episodeName">{props.episodeName}</p>
                     <p className="showRuntime">Runtime: {props.runtime} minutes</p>
-                    <p className="showGenre">Genre: {props.genre}</p>
+                    {/* 🚨🚨🚨 This conditional does not work, will need to find alternative */}
+                    <p className="showGenre">Genre: {props.genre ? props.genre: "No genre listed"}</p>
                     {/* 🚨 change onClick from button to div*/}
                     <button className="showDesc"
                         onClick={toggleShowDesc}>More information</button>
@@ -35,23 +39,24 @@ function ShowListing( props ) {
                     <>
                         <div className="expandedShow">
                             <div className="poster-image">
-                                <img src={props.image}
+
+                                <img src={props.image ? props.image.original:null}
                                     alt={`Movie poster for ${props.name}`}
                                 />
+
                             </div>
                             <div className="filmInfo">
                                 <div className="description">
                                     <h2>{props.name}</h2>
+                                    <p className="episodeName">{props.episodeName}</p>
                                     <p>{props.summary}</p>
                                 </div>
                                 <div className="info">
-                                    <p>Genre: {props.genre}</p>
+                                    <p>Genre: {props.genre? props.genre: "No genre listed"}</p>
                                     <p>Language: {props.language}</p>
                                 </div>
                                 <div className="dates">
                                     <p>Runtime: {props.runtime}</p>
-                                    {/* <p>Air date: {props.schedule}</p> */}
-                                    {/* <p>Air time: {props.time}</p> */}
                                 </div>
                             </div>
                         </div>

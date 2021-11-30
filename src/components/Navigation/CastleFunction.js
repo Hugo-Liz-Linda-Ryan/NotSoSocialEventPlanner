@@ -22,7 +22,7 @@ Colourful() {
     return (
       <div className={classes.themeToggle}>
         <button onClick={this.Default}>Default Theme</button>
-        <button onClick={this.DarkMode}>DarkMode</button>
+        <button onClick={this.DarkMode}>Dark Theme</button>
         <button onClick={this.Colourful}>Colourful Theme</button>
       </div> 
 

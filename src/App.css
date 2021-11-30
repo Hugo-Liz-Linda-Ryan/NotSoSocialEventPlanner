@@ -230,6 +230,8 @@ h4 {
 }
 html {
   --color-primaryBlueBlackRed: rgb(5, 5, 49);
+  --color-primaryBlueBlackRed: #ded6ed;
+  --body-font: Roboto;
 }
 
 html[data-theme="dark"] {
