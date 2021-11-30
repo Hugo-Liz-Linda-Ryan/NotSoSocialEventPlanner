@@ -7,6 +7,7 @@ import "./API.css";
 function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
+  const [filteredShows, setFilteredShows] = useState([]);
 
 
 
@@ -19,8 +20,8 @@ function API() {
   //offset in milliseconds
   const localISODate = (new Date(Date.now() - timeOffset)).toISOString().substr(0, 10);
   // Returns format "YYYY-MM-DD"
+  const [showDate, setShowDate] = useState(localISODate);
 
-  const [showDate, setShowDate] = useState({ localISODate });
   const endOfWeek = new Date(today)
   endOfWeek.setDate(endOfWeek.getDate() + 7)
   const endOfWeekISODate = endOfWeek.toISOString().substr(0, 10)
@@ -34,9 +35,30 @@ function API() {
     setGenreChoice(e.target.value);
   }
 
-  function filterByGenre(e) {
+  function filterByGenre(e, genreChoice) {
     e.preventDefault()
-    console.log("filtering")
+    const copyOfListings = [...allListings];
+    
+    // console.log(copyOfListings)
+
+
+  
+    const filteredShows = 
+    copyOfListings.filter(show => show._embedded.show.genres.some((g) => 
+
+    // console.log(g)
+    // console.log(genreChoice)
+    g === genreChoice
+    ))
+    console.log(filteredShows)
+
+    
+    // const filteredShows = copyOfListings.filter((show) => {
+    //   const genreArray = show._embedded.show.genres;
+    //   console.log(genreArray);
+    // })
+
+    setFilteredShows(filteredShows)
   }
 
 
@@ -55,6 +77,7 @@ function API() {
       setAllListing(response.data);
     });
   }
+
 
   function hello() {
     let country = "";
@@ -108,9 +131,7 @@ function API() {
     <div className="contentAPISectionContainer">
 
       {/* Genre filter */}
-      <div className="APISection">
-        <form action="submit" className="genreFilter">
-
+        <form onSubmit={(e) => {filterByGenre(e,genreChoice)}} className="genreFilter">
           <label htmlFor="genreList">Please select which genre to filter by:</label>
           <select 
             name="genreList" 
@@ -118,19 +139,22 @@ function API() {
             value = {genreChoice}
             onChange = {handleGenreChoice}
           >
-            <option value="placeholder" disabled>Pick one:</option>
-            <option value="drama">Drama</option>
-            <option value="children">Children</option>
-            <option value="music"> Music</option>
-            <option value="supernatural">Supernatural</option>
-            <option value="comedy">Comedy</option>
-            <option value="thriller">Thriller</option>
-            <option value="food">Food</option>
-            <option value="anime">Anime</option>
-            <option value="romance">Romance</option>
+            <option value="placeholder" disabled>Pick a genre:</option>
+            <option value="Action">Action</option>
+            <option value="Anime">Anime</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Children">Children</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+            <option value="Food">Food</option>
+            <option value="Music"> Music</option>
+            <option value="Romance">Romance</option>
+            <option value="Supernatural">Supernatural</option>
+            <option value="Thriller">Thriller</option>
           </select>
           <button type="submit">Genre Filter!</button>
         </form>
+      <div className="APISection">
 
         {/* <h2>Select A Movie Section</h2> */}
         <nav className="NavAids">

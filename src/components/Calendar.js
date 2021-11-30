@@ -1,12 +1,12 @@
-import {useState} from "react";
+// import {useState} from "react";
 import "./calendar.css"
 
 function Calendar () {
 
-    const [todayDate, setTodayDate] = useState("")
-    const [thisWeek, setThisWeek] = useState([])
+    // const [todayDate, setTodayDate] = useState("")
+    // const [thisWeek, setThisWeek] = useState([])
     
-    const weekArray = []
+    // const weekArray = []
 
     // goes to Wednesday again as it iterates +7 to the array, on Saturday going to array[14]
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
