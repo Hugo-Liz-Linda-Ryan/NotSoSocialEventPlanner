@@ -8,6 +8,7 @@ function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
   const [errorMessage, setErrorMessage] = useState(false);
+  const [currentGenreSearch, setCurrentGenreSearch] = useState(false);
   // const [filteredShows, setFilteredShows] = useState([]);
 
 
@@ -39,20 +40,18 @@ function API() {
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
     const copyOfListings = [...allListings];
-    
     const filteredShows = copyOfListings.filter(show => show._embedded.show.genres.some((g) => g === genreChoice))
-    console.log(filteredShows)
 
-    // 🚨🚨🚨 need to add error handling for blank, also switching filters
-    // 🚨🚨🚨 also need to add "current filter" display
     // setFilteredShows(filteredShows)
 
     // error handling: if there are no results from the genre filter
     if (filteredShows.length === 0) {
       setErrorMessage(true)
-      console.log(`no results`)
     }
-
+    // if the genre filter is running, display what genre the user is currently searching for
+    if (genreChoice) {
+      setCurrentGenreSearch(true)
+    }
 
       setAllListing(filteredShows)
   }
@@ -150,6 +149,15 @@ function API() {
           </select>
           <button type="submit">Genre Filter!</button>
         </form>
+
+      {/* render to the page the user's current genre search*/}
+        {currentGenreSearch === true
+        ?
+        <div>
+          <p>You're currently searching for: {genreChoice}</p>
+        </div>
+        : null}
+        
       <div className="APISection">
 
         {/* <h2>Select A Movie Section</h2> */}
@@ -199,10 +207,9 @@ function API() {
           </ul>
 
           {/* if there are no results from the genre filter, render error message to the page */}
-          {errorMessage == true
+          {errorMessage === true
           ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
           : null}
-
 
         </div>
       </div>
