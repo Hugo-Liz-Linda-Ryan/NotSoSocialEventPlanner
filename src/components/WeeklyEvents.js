@@ -44,7 +44,7 @@ function WeeklyEvents() {
     const handleUserDaySelect = (event) => {
         setUserDaySelect(event.target.value)
         let userDaySelect = event.target.value;
-        console.log(userDaySelect)
+        // console.log(userDaySelect)
     }
 
 
@@ -59,10 +59,17 @@ function WeeklyEvents() {
             dbRef.update({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
             dbRef.on('value', (response) => {
                 const newState = [];
-                const data = response.val();
-                newState.push(data);
+                const obj = {
+                    ...response.val(),
+                    id:`User's New ${userDaySelect} Event`
+                }
+                newState.push(obj);
+
                 setNewEvents(newState);
+               
+                
             });
+            
         }
 
         // call the function
@@ -72,15 +79,19 @@ function WeeklyEvents() {
         setUserInputEventName('');
         setUserInputEventType('');
         setUserInputPartySize('');
-    }
 
+        
+    }
+    // 
     
 
     // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
-    // const removeSocialEvent = () => {
-    // const dbRef = firebase.database().ref(`User's New ${userDaySelect} Event`);
-    // dbRef.child().remove();
-    // }
+    const removeUserEvent = (removedEvent) => {
+        const dbRef = firebase.database().ref();
+        dbRef.child(removedEvent.id).remove();
+        
+        // console.log(removedEvent)
+    }
 
     return (
         <>
@@ -101,15 +112,17 @@ function WeeklyEvents() {
 
         <section className="newEvents">
             <p>Don't like the way your week is shaping up? Add new events to your schedule:</p>
-            {console.log(newEvents)}
-            {newEvents.map(( {userDaySelect, userInputEventName, userInputEventType, userInputPartySize}) => {
-                return (
-                    <li>
+            {/* {console.log(newEvents)} */}
+            {newEvents.map((newEvent) => {
+               const{userDaySelect, userInputEventName, userInputEventType, userInputPartySize} = newEvent
+               return (
+                    <li key={`User's New ${userDaySelect} Event`}>
                         <h2>{userDaySelect}</h2>
                         <h3>{userInputEventName}</h3>
                         <p>{userInputEventType}</p>
                         <p>{userInputPartySize}</p>
-                        {/* <button onClick={() => removeSocialEvent()}> Remove </button> */}
+                        <button onClick={() => removeUserEvent(newEvent)}> Remove </button>
+        
                     </li>
                 )
             })}
