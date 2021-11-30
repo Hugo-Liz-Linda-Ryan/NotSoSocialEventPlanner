@@ -1,0 +1,32 @@
+#aboutSection {
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+
+.aboutSectionWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #3a1879;
+  color: white;
+}
+.aboutTheApp {
+  width: 50%;
+  padding: 5%;
+}
+
+.aboutTheApp p {
+  font-family: var(--body-font);
+  color: white;
+  letter-spacing: 1px;
+  line-height: 29px;
+  font-size: clamp(0.8rem, 0.5558rem + 0.4675vw, 1rem);
+  margin-bottom: 5%;
+}
+.aboutTheDevs {
+  width: 50%;
+  padding: 5%;
+  background-color: #df7980;
+}

@@ -2,8 +2,8 @@ import './App.css';
 import Calendar from './components/Calendar';
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
+import About from './components/About/About';
 import MovieSectionF from './MovieSection';
-
 
 function App() {
 
@@ -12,10 +12,12 @@ function App() {
       <header>
         <Navigation/>
         <SiteOpeningPage />
-        <Calendar/>
       </header>
       <main>
-        <MovieSectionF/>    
+      <imageAndData/>
+     <Calendar/>
+        <About/>
+        <MovieSectionF />
       </main>
     </div>
   );
