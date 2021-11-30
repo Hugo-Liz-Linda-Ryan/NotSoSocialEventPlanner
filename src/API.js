@@ -7,7 +7,7 @@ import "./API.css";
 function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
-  const [filteredShows, setFilteredShows] = useState([]);
+  // const [filteredShows, setFilteredShows] = useState([]);
 
 
 
