@@ -72,5 +72,3 @@ function ShowListing( props ) {
 }
 
 export default ShowListing;
-
-
