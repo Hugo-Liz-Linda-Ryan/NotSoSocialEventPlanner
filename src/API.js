@@ -43,8 +43,8 @@ function API() {
 
     // 🚨🚨🚨 need to add error handling for blank, also switching filters
     // 🚨🚨🚨 also need to add "current filter" display
-    setFilteredShows(filteredShows)
-      // setAllListing(filteredShows)
+    // setFilteredShows(filteredShows)
+      setAllListing(filteredShows)
   }
 
 
