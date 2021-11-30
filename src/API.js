@@ -7,6 +7,7 @@ import "./API.css";
 function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
+  const [errorMessage, setErrorMessage] = useState(false);
   // const [filteredShows, setFilteredShows] = useState([]);
 
 
@@ -40,10 +41,19 @@ function API() {
     const copyOfListings = [...allListings];
     
     const filteredShows = copyOfListings.filter(show => show._embedded.show.genres.some((g) => g === genreChoice))
+    console.log(filteredShows)
 
     // 🚨🚨🚨 need to add error handling for blank, also switching filters
     // 🚨🚨🚨 also need to add "current filter" display
     // setFilteredShows(filteredShows)
+
+    // error handling: if there are no results from the genre filter
+    if (filteredShows.length === 0) {
+      setErrorMessage(true)
+      console.log(`no results`)
+    }
+
+
       setAllListing(filteredShows)
   }
 
@@ -187,6 +197,13 @@ function API() {
               );
             })}
           </ul>
+
+          {/* if there are no results from the genre filter, render error message to the page */}
+          {errorMessage == true
+          ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
+          : null}
+
+
         </div>
       </div>
     </div>
