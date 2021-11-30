@@ -47,6 +47,8 @@ function WeeklyEvents() {
         console.log(userDaySelect)
     }
 
+
+
     // event handler for user creating a new event
     const handleClick = (event) => {
         event.preventDefault();
@@ -54,13 +56,30 @@ function WeeklyEvents() {
         // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
         const pushNewEvent = () => {
             const dbRef = firebase.database().ref(`User's New ${userDaySelect} Event`);
-            dbRef.push({userInputEventName, userInputEventType, userInputPartySize});
+            dbRef.update({userInputEventName, userInputEventType, userInputPartySize});
             dbRef.on('value', (response) => {
                 const newState = [];
                 const data = response.val();
                 for (let key in data) {
                     newState.push(data[key]);
                 }
+
+                // for (let key in data) {
+                //     newState.push(key);
+                // }
+
+                // for (let i = newState.length - 1; i >= 0; i--) {
+                //     let value = data[newState[i]];
+                //     newObject[newState[i]]= value;
+                // }       
+
+                //take the array of NewState and pull out the last object.
+                //push the values into an array (turn the object to an array)
+                //then map through those values and display them to the page.
+
+                // return newObject;
+                // newState.values()
+                console.log(newState)
                 setNewEvents(newState);
             });
         }
@@ -71,7 +90,12 @@ function WeeklyEvents() {
         setUserInputEventName('');
         setUserInputEventType('');
         setUserInputPartySize('')
+
+        const latestEvent = Object.values(newEvents[newEvents.length - 1])
+    console.log(latestEvent[0])
     }
+
+    
 
     // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
     // const removeSocialEvent = (key) => {
