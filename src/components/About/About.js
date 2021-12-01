@@ -42,6 +42,14 @@ const About = () => {
               </div>
             );
           })}
+          <div className="appTagLine">
+            <img src="" id="roundimage" alt="Profile Pic" />
+            <h3>
+              Ryan Van Den Eeckhout is an aspiring Front end Web Developer
+              further works by this developer can be found at portfilio name
+            </h3>
+          </div>
+ main
         </div>
       </div>
     </section>

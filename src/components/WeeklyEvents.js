@@ -39,12 +39,10 @@ function WeeklyEvents() {
     const handleChange3 = (event) => {
         setUserInputPartySize(event.target.value);
     }
-    
+  
     const handleUserDaySelect = (event) => {
         setUserDaySelect(event.target.value)
     }
-
-
 
     // event handler for user creating a new event
     const handleClick = (event) => {
@@ -52,21 +50,18 @@ function WeeklyEvents() {
 
         // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
         const pushNewEvent = () => {
-            const dbRef = firebase.database().ref(`User's New ${userDaySelect} Event`);
-            dbRef.update({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
+            const dbRef = firebase.database().ref('New User Events');
+            dbRef.push({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
             dbRef.on('value', (response) => {
                 const newState = [];
-                const obj = {
-                    ...response.val(),
-                    id:`User's New ${userDaySelect} Event`
-                }
-                newState.push(obj);
-
-                setNewEvents(newState);
-               
-                
+                const data = response.val();
+                for (let key in data) {
+                newState.push({key: key, name: data[key]});}
+                // only render the most recently created 7 events to the page
+                const slicedArray = newState.slice(newState.length - 7, newState.length)
+                console.log(slicedArray)
+                setNewEvents(slicedArray);
             });
-            
         }
 
         // call the function
@@ -75,19 +70,15 @@ function WeeklyEvents() {
         // reset user input to empty string
         setUserInputEventName('');
         setUserInputEventType('');
-        setUserInputPartySize('');
-
-        
+        setUserInputPartySize(''); 
     }
     // 
     
 
     // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
-    const removeUserEvent = (removedEvent) => {
-        const dbRef = firebase.database().ref();
-        dbRef.child(removedEvent.id).remove();
-        
-        // console.log(removedEvent)
+    const removeUserEvent = (eventID) => {
+        const dbRef = firebase.database().ref('New User Events');
+        dbRef.child(eventID).remove();
     }
 
     return (
@@ -98,9 +89,9 @@ function WeeklyEvents() {
             <div className="EventsWeek">
             {socialEvents.map(({ day, eventName, eventType, partySize }) => {
                 return (
-                <li key={day}>
-                    <h3>{day}</h3>
-                    <h4>{eventName}</h4>
+                <li key={Math.random()}>
+                    <h3>{day}</h2>
+                    <h4>{eventName}</h3>
                     <p>{eventType}</p>
                     <p>{partySize}</p>
                 </li>
@@ -110,24 +101,20 @@ function WeeklyEvents() {
         </section>
 
         <section className="newEvents">
-            <h2>Don't like the way your week is shaping up? Add new events to your schedule:</h2>
-            {/* {console.log(newEvents)} */}
+            <h2>Dont like the way your week is shaping up? Add new events to your schedule:</h2>
             {newEvents.map((newEvent) => {
-               const{userDaySelect, userInputEventName, userInputEventType, userInputPartySize} = newEvent
                return (
-                    <li key={`User's New ${userDaySelect} Event`}>
-                        <h2>{userDaySelect}</h2>
-                        <h3>{userInputEventName}</h3>
-                        <p>{userInputEventType}</p>
-                        <p>{userInputPartySize}</p>
-                        <button onClick={() => removeUserEvent(newEvent)}> Remove </button>
-        
+                    <li key={newEvent.key}>
+                        <h2>{newEvent.name.userDaySelect}</h2>
+                        <h3>{newEvent.name.userInputEventName}</h3>
+                        <p>{newEvent.name.userInputEventType}</p>
+                        <p>{newEvent.name.userInputPartySize}</p>
+                        <button onClick={() => removeUserEvent(newEvent.key)}> Remove </button>
                     </li>
                 )
             })}
         </section>
 
-                {/* <select name="newEventDay" id="newEventDay" value='{userDaySelect}' onChange={handleUserDaySelect}> */}
         <form action="submit">
             <legend>Add a new event to your schedule
                 <label htmlFor="newEventDay">Which day of the week?</label>
