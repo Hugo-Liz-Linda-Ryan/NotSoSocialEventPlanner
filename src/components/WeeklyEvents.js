@@ -57,9 +57,10 @@ function WeeklyEvents() {
                 const data = response.val();
                 for (let key in data) {
                 newState.push({key: key, name: data[key]});}
-                // const slicedArray = newState.slice(newState.length - 7, newState.length + 14)
-                // setNewEvents(slicedArray);
-                setNewEvents(newState)
+                // only render the most recently created 7 events to the page
+                const slicedArray = newState.slice(newState.length - 7, newState.length)
+                console.log(slicedArray)
+                setNewEvents(slicedArray);
             });
         }
 
