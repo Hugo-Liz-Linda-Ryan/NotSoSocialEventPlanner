@@ -1,9 +1,8 @@
 import './App.css';
-import Calendar from './components/Calendar';
 import SiteOpeningPage from './components/LandingPage/LandingPage'
 import Navigation from './components/Navigation/Navigation';
 import About from './components/About/About';
-import MovieSectionF from './MovieSection';
+import MovieSectionF from './components/MovieSection';
 import WeeklyEvents from './components/WeeklyEvents';
 
 
@@ -21,21 +20,20 @@ function App() {
  
 
   return (
-    
+
     <div className="App">
       <header>
-        <Navigation/>
+        <Navigation />
         <SiteOpeningPage />
-        </header>
+        <About />
+      </header>
       <main>
       <About/>
     <WeeklyEvents/>
-      <Calendar/>
-        
         <MovieSectionF />
       </main>
     </div>
-   
+
   );
 
 

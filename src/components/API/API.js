@@ -1,15 +1,36 @@
-import "./App.css";
+import "../../App.css";
 import axios from "axios";
 import { useState } from "react";
-import ShowListing from "./components/ShowListing";
+import ShowListing from "../ShowListing";
 import "./API.css";
+import FavouriteShowGallery from "../AddToFavourites/FavouriteShowGallery";
 
 function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
+  const [selectedItems, setSelectedItems] = useState([]);
   const [errorMessage, setErrorMessage] = useState(false);
   const [currentGenreSearch, setCurrentGenreSearch] = useState(false);
   const [originalListing, setOriginalListing] = useState([]);
+
+  const addToMovieGallery = (id) => {
+    // Pushes the id parameter into  an array and returns the object with the matching ID from the allListings state
+    const ids = [];
+    ids.push(id);
+    let filteredArray = allListings.filter((movieCollectionObject) => {
+      return ids.includes(movieCollectionObject.id)
+    });
+    setSelectedItems([...selectedItems, ...filteredArray]);
+  }
+
+  // empties out "favourites" section by removing everything in state
+  const remove = () => {
+    console.log(selectedItems);
+    selectedItems.shift();
+    setSelectedItems([...selectedItems]);
+  }
+
+
 
   const today = new Date()
   // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
@@ -55,12 +76,8 @@ function API() {
     if (genreChoice) {
       setCurrentGenreSearch(true)
     }
-
       setAllListing(filteredShows)
-
-      
   }
-
   function clearFilter () {
     setAllListing(originalListing);
   }
@@ -184,7 +201,6 @@ function API() {
                 name="searchDate"
                 value={showDate}
                 min={localISODate}
-                max={endOfWeekISODate}
                 onChange={handleDateChange}
               />
               <button onClick={searchByDate}>Search by date</button>
@@ -204,6 +220,7 @@ function API() {
               return (
                 <ShowListing
                   key={show.id}
+                  id={show.id}
                   name={show._embedded.show.name}
                   episodeName={show.name}
                   genre={show._embedded.show.genres}
@@ -211,9 +228,9 @@ function API() {
                   image={show._embedded.show.image}
                   site={show.url}
                   language={show._embedded.show.language}
-                  // schedule = {show.schedule.days}
                   // time = {show.schedule.time}
                   summary={show._embedded.show.summary}
+                  clickHandler={addToMovieGallery}
                 />
               );
             })}
@@ -224,6 +241,13 @@ function API() {
           ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
           : null}
 
+        </div>
+        <div className="favouritesGallery">
+          <button onClick={remove}>Remove</button>
+          <FavouriteShowGallery
+            className="lookbookGallery"
+            selectedItems={selectedItems}
+          />
         </div>
       </div>
     </div>

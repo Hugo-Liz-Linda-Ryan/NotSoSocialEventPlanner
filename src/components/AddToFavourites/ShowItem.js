@@ -1,8 +1,8 @@
 // NPM Modules
 import { useState } from 'react';
-import ExtraDetails from './ExtraDetails';
+import ExtraDetails from '../ExtraDetails';
 
-function ShowListing( props ) {
+function ShowItem( props ) {
 
     const [descOpen, setDescOpen] = useState(false);
 
@@ -11,13 +11,11 @@ function ShowListing( props ) {
         setDescOpen(!descOpen);
     }
 
-  
-
-
     return (
             
         <li key={props.key}>
             <div className="showContainer product">
+            <p className="schedule">{props.schedule}</p>
                 <div className="image">
                     <img src={props.image ? props.image.original:null} alt={`Poster of ${props.name}`} />
                 </div>
@@ -30,7 +28,6 @@ function ShowListing( props ) {
                     {/* 🚨 change onClick from button to div*/}
                     <button className="showDesc"
                         onClick={toggleShowDesc}>More information</button>
-                    <button onClick={() => props.clickHandler(props.id)}>Click to Add to Favourites</button>
                 </div>
             </div>
 
@@ -70,6 +67,6 @@ function ShowListing( props ) {
     )
 }
 
-export default ShowListing;
+export default ShowItem;
 
 
