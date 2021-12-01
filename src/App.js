@@ -7,6 +7,17 @@ import WeeklyEvents from './components/WeeklyEvents';
 
 
 function App() {
+  
+  startingUpTheme();
+
+  function startingUpTheme() {
+    const theme = localStorage.getItem('body');
+    document.getElementsByClassName('body').value = theme;
+    let htmlElement = document.documentElement;
+    htmlElement.setAttribute("data-theme", "theme");
+
+  }
+ 
 
   return (
 
@@ -17,7 +28,14 @@ function App() {
         <About />
       </header>
       <main>
+<<<<<<< HEAD
         <WeeklyEvents />
+=======
+      <About/>
+    <WeeklyEvents/>
+      <Calendar/>
+        
+>>>>>>> 678a8fe70d2e4ea674dc7ac679cdd1ca40a8ed60
         <MovieSectionF />
       </main>
     </div>

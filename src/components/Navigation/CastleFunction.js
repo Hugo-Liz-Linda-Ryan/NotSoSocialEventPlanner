@@ -16,7 +16,12 @@ Default() {
 Colourful() {
   htmlElement.setAttribute("data-theme", "colorful");
   
-    }
+  }
+  
+  Snow() {
+    htmlElement.setAttribute("data-theme", "snowy");
+    
+  }
 
   render() {
     return (
@@ -24,6 +29,7 @@ Colourful() {
         <button onClick={this.Default}>Default Theme</button>
         <button onClick={this.DarkMode}>Dark Theme</button>
         <button onClick={this.Colourful}>Colourful Theme</button>
+        <button onClick={this.Snow}>Winter Theme</button>
       </div> 
 
     );
