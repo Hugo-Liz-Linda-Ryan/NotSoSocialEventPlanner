@@ -57,16 +57,10 @@ function API() {
     console.log(genreChoice)
   }
 
-  // function handleSubmit(e) {
-  //   clearGenreChoice();
-  // }
-
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
     const copyOfListings = [...allListings];
     const filteredShows = copyOfListings.filter(show => show._embedded.show.genres.some((g) => g === genreChoice))
-
-    // setFilteredShows(filteredShows)
 
     // error handling: if there are no results from the genre filter
     if (filteredShows.length === 0) {
@@ -78,10 +72,10 @@ function API() {
     }
       setAllListing(filteredShows)
   }
+
   function clearFilter () {
     setAllListing(originalListing);
   }
-
 
   function searchByDate() {
     let country = "US";
@@ -99,7 +93,6 @@ function API() {
       setOriginalListing(response.data);
     });
   }
-
 
   function hello() {
     let country = "";
@@ -184,7 +177,7 @@ function API() {
         {currentGenreSearch === true
         ?
         <div>
-          <p>You're currently searching for: {genreChoice}</p>
+          <p>Looks like you feel like watching something with: {genreChoice}</p>
         </div>
         : null}
         
