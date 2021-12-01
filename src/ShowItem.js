@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import ExtraDetails from './ExtraDetails';
 
-function ShowListing( props ) {
+function ShowItem( props ) {
 
     const [descOpen, setDescOpen] = useState(false);
 
@@ -10,9 +10,6 @@ function ShowListing( props ) {
     const toggleShowDesc = () => {
         setDescOpen(!descOpen);
     }
-
-  
-
 
     return (
             
@@ -30,7 +27,6 @@ function ShowListing( props ) {
                     {/* 🚨 change onClick from button to div*/}
                     <button className="showDesc"
                         onClick={toggleShowDesc}>More information</button>
-                    <button onClick={() => props.clickHandler(props.id)}>Click to Add to Favourites</button>
                 </div>
             </div>
 
@@ -70,6 +66,6 @@ function ShowListing( props ) {
     )
 }
 
-export default ShowListing;
+export default ShowItem;
 
 

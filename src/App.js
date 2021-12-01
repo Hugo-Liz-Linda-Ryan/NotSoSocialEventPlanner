@@ -10,20 +10,19 @@ import WeeklyEvents from './components/WeeklyEvents';
 function App() {
 
   return (
-    
+
     <div className="App">
       <header>
-        <Navigation/>
+        <Navigation />
         <SiteOpeningPage />
-        <About/>
-        </header>
+        <About />
+      </header>
       <main>
-    <WeeklyEvents/>
-      <Calendar/>
+        <WeeklyEvents />
         <MovieSectionF />
       </main>
     </div>
-   
+
   );
 
 

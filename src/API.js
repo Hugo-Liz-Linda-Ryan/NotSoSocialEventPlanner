@@ -3,11 +3,31 @@ import axios from "axios";
 import { useState } from "react";
 import ShowListing from "./components/ShowListing";
 import "./API.css";
+import MoviesFavouriteGallery from "./MoviesFavouriteGallery";
 
 function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
-  // const [filteredShows, setFilteredShows] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const addToMovieGallery = (id) => {
+    // basically pushes the id that this function was run with to an array and returns the object with the matching ID from the allListings array
+    const ids = [];
+    ids.push(id);
+    let filteredArray = allListings.filter((movieCollectionObject) => {
+        return ids.includes(movieCollectionObject.id)
+    });
+    setSelectedItems([...selectedItems, ...filteredArray]);
+  }
+
+  const remove = () => {
+    console.log(selectedItems);
+    selectedItems.shift();
+    setSelectedItems([...selectedItems]);
+  }
+
+
+
 
   const today = new Date()
   // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
@@ -41,7 +61,6 @@ function API() {
 
     // 🚨🚨🚨 need to add error handling for blank, also switching filters
     // 🚨🚨🚨 also need to add "current filter" display
-    // setFilteredShows(filteredShows)
       setAllListing(filteredShows)
   }
 
@@ -171,6 +190,7 @@ function API() {
               return (
                 <ShowListing
                   key={show.id}
+                  id={show.id}
                   name={show._embedded.show.name}
                   episodeName={show.name}
                   genre={show._embedded.show.genres}
@@ -181,11 +201,17 @@ function API() {
                   // schedule = {show.schedule.days}
                   // time = {show.schedule.time}
                   summary={show._embedded.show.summary}
+                  clickHandler={addToMovieGallery} 
                 />
               );
             })}
           </ul>
         </div>
+        <button onClick={remove}>Remove</button>
+        <MoviesFavouriteGallery
+          className="lookbookGallery"
+          selectedItems={selectedItems}
+        />
       </div>
     </div>
   );
