@@ -40,14 +40,9 @@ function WeeklyEvents() {
     }
     
     // event handler to identify which day of the week the user selected
-    // 🚨 this works, but not a great solution
     const handleUserDaySelect = (event) => {
         setUserDaySelect(event.target.value)
-        // let userDaySelect = event.target.value;
-        // console.log(userDaySelect)
     }
-
-
 
     // event handler for user creating a new event
     const handleClick = (event) => {
@@ -55,18 +50,17 @@ function WeeklyEvents() {
 
         // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
         const pushNewEvent = () => {
-            const dbRef = firebase.database().ref(`User's New ${userDaySelect} Event`);
-            dbRef.update({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
+            const dbRef = firebase.database().ref('New User Events');
+            dbRef.push({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
             dbRef.on('value', (response) => {
                 const newState = [];
-                const obj = {
-                    ...response.val(),
-                    id:`User's New ${userDaySelect} Event`
-                }
-                newState.push(obj);
-                setNewEvents(newState);
+                const data = response.val();
+                for (let key in data) {
+                newState.push({key: key, name: data[key]});}
+                // const slicedArray = newState.slice(newState.length - 7, newState.length + 14)
+                // setNewEvents(slicedArray);
+                setNewEvents(newState)
             });
-            
         }
 
         // call the function
@@ -75,19 +69,15 @@ function WeeklyEvents() {
         // reset user input to empty string
         setUserInputEventName('');
         setUserInputEventType('');
-        setUserInputPartySize('');
-
-        
+        setUserInputPartySize(''); 
     }
     // 
     
 
     // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
-    const removeUserEvent = (removedEvent) => {
-        const dbRef = firebase.database().ref();
-        dbRef.child(removedEvent.id).remove();
-        
-        // console.log(removedEvent)
+    const removeUserEvent = (eventID) => {
+        const dbRef = firebase.database().ref('New User Events');
+        dbRef.child(eventID).remove();
     }
 
     return (
@@ -109,23 +99,19 @@ function WeeklyEvents() {
 
         <section className="newEvents">
             <p>Don't like the way your week is shaping up? Add new events to your schedule:</p>
-            {/* {console.log(newEvents)} */}
             {newEvents.map((newEvent) => {
-               const{userDaySelect, userInputEventName, userInputEventType, userInputPartySize} = newEvent
                return (
-                    <li key={userInputEventName}>
-                        <h2>{userDaySelect}</h2>
-                        <h3>{userInputEventName}</h3>
-                        <p>{userInputEventType}</p>
-                        <p>{userInputPartySize}</p>
-                        <button onClick={() => removeUserEvent(newEvent)}> Remove </button>
-        
+                    <li key={newEvent.key}>
+                        <h2>{newEvent.name.userDaySelect}</h2>
+                        <h3>{newEvent.name.userInputEventName}</h3>
+                        <p>{newEvent.name.userInputEventType}</p>
+                        <p>{newEvent.name.userInputPartySize}</p>
+                        <button onClick={() => removeUserEvent(newEvent.key)}> Remove </button>
                     </li>
                 )
             })}
         </section>
 
-                {/* <select name="newEventDay" id="newEventDay" value='{userDaySelect}' onChange={handleUserDaySelect}> */}
         <form action="submit">
             <legend>Add a new event to your schedule
                 <label htmlFor="newEventDay">Which day of the week?</label>
