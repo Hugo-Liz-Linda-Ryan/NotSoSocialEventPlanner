@@ -28,14 +28,8 @@ function App() {
         <About />
       </header>
       <main>
-<<<<<<< HEAD
-        <WeeklyEvents />
-=======
       <About/>
     <WeeklyEvents/>
-      <Calendar/>
-        
->>>>>>> 678a8fe70d2e4ea674dc7ac679cdd1ca40a8ed60
         <MovieSectionF />
       </main>
     </div>
