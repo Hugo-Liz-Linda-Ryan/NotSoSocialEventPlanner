@@ -1,12 +1,12 @@
 import "./About.css";
-
+import { devItems } from "./AboutDevProfilesItems";
 
 const About = () => {
   return (
     <section id="aboutSection">
       <div className="aboutSectionWrapper">
         <div className="aboutTheApp">
-          <h2>About the App</h2>
+          <h3>About the App</h3>
           <p>
             The Not So Social Planner was created by aspiring front-end web
             developers Hugo Arriojas, Linda Columbus, Elizabeth Harris and Ryan
@@ -17,7 +17,7 @@ const About = () => {
             agency style pair programming project that integrates the use of a
             REST API and Firebase during the period.
           </p>
-          <h2>What Can the App do?</h2>
+          <h3>What Can the App do?</h3>
           <p>
             The API data for the Not So Social Planner app was supplied by
             TVMaze API which supplies data on a variety of movies from around
@@ -31,13 +31,17 @@ const About = () => {
         </div>
 
         <div className="aboutTheDevs">
-          <div className="appTagLine">
-            <img src="" id="roundimage" alt="Profile Pic" />
-            <h3>
-              Ryan Van Den Eeckhout is an aspiring Front end Web Developer
-              further works by this developer can be found at portfilio name
-            </h3>
-          </div>
+          {devItems.map((item, index) => {
+            return (
+              <div className={item.cName} key={index}>
+                <img src={item.url} className="roundimage" alt="Profile Pic" />
+                <div className="paraAboutContainer">
+                  <h3>{item.devname}</h3>
+                  <h4>{item.pargraph}</h4>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

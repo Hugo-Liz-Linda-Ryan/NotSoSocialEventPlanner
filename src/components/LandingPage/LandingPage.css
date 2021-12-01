@@ -16,19 +16,20 @@
 }
 
 .landingpage h1 {
-  font-size: clamp(5rem, 4.5558rem + 2.4675vw, 8.9rem);
+  font-size: var(--font-size-h1);
   background-size: cover;
   -moz-background-clip: text;
   -webkit-background-clip: text;
   background-clip: text;
-  color: gold;
-  -webkit-text-stroke-width: 1px;
+  color: var(--color-h1);
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #3a1879;
   font-family: Sulphur Point, Arial, Helvetica, sans-serif;
+  background-image: url("./gif2.gif");
 }
 .h12nd {
   color: white;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #3a1879;
 }
 
@@ -52,7 +53,7 @@ h1 {
   color: gold;
 }
 .landingpage h2 {
-  font-size: clamp(3rem, 2.5558rem + 2.4675vw, 4.7rem);
+  font-size: var(--font-size-h2-landingpage);
   font-family: Sulphur Point, Arial, Helvetica, sans-serif;
   font-weight: 400;
   letter-spacing: 2px;

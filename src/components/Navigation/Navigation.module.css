@@ -5,13 +5,12 @@
   right: 0;
   width: 100%;
   height: 90px;
-  background-color: #010b13;
-  background-color: #3a1879;
+  background-color: var(--color-nav);
   color: white;
   display: flex;
-  z-index: 999;
   align-items: center;
   padding: 0 3%;
+  z-index: 99999;
   justify-content: space-between;
   border-bottom: gold solid 2px;
 }
@@ -40,29 +39,65 @@
   text-align: center;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #ded6ed;
+  color: var(--nav-a-color);
   font-family: var(--body-font);
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .nav li:hover {
-  background-color: #d1bdf5;
+  background-color: var(--color-nav-li-hover);
 }
 .nav li:hover a {
-  color: #3a1879;
+  color: var(--color-nav-a-hover);
 }
 
 .nav button {
-  border-radius: 90%;
   height: 80px;
   width: 80px;
   font-family: var(--body-font);
   font-weight: 600;
-  background-color: #d1bdf5;
+  background-color: white;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .themeToggle {
-  width: 20%;
   display: flex;
-  justify-content: space-between;
-  align-content: center;
+  flex-direction: column;
   text-align: center;
+}
+
+.themeToggle button {
+  width: 100%;
+  border: none;
+  border: solid black 2px;
+  margin-bottom: 1%;
+}
+
+i {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  background-size: cover;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: url(".././LandingPage/gif2.gif");
+}
+
+.themeClick {
+  font-size: 60px;
+  border-radius: 90%;
+  border: none;
+  transition: ease-in-out 0.5s;
+  border: solid black 3px;
+}
+
+.themeClick:hover {
+  color: white;
+  background-color: black;
+  border: solid white 3px;
 }
