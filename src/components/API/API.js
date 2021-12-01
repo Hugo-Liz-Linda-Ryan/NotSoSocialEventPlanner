@@ -162,12 +162,18 @@ function API() {
             <option value="Adventure">Adventure</option>
             <option value="Children">Children</option>
             <option value="Comedy">Comedy</option>
+            <option value="Crime">Crime</option>
             <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
             <option value="Food">Food</option>
-            <option value="Music"> Music</option>
+            <option value="Music">Music</option>
+            <option value="Mystery">Mystery</option>
             <option value="Romance">Romance</option>
+            <option value="Science-Fiction">Science-Fiction</option>
+            <option value="Sports">Sports</option>
             <option value="Supernatural">Supernatural</option>
             <option value="Thriller">Thriller</option>
+            <option value="Travel">Travel</option>
           </select>
           <button type="submit">Genre Filter!</button>
         </form>

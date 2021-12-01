@@ -11,9 +11,6 @@ function ShowListing( props ) {
         setDescOpen(!descOpen);
     }
 
-  
-
-
     return (
             
         <li key={props.key}>
@@ -53,7 +50,9 @@ function ShowListing( props ) {
                                     <p>{props.summary}</p>
                                 </div>
                                 <div className="info">
-                                    <p>Genre: {props.genre? props.genre: "No genre listed"}</p>
+                                    {props.genre.length > 0
+                                    ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
+                                    : null}
                                     <p>Language: {props.language}</p>
                                 </div>
                                 <div className="dates">
@@ -67,11 +66,8 @@ function ShowListing( props ) {
                 />
                 : null // basically show nothing if it isn't clicked
             }
-
         </li>
     )
 }
 
 export default ShowListing;
-
-
