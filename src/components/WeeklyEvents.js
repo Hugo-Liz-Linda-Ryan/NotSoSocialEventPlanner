@@ -1,5 +1,6 @@
 import firebase from '../firebase'
 import {useState, useEffect} from 'react';
+import "./WeeklyEvents.css";
 
 function WeeklyEvents() {
     const [socialEvents, setSocialEvents] = useState([]);
@@ -39,12 +40,8 @@ function WeeklyEvents() {
         setUserInputPartySize(event.target.value);
     }
     
-    // event handler to identify which day of the week the user selected
-    // 🚨 this works, but not a great solution
     const handleUserDaySelect = (event) => {
         setUserDaySelect(event.target.value)
-        let userDaySelect = event.target.value;
-        // console.log(userDaySelect)
     }
 
 
@@ -95,23 +92,25 @@ function WeeklyEvents() {
 
     return (
         <>
-        <section className="weekCalendar">
+        <section className="weekCalendar" id="EventPlanner">
             {/* destructuring, to access each key-value pair within each weekday object */}
-            <p>This is what your schedule looks like this week...</p>
-            {socialEvents.map(({ day, eventName, eventType, partySize}) => {
+            <h2>This is what your schedule looks like this week...</h2>
+            <div className="EventsWeek">
+            {socialEvents.map(({ day, eventName, eventType, partySize }) => {
                 return (
                 <li key={day}>
-                    <h2>{day}</h2>
-                    <h3>{eventName}</h3>
+                    <h3>{day}</h3>
+                    <h4>{eventName}</h4>
                     <p>{eventType}</p>
                     <p>{partySize}</p>
                 </li>
                 )
             })}
+            </div>
         </section>
 
         <section className="newEvents">
-            <p>Don't like the way your week is shaping up? Add new events to your schedule:</p>
+            <h2>Don't like the way your week is shaping up? Add new events to your schedule:</h2>
             {/* {console.log(newEvents)} */}
             {newEvents.map((newEvent) => {
                const{userDaySelect, userInputEventName, userInputEventType, userInputPartySize} = newEvent

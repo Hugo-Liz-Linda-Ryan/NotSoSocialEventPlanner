@@ -8,6 +8,17 @@ import WeeklyEvents from './components/WeeklyEvents';
 
 
 function App() {
+  
+  startingUpTheme();
+
+  function startingUpTheme() {
+    const theme = localStorage.getItem('body');
+    document.getElementsByClassName('body').value = theme;
+    let htmlElement = document.documentElement;
+    htmlElement.setAttribute("data-theme", "theme");
+
+  }
+ 
 
   return (
     
@@ -17,9 +28,10 @@ function App() {
         <SiteOpeningPage />
         </header>
       <main>
+      <About/>
     <WeeklyEvents/>
       <Calendar/>
-        <About/>
+        
         <MovieSectionF />
       </main>
     </div>
