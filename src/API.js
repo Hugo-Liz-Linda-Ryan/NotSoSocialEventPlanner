@@ -9,6 +9,11 @@ function API() {
   const [genreChoice, setGenreChoice] = useState("placeholder");
   const [errorMessage, setErrorMessage] = useState(false);
   const [currentGenreSearch, setCurrentGenreSearch] = useState(false);
+  const [originalListing, setOriginalListing] = useState([]);
+
+  // const clearGenreChoice = () => {
+  //   setGenreChoice('');
+  // }
   // const [filteredShows, setFilteredShows] = useState([]);
 
 
@@ -33,9 +38,14 @@ function API() {
     setShowDate(e.target.value);
   }
 
-  function handleGenreChoice(e) {
+  function  handleGenreChoice(e) {
     setGenreChoice(e.target.value);
+    console.log(genreChoice)
   }
+
+  // function handleSubmit(e) {
+  //   clearGenreChoice();
+  // }
 
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
@@ -54,6 +64,12 @@ function API() {
     }
 
       setAllListing(filteredShows)
+
+      
+  }
+
+  function clearFilter () {
+    setAllListing(originalListing);
   }
 
 
@@ -70,6 +86,7 @@ function API() {
       },
     }).then((response) => {
       setAllListing(response.data);
+      setOriginalListing(response.data);
     });
   }
 
@@ -127,6 +144,7 @@ function API() {
 
       {/* Genre filter */}
         <form onSubmit={(e) => {filterByGenre(e,genreChoice)}} className="genreFilter">
+        {/* <form action="submit"> */}
           <label htmlFor="genreList">Please select which genre to filter by:</label>
           <select 
             name="genreList" 
@@ -134,7 +152,8 @@ function API() {
             value = {genreChoice}
             onChange = {handleGenreChoice}
           >
-            <option value="placeholder" disabled>Pick a genre:</option>
+            {/* We need to clear the genre choice value before another one is selected!! */}
+            <option value="" disabled >Pick a genre:</option>
             <option value="Action">Action</option>
             <option value="Anime">Anime</option>
             <option value="Adventure">Adventure</option>
@@ -149,6 +168,7 @@ function API() {
           </select>
           <button type="submit">Genre Filter!</button>
         </form>
+          <button onClick={clearFilter}>Clear Results</button>
 
       {/* render to the page the user's current genre search*/}
         {currentGenreSearch === true
