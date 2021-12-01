@@ -1,9 +1,9 @@
-import "./App.css";
+import "../../App.css";
 import axios from "axios";
 import { useState } from "react";
-import ShowListing from "./components/ShowListing";
+import ShowListing from "../ShowListing";
 import "./API.css";
-import MoviesFavouriteGallery from "./MoviesFavouriteGallery";
+import FavouriteShowGallery from "../AddToFavourites/FavouriteShowGallery";
 
 function API() {
   const [allListings, setAllListing] = useState([]);
@@ -15,7 +15,7 @@ function API() {
     const ids = [];
     ids.push(id);
     let filteredArray = allListings.filter((movieCollectionObject) => {
-        return ids.includes(movieCollectionObject.id)
+      return ids.includes(movieCollectionObject.id)
     });
     setSelectedItems([...selectedItems, ...filteredArray]);
   }
@@ -57,12 +57,12 @@ function API() {
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
     const copyOfListings = [...allListings];
-    
+
     const filteredShows = copyOfListings.filter(show => show._embedded.show.genres.some((g) => g === genreChoice))
 
     // 🚨🚨🚨 need to add error handling for blank, also switching filters
     // 🚨🚨🚨 also need to add "current filter" display
-      setAllListing(filteredShows)
+    setAllListing(filteredShows)
   }
 
 
@@ -79,6 +79,7 @@ function API() {
       },
     }).then((response) => {
       setAllListing(response.data);
+      console.log(response.data)
     });
   }
 
@@ -135,29 +136,29 @@ function API() {
     <div className="contentAPISectionContainer">
 
       {/* Genre filter */}
-        <form onSubmit={(e) => {filterByGenre(e,genreChoice)}} className="genreFilter">
-          <label htmlFor="genreList">Please select which genre to filter by:</label>
-          <select 
-            name="genreList" 
-            id="genreList"
-            value = {genreChoice}
-            onChange = {handleGenreChoice}
-          >
-            <option value="placeholder" disabled>Pick a genre:</option>
-            <option value="Action">Action</option>
-            <option value="Anime">Anime</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Children">Children</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Drama">Drama</option>
-            <option value="Food">Food</option>
-            <option value="Music"> Music</option>
-            <option value="Romance">Romance</option>
-            <option value="Supernatural">Supernatural</option>
-            <option value="Thriller">Thriller</option>
-          </select>
-          <button type="submit">Genre Filter!</button>
-        </form>
+      <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
+        <label htmlFor="genreList">Please select which genre to filter by:</label>
+        <select
+          name="genreList"
+          id="genreList"
+          value={genreChoice}
+          onChange={handleGenreChoice}
+        >
+          <option value="placeholder" disabled>Pick a genre:</option>
+          <option value="Action">Action</option>
+          <option value="Anime">Anime</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Children">Children</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Food">Food</option>
+          <option value="Music"> Music</option>
+          <option value="Romance">Romance</option>
+          <option value="Supernatural">Supernatural</option>
+          <option value="Thriller">Thriller</option>
+        </select>
+        <button type="submit">Genre Filter!</button>
+      </form>
       <div className="APISection">
 
         {/* <h2>Select A Movie Section</h2> */}
@@ -171,7 +172,6 @@ function API() {
                 name="searchDate"
                 value={showDate}
                 min={localISODate}
-                max={endOfWeekISODate}
                 onChange={handleDateChange}
               />
               <button onClick={searchByDate}>Search by date</button>
@@ -199,20 +199,21 @@ function API() {
                   image={show._embedded.show.image}
                   site={show.url}
                   language={show._embedded.show.language}
-                  // schedule = {show.schedule.days}
                   // time = {show.schedule.time}
                   summary={show._embedded.show.summary}
-                  clickHandler={addToMovieGallery} 
+                  clickHandler={addToMovieGallery}
                 />
               );
             })}
           </ul>
         </div>
-        <button onClick={remove}>Remove</button>
-        <MoviesFavouriteGallery
-          className="lookbookGallery"
-          selectedItems={selectedItems}
-        />
+        <div className="favouritesGallery">
+          <button onClick={remove}>Remove</button>
+          <FavouriteShowGallery
+            className="lookbookGallery"
+            selectedItems={selectedItems}
+          />
+        </div>
       </div>
     </div>
   );

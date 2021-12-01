@@ -1,16 +1,9 @@
-import ExtraDetails from './components/ExtraDetails';
-import MovieItemHTMLFav from './MoviesFavouriteGallery';
-import { useState } from 'react';
-import ShowItem from './components/ShowListing';
+import ShowItem from './ShowItem';
 
-const MoviesFavouriteGallery = (props) => {
+const FavouriteShowGallery = (props) => {
     console.log(props.selectedItems);
     const chosenArray = props.selectedItems;
-    const [descOpen, setDescOpen] = useState(false);
 
-    const toggleShowDesc = () => {
-        setDescOpen(!descOpen);
-    }
 
     return (
         <div className="lookbookpage">
@@ -31,6 +24,7 @@ const MoviesFavouriteGallery = (props) => {
                                 runtime={show.runtime}
                                 image={show._embedded.show.image}
                                 site={show.url}
+                                schedule = {show.airdate}
                                 language={show._embedded.show.language}
                                 // schedule = {show.schedule.days}
                                 // time = {show.schedule.time}
@@ -49,4 +43,4 @@ const MoviesFavouriteGallery = (props) => {
     );
 };
 
-export default MoviesFavouriteGallery;
+export default FavouriteShowGallery;

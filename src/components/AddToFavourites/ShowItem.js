@@ -1,6 +1,6 @@
 // NPM Modules
 import { useState } from 'react';
-import ExtraDetails from './ExtraDetails';
+import ExtraDetails from '../ExtraDetails';
 
 function ShowItem( props ) {
 
@@ -15,6 +15,7 @@ function ShowItem( props ) {
             
         <li key={props.key}>
             <div className="showContainer product">
+            <p className="schedule">{props.schedule}</p>
                 <div className="image">
                     <img src={props.image ? props.image.original:null} alt={`Poster of ${props.name}`} />
                 </div>
