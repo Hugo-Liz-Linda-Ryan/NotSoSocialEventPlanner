@@ -2,7 +2,7 @@ export const NavItems = [
     {
     
         Navtitle: 'Home',
-        url: '#',
+        url: '#home',
         cName: 'Nav-links'
 
     },
@@ -10,7 +10,7 @@ export const NavItems = [
     {
     
         Navtitle: 'About',
-        url: '',
+        url: '#aboutSection',
         cName: 'Nav-links'
 
     },
@@ -18,7 +18,7 @@ export const NavItems = [
     {
     
         Navtitle: 'Event Planner',
-        url: '',
+        url: '#EventPlanner',
         cName: 'Nav-links'
 
     },
