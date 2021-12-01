@@ -90,8 +90,8 @@ function WeeklyEvents() {
             {socialEvents.map(({ day, eventName, eventType, partySize }) => {
                 return (
                 <li key={Math.random()}>
-                    <h3>{day}</h2>
-                    <h4>{eventName}</h3>
+                    <h3>{day}</h3>
+                    <h4>{eventName}</h4>
                     <p>{eventType}</p>
                     <p>{partySize}</p>
                 </li>
