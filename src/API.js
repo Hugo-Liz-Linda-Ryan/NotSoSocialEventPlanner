@@ -11,7 +11,7 @@ function API() {
   const [selectedItems, setSelectedItems] = useState([]);
 
   const addToMovieGallery = (id) => {
-    // basically pushes the id that this function was run with to an array and returns the object with the matching ID from the allListings array
+    // Pushes the id parameter into  an array and returns the object with the matching ID from the allListings state
     const ids = [];
     ids.push(id);
     let filteredArray = allListings.filter((movieCollectionObject) => {
@@ -20,6 +20,7 @@ function API() {
     setSelectedItems([...selectedItems, ...filteredArray]);
   }
 
+  // empties out "favourites" section by removing everything in state
   const remove = () => {
     console.log(selectedItems);
     selectedItems.shift();

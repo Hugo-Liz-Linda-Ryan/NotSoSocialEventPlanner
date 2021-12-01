@@ -21,7 +21,7 @@ const MoviesFavouriteGallery = (props) => {
                     chosenArray.map((show) => {
                         return (
 
-
+                            // 🚨🚨🚨🚨 Why is this returning with a add faves button?
                             <ShowItem
                                 key={show.id}
                                 id={show.id}
@@ -36,9 +36,6 @@ const MoviesFavouriteGallery = (props) => {
                                 // time = {show.schedule.time}
                                 summary={show._embedded.show.summary}
                             />
-
-
-
 
                         )
                     })
