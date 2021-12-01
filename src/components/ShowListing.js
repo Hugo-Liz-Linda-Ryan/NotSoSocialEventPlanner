@@ -27,7 +27,7 @@ function ShowListing( props ) {
                     <p className="showRuntime">Runtime: {props.runtime} minutes</p>
                     {/* if there is a genre associated with the show, render the genre(s); if not, display nothing */}
                     {props.genre.length > 0
-                    ? <p className="showGenre">Genre: {props.genre.toString()}</p>
+                    ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
                     : null}
                     {/* 🚨 change onClick from button to div*/}
                     <button className="showDesc"
