@@ -197,10 +197,6 @@
   overflow: hidden;
 }
 
-.expandedShowDesc {
-  position: relative; 
-}
-
 .closeButton{
   position: absolute;
   top: 5px;
@@ -219,29 +215,33 @@
   border: 2px solid #3a1879;
 }
 
-.expandedImage {
-  overflow: hidden;
-  width: 50%;
-  height: 200px;
-  border-radius: 0 0 18px 0;
-}
-
-.topExpanded {
+.expandedShow {
   display: flex;
   justify-content: space-between;
 }
 
-.description {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.expandedImage {
+  height: 70vh;
 }
 
+
 .showInfo {
+  width: 60%;
   padding: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
 }
+
+.showInfo h3 {
+  font-size: 25px;
+}
+
+.summaryDesc {
+  font-size: 14px;
+}
+
 
 /* Favourites List Section */
 
@@ -264,7 +264,9 @@
 }
 
 .removeFavourites:focus, 
-.removeFavourites:hover {
+.removeFavourites:hover,
+.faveDesc:focus,
+.faveDesc:hover {
   background-color: #df7980;
   color: #3a1879;
 }

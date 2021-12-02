@@ -26,8 +26,8 @@ function ShowItem(props) {
                         ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
                         : null}
                     {/* 🚨 change onClick from button to div*/}
-                        <button className="faveDesc"
-                            onClick={toggleShowDesc}>More information</button>
+                    <button className="faveDesc"
+                        onClick={toggleShowDesc}>More information</button>
                 </div>
             </li>
 
@@ -36,30 +36,22 @@ function ShowItem(props) {
                 <ExtraDetails content={
                     <>
                         <div className="expandedShow">
-                            <div className="topExpanded">
-                                <div className="expandedImage">
-                                    <img src={props.image ? props.image.original : null}
-                                        alt={`Poster for ${props.name}`}
-                                    />
-                                </div>
-                                <div className="description">
+                            <div className="expandedImage">
+                                <img src={props.image ? props.image.original : null}
+                                    alt={`Poster for ${props.name}`}
+                                />
+                            </div>
+                            <div className="showInfo">
+                                <div className="shoInfoWrapper">
                                     <h3>{props.name}</h3>
                                     <p className="episodeName">Episode: {props.episodeName}</p>
+                                    <h3 className="expandedSumTitle">Summary</h3>
+                                    <p className="summaryDesc">{props.summary}</p>
                                     {props.genre.length > 0
                                         ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
                                         : null}
-
-                                </div>
-                            </div>
-
-                            <div className="showInfo">
-                                <div className="info">
-                                    <h3 className="expandedSumTitle">Summary</h3>
-                                    <p>{props.summary}</p>
                                     <p>Language: {props.language}</p>
-                                </div>
-                                <div className="dates">
-                                    <p>{props.runtime ? `Runtime:${props.runtime} minutes` : null}</p>
+                                    <p>{props.runtime ? `Runtime: ${props.runtime} minutes` : null}</p>
                                 </div>
                             </div>
                         </div>
