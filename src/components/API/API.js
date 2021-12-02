@@ -13,12 +13,12 @@ function API() {
   const [currentGenreSearch, setCurrentGenreSearch] = useState(false);
   const [originalListing, setOriginalListing] = useState([]);
 
-  const addToMovieGallery = (id) => {
+  const addToShowGallery = (id) => {
     // Pushes the id parameter into  an array and returns the object with the matching ID from the allListings state
     const ids = [];
     ids.push(id);
-    let filteredArray = allListings.filter((movieCollectionObject) => {
-      return ids.includes(movieCollectionObject.id)
+    let filteredArray = allListings.filter((showObject) => {
+      return ids.includes(showObject.id)
     });
     setSelectedItems([...selectedItems, ...filteredArray]);
   }
@@ -73,7 +73,7 @@ function API() {
     setAllListing(filteredShows)
   }
 
-  function clearFilter () {
+  function clearFilter() {
     setAllListing(originalListing);
   }
 
@@ -91,6 +91,7 @@ function API() {
     }).then((response) => {
       setAllListing(response.data);
       setOriginalListing(response.data);
+
     });
   }
 
@@ -108,6 +109,7 @@ function API() {
       },
     }).then((response) => {
       setAllListing(response.data);
+      setOriginalListing(response.data);
     });
   }
 
@@ -126,6 +128,7 @@ function API() {
       },
     }).then((response) => {
       setAllListing(response.data);
+      setOriginalListing(response.data);
     });
   }
 
@@ -137,6 +140,7 @@ function API() {
       params: {},
     }).then((response) => {
       setAllListing(response.data);
+      setOriginalListing(response.data);
     });
   }
 
@@ -144,57 +148,12 @@ function API() {
   return (
 
     <div className="contentAPISectionContainer">
+      <h3>Select A Show Section</h3>
 
-
-      {/* Genre filter */}
-        <form onSubmit={(e) => {filterByGenre(e,genreChoice)}} className="genreFilter">
-        {/* <form action="submit"> */}
-          <label htmlFor="genreList">Please select which genre to filter by:</label>
-          <select 
-            name="genreList" 
-            id="genreList"
-            value = {genreChoice}
-            onChange = {handleGenreChoice}
-          >
-            {/* We need to clear the genre choice value before another one is selected!! */}
-            <option value="" disabled >Pick a genre:</option>
-            <option value="Action">Action</option>
-            <option value="Anime">Anime</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Children">Children</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Drama">Drama</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Food">Food</option>
-            <option value="Music">Music</option>
-            <option value="Mystery">Mystery</option>
-            <option value="Romance">Romance</option>
-            <option value="Science-Fiction">Science-Fiction</option>
-            <option value="Sports">Sports</option>
-            <option value="Supernatural">Supernatural</option>
-            <option value="Thriller">Thriller</option>
-            <option value="Travel">Travel</option>
-          </select>
-          <button type="submit">Genre Filter!</button>
-        </form>
-          <button onClick={clearFilter}>Clear Results</button>
-
-      {/* render to the page the user's current genre search*/}
-        {currentGenreSearch === true
-        ?
-        <div>
-          <p>Looks like you feel like watching something with: {genreChoice}</p>
-        </div>
-        : null}
-        
       <div className="APISection">
-
-        {/* <h2>Select A Movie Section</h2> */}
         <nav className="showNav">
-          <ul className="navList">
 
-          <div className="selectShowDate">
+            <div className="selectShowDate">
               <label htmlFor="chooseDate">Choose show date:</label>
               <input
                 type="date"
@@ -205,6 +164,50 @@ function API() {
                 onChange={handleDateChange}
               />
               <button onClick={searchByDate}>Search by date</button>
+            </div>
+
+            <div className="genreFilter">
+              {/* Genre filter */}
+              <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
+                {/* <form action="submit"> */}
+                <label htmlFor="genreList">Please select which genre to filter by:</label>
+                <select
+                  name="genreList"
+                  id="genreList"
+                  value={genreChoice}
+                  onChange={handleGenreChoice}
+                >
+                  {/* We need to clear the genre choice value before another one is selected!! */}
+                  <option value="" disabled >Pick a genre:</option>
+                  <option value="Action">Action</option>
+                  <option value="Anime">Anime</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="Children">Children</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Crime">Crime</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Food">Food</option>
+                  <option value="Music">Music</option>
+                  <option value="Mystery">Mystery</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Science-Fiction">Science-Fiction</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Supernatural">Supernatural</option>
+                  <option value="Thriller">Thriller</option>
+                  <option value="Travel">Travel</option>
+                </select>
+                <button type="submit">Genre Filter!</button>
+              </form>
+              <button onClick={clearFilter}>Clear Results</button>
+
+              {/* render to the page the user's current genre search*/}
+              {currentGenreSearch === true
+                ?
+                <div>
+                  <p>Looks like you feel like watching something with: {genreChoice}</p>
+                </div>
+                : null}
             </div>
 
             <div className="genreFilter">
@@ -244,16 +247,15 @@ function API() {
                 </div>
                 : null}
             </div>
-           
 
-            <button id="us" onClick={hello} value="US">All Movies In All Countries/Date</button>
-            <button onClick={lolo}>All Movies in U.S/Date</button>
+
+            <button id="us" onClick={hello} value="US">All Shows In All Countries/Date</button>
+            <button onClick={lolo}>All Shows in U.S/Date</button>
             <button onClick={All}>No Params</button>
-          </ul>
         </nav>
 
-        <div className="MovieGallery">
-          <ul className="filmList">
+        <div className="showGallery">
+          <ul className="showList">
             {allListings.map((show) => {
               return (
                 <ShowListing
@@ -268,17 +270,15 @@ function API() {
                   language={show._embedded.show.language}
                   // time = {show.schedule.time}
                   summary={show._embedded.show.summary}
-                  clickHandler={addToMovieGallery}
+                  clickHandler={addToShowGallery}
                 />
               );
             })}
           </ul>
-
           {/* if there are no results from the genre filter, render error message to the page */}
           {errorMessage === true
             ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
             : null}
-
         </div>
         <div className="favouritesGallery">
           <button onClick={remove}>Remove</button>

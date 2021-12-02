@@ -12,7 +12,7 @@ function ShowListing( props ) {
     }
 
     return (
-            
+        <>
         <li key={props.key}>
             <div className="showContainer product">
                 <div className="image">
@@ -20,18 +20,22 @@ function ShowListing( props ) {
                 </div>
                 <div className="info content">
                     <h3 className="showName">{props.name}</h3>
-                    <p className="episodeName">{props.episodeName}</p>
-                    <p className="showRuntime">Runtime: {props.runtime} minutes</p>
+                    <p className="episodeName">Episode: {props.episodeName}</p>
+                    <p className="showRuntime">{props.runtime ? `Runtime: ${props.runtime} minutes`  : null}</p>
                     {/* if there is a genre associated with the show, render the genre(s); if not, display nothing */}
                     {props.genre.length > 0
                     ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
                     : null}
                     {/* 🚨 change onClick from button to div*/}
+                    <div className="showButtons">
+
                     <button className="showDesc"
                         onClick={toggleShowDesc}>More information</button>
                     <button onClick={() => props.clickHandler(props.id)}>Click to Add to Favourites</button>
+                        </div>
                 </div>
             </div>
+            </li>
 
             {/* if descOpen is true, show the expanded info */}
             {descOpen ?
@@ -56,7 +60,7 @@ function ShowListing( props ) {
                                     <p>Language: {props.language}</p>
                                 </div>
                                 <div className="dates">
-                                    <p>Runtime: {props.runtime}</p>
+                                    <p>{props.runtime ? `Runtime:${props.runtime} minutes`  : null}</p>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +70,7 @@ function ShowListing( props ) {
                 />
                 : null // basically show nothing if it isn't clicked
             }
-        </li>
+        </>
     )
 }
 
