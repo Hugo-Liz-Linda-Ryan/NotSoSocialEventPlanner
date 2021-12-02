@@ -25,9 +25,8 @@ function ShowListing(props) {
                     {props.genre.length > 0
                         ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
                         : null}
-                    {/* 🚨 change onClick from button to div*/}
+                    
                     <div className="showButtons">
-
                         <button className="showDesc"
                             onClick={toggleShowDesc}>More information</button>
                         <button onClick={() => props.clickHandler(props.id)}>Click to Add to Favourites</button>

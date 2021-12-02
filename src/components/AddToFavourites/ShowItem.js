@@ -14,6 +14,7 @@ function ShowItem(props) {
     return (
         <>
             <li key={props.key} className="descContainer product">
+                <h4 className="airdate">{props.airdate}</h4>
                 <div className="image">
                     <img src={props.image ? props.image.original : null} alt={`Poster of ${props.name}`} />
                 </div>

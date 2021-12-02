@@ -23,7 +23,7 @@ const FavouriteShowGallery = (props) => {
                                 runtime={show.runtime}
                                 image={show._embedded.show.image}
                                 site={show.url}
-                                schedule = {show.airdate}
+                                airdate = {show.airdate}
                                 language={show._embedded.show.language}
                                 // schedule = {show.schedule.days}
                                 // time = {show.schedule.time}
