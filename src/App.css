@@ -17,7 +17,7 @@ h4 {
 }
 
 
-html {
+html:root {
   --color-primaryBlueBlackRed: rgb(5, 5, 49);
   --color-nav: #3a1879;
   --color-primaryBlueBlackRed: #ded6ed;
@@ -36,7 +36,7 @@ html {
   overflow-x: hidden;
 }
 
-html[data-theme="dark"] {
+html[data-theme="dark"]:root {
   --color-primaryBlueBlackRed: black;
   --color-nav: #010b13;
   --h1-font-type: Sulphur Point, Arial, Helvetica, sans-serif;
@@ -48,12 +48,12 @@ html[data-theme="dark"] {
   --color-devProfiles-p: white;
 }
 
-html[data-theme="colorful"] {
+html[data-theme="colorful"]:root {
   --color-primaryBlueBlackRed: pink;
   --h1-font-type: Sulphur Point, Arial, Helvetica, sans-serif;
 }
 
-html[data-theme="snowy"] {
+html[data-theme="snowy"]:root {
   --color-primaryBlueBlackRed: #dbedf7;
   --color-nav: white;
   --h1-font-type: SnowySeasonRegular, Arial, Helvetica, sans-serif;
