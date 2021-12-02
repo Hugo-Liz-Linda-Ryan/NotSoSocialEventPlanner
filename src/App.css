@@ -1,5 +1,4 @@
-
-
+/* Setup Snippet */
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -7,7 +6,7 @@ html {
 }
 body {
   margin: 0;
-  background-color: black;
+  background-color: var(--color-primaryBlueBlackRed);
   font-family: "Roboto" , sans-serif;
 }
 article,
@@ -233,6 +232,54 @@ h4 {
   margin: 0;
 }
 
+html {
+  --color-primaryBlueBlackRed: rgb(5, 5, 49);
+  --color-nav: #3a1879;
+  --color-primaryBlueBlackRed: #ded6ed;
+  --body-font: Roboto;
+  --color-h1: transparent;
+  --font-size-h1: clamp(4rem, 4.5558rem + 2.4675vw, 8.9rem);
+  --font-size-h2-landingpage: clamp(3rem, 2.5558rem + 1.4675vw, 4.7rem);
+  --font-size-h3: 28px;
+  --h1-font-type: Sulphur Point, Arial, Helvetica, sans-serif;
+  --nav-a-color: #ded6ed;
+  --color-nav-li-hover: #ded6ed;
+  --color-nav-a-hover: #3a1879;
+  --color-about: #3a1879;
+  --color-devProfiles: #df7980;
+  --color-devProfiles-p: white;
+  overflow-x: hidden;
+}
+
+html[data-theme="dark"] {
+  --color-primaryBlueBlackRed: black;
+  --color-nav: #010b13;
+  --h1-font-type: Sulphur Point, Arial, Helvetica, sans-serif;
+  --nav-a-color: white;
+  --color-nav-li-hover: grey;
+  --color-nav-a-hover: white;
+  --color-about: #2c2c2c;
+  --color-devProfiles: rgb(90, 90, 90);
+  --color-devProfiles-p: white;
+}
+
+html[data-theme="colorful"] {
+  --color-primaryBlueBlackRed: pink;
+  --h1-font-type: Sulphur Point, Arial, Helvetica, sans-serif;
+}
+
+html[data-theme="snowy"] {
+  --color-primaryBlueBlackRed: #dbedf7;
+  --color-nav: white;
+  --h1-font-type: SnowySeasonRegular, Arial, Helvetica, sans-serif;
+  --nav-a-color: rgb(0, 195, 255);
+  --color-nav-li-hover: lightblue;
+  --color-nav-a-hover: white;
+  --color-about: #3a1879;
+  --color-devProfiles: white;
+  --color-devProfiles-p: black;
+}
+
 @font-face {
   font-family: "Snowy Season";
   src: url("./fonts/SnowySeasonRegular.woff2") format("woff2"),
@@ -265,4 +312,3 @@ footer a{
   /* text-decoration:none; */
   color:#3a1879;
 }
-
