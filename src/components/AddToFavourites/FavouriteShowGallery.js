@@ -6,10 +6,9 @@ const FavouriteShowGallery = (props) => {
 
 
     return (
-        <div className="lookbookpage">
+        <div className="favourites">
             <h3>Your Favourites</h3>
-            <ul>
-
+            <ul className ="favouritesList">
                 {
                     chosenArray.map((show) => {
                         return (
@@ -24,7 +23,7 @@ const FavouriteShowGallery = (props) => {
                                 runtime={show.runtime}
                                 image={show._embedded.show.image}
                                 site={show.url}
-                                schedule = {show.airdate}
+                                airdate = {show.airdate}
                                 language={show._embedded.show.language}
                                 // schedule = {show.schedule.days}
                                 // time = {show.schedule.time}

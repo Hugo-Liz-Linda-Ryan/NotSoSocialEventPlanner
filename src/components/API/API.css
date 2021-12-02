@@ -23,24 +23,23 @@
 
 
 .showNav {
-  min-width: 15%;
+  min-width: 125px;
   height: 100%;
   max-width: 20%;
-}
-
-.navList {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   padding: 5% 0;
   margin: 0;
+  text-align: center;
 }
 
-.navList button, 
+.showNav button, 
 .genreFilter select, 
 .selectShowDate input {
   border-radius: 18px;
   border: 2px transparent solid;
+  margin-bottom: 2%;
 }
 
 
@@ -48,13 +47,18 @@
 .genreFilter button {
   margin: 0;
 }
+.dateSearch, 
+.genreListSelect,
+.showNav button {
+  padding: 5% 0;
+}
 
 .showNav button {
   color: #ded6ed;
   background-color: #3a1879;
   min-width: 100%;
   border: 2px solid transparent;
-  padding: 5% 0;
+  margin-bottom: 10px;
 }
 
 .showNav button:hover, 
@@ -71,23 +75,24 @@
   width: 100%;
   font-size: 14px;
   text-align: center;
-  border: 2px solid transparent;
+  border: 2px solid #3a187936;
 }
 .genreFilter select:focus, 
 .selectShowDate input:focus,
 .genreFilter select:hover, 
 .selectShowDate input:hover {
   border: 2px solid #3a1879; 
+
 }
 
-
-.MovieGallery {
+.showGallery {
   width: 80%;
   height: 100%;
   padding: 0%;
+  max-width: 75%;
 }
 
-.filmList {
+.showList {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -96,23 +101,197 @@
   margin: 0;
 }
 
-.filmList li {
+.showList li {
   margin-bottom: 3%;
-  width: 300px;
-  height: 450px;
-  border: solid gold;
+  width: 45%;
+  min-width: 190px;
+  height: 100%;
+  border: solid 2px #3a1879;
+  border-radius: 18px;
+  text-align: center;
+  overflow: hidden;
 }
 
-.MovieGallery {
-  max-width: 75%;
+.descContainer, 
+.showContainer {
+  margin-bottom: 3%;
+  width: 45%;
+  min-width: 190px;
+  height: 100%;
+  border: solid 2px #3a1879;
+  border-radius: 18px;
+  text-align: center;
+  overflow: hidden;
 }
 
 
 .image {
   overflow: hidden;
   height: 150px;
-  width: 150px;
+  width: 100%;
+  margin: 0 auto;
 }
-.image img {
+
+
+.image img,
+.expandedImage img {
+  width: 100%;
+  height: 100%;
+  /* 🚨🚨🚨🚨 Which one is better??? */
+  /* object-fit: contain; */
   object-fit: cover;
+  object-position: 75% 25%;
+
+  /* Below centers alt text */
+  line-height: 50px;
+  text-align: center;
 }
+
+
+.showName {
+  margin-top: 10px;
+}
+
+.showContainer p, 
+.expandedShow p {
+  margin: 2% 0;
+}
+
+.showButtons {
+  display: flex;
+}
+
+.showContainer button {
+  width: 50%;
+  color: #ded6ed;
+  padding: 3%;
+  border: none;
+  background-color: #3a1879;
+}
+
+.showContainer button:hover,
+.showContainer button:focus {
+  color: #3a1879;
+  background-color: #df7980;
+}
+
+.showContainer button:first-of-type {
+  border-radius: 0 18px 0 0;
+}
+
+.showContainer button:last-of-type {
+    border-radius: 18px 0 0 0;
+}
+
+/* More details section */
+
+ .details {
+  position: fixed;
+  bottom: 15vh;
+  right: 12vw;
+  width: 76vw;
+  height: 70vh;
+  background-color: #ded6ed;
+  border: 3px solid #3a1879;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.closeButton{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  color: #df7980;
+  background-color: #3a1879;
+  border: 2px solid transparent;
+}
+
+.closeButton:hover,
+.closeButton:focus{
+  color: #3a1879;
+  background-color: #df7980;
+  border: 2px solid #3a1879;
+}
+
+.expandedShow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expandedImage {
+  height: 70vh;
+}
+
+
+.showInfo {
+  width: 60%;
+  padding: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.showInfoWrapper {
+  overflow: scroll;
+}
+
+.showInfo h3 {
+  font-size: 25px;
+}
+
+.summaryDesc {
+  font-size: 14px;
+}
+
+
+/* Favourites List Section */
+
+.favouritesGallery {
+  border: 2px solid #3a1879;
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+}
+
+.removeFavourites,
+.airdate,
+.faveDesc {
+  width: 100%;
+  padding: 5%; 
+  background-color: #3a1879;
+  border: 2px solid #3a1879;
+  border: none;
+  color: #ded6ed;
+}
+
+.removeFavourites:focus, 
+.removeFavourites:hover,
+.faveDesc:focus,
+.faveDesc:hover {
+  background-color: #df7980;
+  color: #3a1879;
+}
+
+.favourites h3 {
+  margin-top: 5%;
+}
+
+.favouritesList {
+  padding: 0;
+}
+
+.favouritesList li {
+  list-style-type: none;
+  margin: 3% auto;
+  width: 80%;
+}
+
+
+
+
+
+
