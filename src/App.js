@@ -25,12 +25,11 @@ function App() {
       <header>
         <Navigation />
         <SiteOpeningPage />
-        <About />
       </header>
       <main>
-      <About/>
-    <WeeklyEvents/>
+        <WeeklyEvents/>
         <MovieSectionF />
+        <About />
       </main>
     </div>
 

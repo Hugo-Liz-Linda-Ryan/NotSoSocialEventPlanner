@@ -52,7 +52,7 @@ function API() {
     setShowDate(e.target.value);
   }
 
-  function  handleGenreChoice(e) {
+  function handleGenreChoice(e) {
     setGenreChoice(e.target.value);
     console.log(genreChoice)
   }
@@ -76,9 +76,9 @@ function API() {
     if (genreChoice) {
       setCurrentGenreSearch(true)
     }
-      setAllListing(filteredShows)
+    setAllListing(filteredShows)
   }
-  function clearFilter () {
+  function clearFilter() {
     setAllListing(originalListing);
   }
 
@@ -152,15 +152,22 @@ function API() {
 
     <div className="contentAPISectionContainer">
 
-      {/* Genre filter */}
-        <form onSubmit={(e) => {filterByGenre(e,genreChoice)}} className="genreFilter">
-        {/* <form action="submit"> */}
+
+      <div className="APISection">
+
+        {/* <h2>Select A Movie Section</h2> */}
+        <nav className="showNav">
+          <ul>
+      <div className="genreFilter">
+        {/* Genre filter */}
+        <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
+          {/* <form action="submit"> */}
           <label htmlFor="genreList">Please select which genre to filter by:</label>
-          <select 
-            name="genreList" 
+          <select
+            name="genreList"
             id="genreList"
-            value = {genreChoice}
-            onChange = {handleGenreChoice}
+            value={genreChoice}
+            onChange={handleGenreChoice}
           >
             {/* We need to clear the genre choice value before another one is selected!! */}
             <option value="" disabled >Pick a genre:</option>
@@ -176,23 +183,18 @@ function API() {
             <option value="Supernatural">Supernatural</option>
             <option value="Thriller">Thriller</option>
           </select>
-          <button type="submit">Genre Filter!</button>
+          <button className="genreFilterButton"  type="submit">Genre Filter!</button>
         </form>
-          <button onClick={clearFilter}>Clear Results</button>
+        <button className="clearResults" onClick={clearFilter}>Clear Results</button>
 
-      {/* render to the page the user's current genre search*/}
+        {/* render to the page the user's current genre search*/}
         {currentGenreSearch === true
-        ?
-        <div>
-          <p>You're currently searching for: {genreChoice}</p>
-        </div>
-        : null}
-        
-      <div className="APISection">
-
-        {/* <h2>Select A Movie Section</h2> */}
-        <nav className="NavAids">
-          <ul>
+          ?
+          <div>
+            <p>You're currently searching for: {genreChoice}</p>
+          </div>
+          : null}
+      </div>
             <div className="selectShowDate">
               <label htmlFor="chooseDate">Choose show date:</label>
               <input
@@ -209,8 +211,6 @@ function API() {
             <button id="us" onClick={hello} value="US">All Movies In All Countries/Date</button>
             <button onClick={lolo}>All Movies in U.S/Date</button>
             <button onClick={All}>No Params</button>
-            <button onClick={hello}>Same As First</button>
-            <button onClick={hello}>Same As First</button>
           </ul>
         </nav>
 
@@ -238,8 +238,8 @@ function API() {
 
           {/* if there are no results from the genre filter, render error message to the page */}
           {errorMessage === true
-          ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
-          : null}
+            ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
+            : null}
 
         </div>
         <div className="favouritesGallery">

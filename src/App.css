@@ -1,3 +1,4 @@
+/* Setup Snippet */
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -5,6 +6,8 @@ html {
 }
 body {
   margin: 0;
+  background-color: #ded6ed;
+  font-family: "Roboto" , sans-serif;
 }
 article,
 aside,

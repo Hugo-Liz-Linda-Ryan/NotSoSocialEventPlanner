@@ -1,41 +1,3 @@
-.NavAids {
-  display: flex;
-  flex-direction: column;
-  min-width: 15%;
-  height: 100%;
-  border: solid gold 2px;
-}
-
-.NavAids ul {
-  padding: 0;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-.NavAids button {
-  border: none;
-  background-color: black;
-  color: white;
-  min-width: 100%;
-  height: 80px;
-  border: solid gold 2px;
-  margin-bottom: 30px;
-}
-
-.NavAids button:hover {
-  background-color: grey;
-  cursor: pointer;
-  color: black;
-}
-.APISection {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  /* flex-direction: column; */
-  background-color: rgb(2, 42, 2);
-}
-
 .contentAPISectionContainer {
   width: 100%;
   height: 100%;
@@ -43,13 +5,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  outline: solid greenyellow 2px;
 }
-.MovieGallery {
-  width: 80%;
+
+.APISection {
+  width: 100%;
   height: 100%;
-  padding: 0%;
+  display: flex;
 }
+
 .APISection h2 {
   min-width: 100%;
   color: white;
@@ -57,10 +20,64 @@
   text-align: center;
   margin-top: 5%;
 }
+
 .APISection p,
 .APISection h3 {
   color: white;
 }
+
+.showNav {
+  min-width: 15%;
+  height: 100%;
+  max-width: 20%;
+}
+
+.showNav ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 5% 0;
+  margin: 0;
+}
+
+.showNav button, 
+.genreFilter select, 
+.selectShowDate input {
+  border-radius: 18px;
+  border: 2px transparent solid;
+}
+
+.clearResults, .genreFilter button {
+  margin: 0;
+}
+
+.showNav button {
+  color: #ded6ed;
+  background-color: #3a1879;
+  min-width: 100%;
+  border: solid #ded6ed 2px;
+  padding: 5% 0;
+}
+
+.showNav button:hover {
+  background-color: grey;
+  cursor: pointer;
+  color: black;
+}
+
+.genreFilter select, .selectShowDate input {
+  margin: 5% 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+
+.MovieGallery {
+  width: 80%;
+  height: 100%;
+  padding: 0%;
+}
+
 .filmList {
   list-style: none;
   display: flex;
@@ -68,7 +85,6 @@
   justify-content: space-evenly;
   padding: 0;
   margin: 0;
-  outline: purple solid 2px;
 }
 
 .filmList li {
@@ -82,9 +98,7 @@
   max-width: 75%;
 }
 
-.NavAids {
-  max-width: 20%;
-}
+
 
 .image {
   overflow: hidden;
