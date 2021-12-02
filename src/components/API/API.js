@@ -86,6 +86,7 @@ function API() {
     }).then((response) => {
       setAllListing(response.data);
       setOriginalListing(response.data);
+      console.log(response.data)
 
     });
   }
