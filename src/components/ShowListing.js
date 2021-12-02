@@ -11,9 +11,6 @@ function ShowListing( props ) {
         setDescOpen(!descOpen);
     }
 
-  
-
-
     return (
             
         <li key={props.key}>
@@ -25,8 +22,10 @@ function ShowListing( props ) {
                     <h3 className="showName">{props.name}</h3>
                     <p className="episodeName">{props.episodeName}</p>
                     <p className="showRuntime">Runtime: {props.runtime} minutes</p>
-                    {/* 🚨🚨🚨 This conditional does not work, will need to find alternative */}
-                    <p className="showGenre">Genre: {props.genre ? props.genre: "No genre listed"}</p>
+                    {/* if there is a genre associated with the show, render the genre(s); if not, display nothing */}
+                    {props.genre.length > 0
+                    ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
+                    : null}
                     {/* 🚨 change onClick from button to div*/}
                     <button className="showDesc"
                         onClick={toggleShowDesc}>More information</button>
@@ -51,7 +50,9 @@ function ShowListing( props ) {
                                     <p>{props.summary}</p>
                                 </div>
                                 <div className="info">
-                                    <p>Genre: {props.genre? props.genre: "No genre listed"}</p>
+                                    {props.genre.length > 0
+                                    ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
+                                    : null}
                                     <p>Language: {props.language}</p>
                                 </div>
                                 <div className="dates">
@@ -65,11 +66,8 @@ function ShowListing( props ) {
                 />
                 : null // basically show nothing if it isn't clicked
             }
-
         </li>
     )
 }
 
 export default ShowListing;
-
-

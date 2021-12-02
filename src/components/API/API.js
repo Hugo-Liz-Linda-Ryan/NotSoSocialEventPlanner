@@ -57,16 +57,10 @@ function API() {
     console.log(genreChoice)
   }
 
-  // function handleSubmit(e) {
-  //   clearGenreChoice();
-  // }
-
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
     const copyOfListings = [...allListings];
     const filteredShows = copyOfListings.filter(show => show._embedded.show.genres.some((g) => g === genreChoice))
-
-    // setFilteredShows(filteredShows)
 
     // error handling: if there are no results from the genre filter
     if (filteredShows.length === 0) {
@@ -78,10 +72,10 @@ function API() {
     }
     setAllListing(filteredShows)
   }
-  function clearFilter() {
+
+  function clearFilter () {
     setAllListing(originalListing);
   }
-
 
   function searchByDate() {
     let country = "US";
@@ -99,7 +93,6 @@ function API() {
       setOriginalListing(response.data);
     });
   }
-
 
   function hello() {
     let country = "";
@@ -153,6 +146,48 @@ function API() {
     <div className="contentAPISectionContainer">
 
 
+      {/* Genre filter */}
+        <form onSubmit={(e) => {filterByGenre(e,genreChoice)}} className="genreFilter">
+        {/* <form action="submit"> */}
+          <label htmlFor="genreList">Please select which genre to filter by:</label>
+          <select 
+            name="genreList" 
+            id="genreList"
+            value = {genreChoice}
+            onChange = {handleGenreChoice}
+          >
+            {/* We need to clear the genre choice value before another one is selected!! */}
+            <option value="" disabled >Pick a genre:</option>
+            <option value="Action">Action</option>
+            <option value="Anime">Anime</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Children">Children</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime">Crime</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Food">Food</option>
+            <option value="Music">Music</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Romance">Romance</option>
+            <option value="Science-Fiction">Science-Fiction</option>
+            <option value="Sports">Sports</option>
+            <option value="Supernatural">Supernatural</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Travel">Travel</option>
+          </select>
+          <button type="submit">Genre Filter!</button>
+        </form>
+          <button onClick={clearFilter}>Clear Results</button>
+
+      {/* render to the page the user's current genre search*/}
+        {currentGenreSearch === true
+        ?
+        <div>
+          <p>Looks like you feel like watching something with: {genreChoice}</p>
+        </div>
+        : null}
+        
       <div className="APISection">
 
         {/* <h2>Select A Movie Section</h2> */}
