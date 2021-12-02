@@ -6,7 +6,7 @@ html {
 }
 body {
   margin: 0;
-  background-color: #ded6ed;
+  background-color: var(--color-primaryBlueBlackRed);
   font-family: "Roboto" , sans-serif;
 }
 article,
