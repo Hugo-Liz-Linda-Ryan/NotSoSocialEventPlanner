@@ -5,6 +5,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 5% 0;
 }
 
 .APISection {
@@ -15,16 +16,11 @@
 
 .APISection h2 {
   min-width: 100%;
-  color: white;
   font-size: 98px;
   text-align: center;
   margin-top: 5%;
 }
 
-.APISection p,
-.APISection h3 {
-  color: white;
-}
 
 .showNav {
   min-width: 15%;
@@ -32,7 +28,7 @@
   max-width: 20%;
 }
 
-.showNav ul {
+.navList {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -40,14 +36,16 @@
   margin: 0;
 }
 
-.showNav button, 
+.navList button, 
 .genreFilter select, 
 .selectShowDate input {
   border-radius: 18px;
   border: 2px transparent solid;
 }
 
-.clearResults, .genreFilter button {
+
+.clearResults, 
+.genreFilter button {
   margin: 0;
 }
 
@@ -55,20 +53,31 @@
   color: #ded6ed;
   background-color: #3a1879;
   min-width: 100%;
-  border: solid #ded6ed 2px;
+  border: 2px solid transparent;
   padding: 5% 0;
 }
 
-.showNav button:hover {
-  background-color: grey;
+.showNav button:hover, 
+.showNav button:focus {
+  background-color: #ded6ed;
   cursor: pointer;
-  color: black;
+  color: #3a1879;
+  border: 2px solid #3a1879;
 }
 
-.genreFilter select, .selectShowDate input {
+.genreFilter select, 
+.selectShowDate input {
   margin: 5% 0;
   width: 100%;
   font-size: 14px;
+  text-align: center;
+  border: 2px solid transparent;
+}
+.genreFilter select:focus, 
+.selectShowDate input:focus,
+.genreFilter select:hover, 
+.selectShowDate input:hover {
+  border: 2px solid #3a1879; 
 }
 
 
@@ -97,7 +106,6 @@
 .MovieGallery {
   max-width: 75%;
 }
-
 
 
 .image {

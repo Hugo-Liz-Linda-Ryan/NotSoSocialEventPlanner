@@ -157,45 +157,9 @@ function API() {
 
         {/* <h2>Select A Movie Section</h2> */}
         <nav className="showNav">
-          <ul>
-      <div className="genreFilter">
-        {/* Genre filter */}
-        <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
-          {/* <form action="submit"> */}
-          <label htmlFor="genreList">Please select which genre to filter by:</label>
-          <select
-            name="genreList"
-            id="genreList"
-            value={genreChoice}
-            onChange={handleGenreChoice}
-          >
-            {/* We need to clear the genre choice value before another one is selected!! */}
-            <option value="" disabled >Pick a genre:</option>
-            <option value="Action">Action</option>
-            <option value="Anime">Anime</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Children">Children</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Drama">Drama</option>
-            <option value="Food">Food</option>
-            <option value="Music"> Music</option>
-            <option value="Romance">Romance</option>
-            <option value="Supernatural">Supernatural</option>
-            <option value="Thriller">Thriller</option>
-          </select>
-          <button className="genreFilterButton"  type="submit">Genre Filter!</button>
-        </form>
-        <button className="clearResults" onClick={clearFilter}>Clear Results</button>
+          <ul className="navList">
 
-        {/* render to the page the user's current genre search*/}
-        {currentGenreSearch === true
-          ?
-          <div>
-            <p>You're currently searching for: {genreChoice}</p>
-          </div>
-          : null}
-      </div>
-            <div className="selectShowDate">
+          <div className="selectShowDate">
               <label htmlFor="chooseDate">Choose show date:</label>
               <input
                 type="date"
@@ -207,6 +171,45 @@ function API() {
               />
               <button onClick={searchByDate}>Search by date</button>
             </div>
+
+            <div className="genreFilter">
+              {/* Genre filter */}
+              <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
+                {/* <form action="submit"> */}
+                <label htmlFor="genreList">Please select which genre to filter by:</label>
+                <select
+                  name="genreList"
+                  id="genreList"
+                  value={genreChoice}
+                  onChange={handleGenreChoice}
+                >
+                  {/* We need to clear the genre choice value before another one is selected!! */}
+                  <option value="" disabled >Pick a genre:</option>
+                  <option value="Action">Action</option>
+                  <option value="Anime">Anime</option>
+                  <option value="Adventure">Adventure</option>
+                  <option value="Children">Children</option>
+                  <option value="Comedy">Comedy</option>
+                  <option value="Drama">Drama</option>
+                  <option value="Food">Food</option>
+                  <option value="Music"> Music</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Supernatural">Supernatural</option>
+                  <option value="Thriller">Thriller</option>
+                </select>
+                <button className="genreFilterButton" type="submit">Genre Filter!</button>
+              </form>
+              <button className="clearResults" onClick={clearFilter}>Clear Filter</button>
+
+              {/* render to the page the user's current genre search*/}
+              {currentGenreSearch === true
+                ?
+                <div>
+                  <p>You're currently searching for: {genreChoice}</p>
+                </div>
+                : null}
+            </div>
+           
 
             <button id="us" onClick={hello} value="US">All Movies In All Countries/Date</button>
             <button onClick={lolo}>All Movies in U.S/Date</button>

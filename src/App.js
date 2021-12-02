@@ -26,6 +26,7 @@ function App() {
         <Navigation/>
         <SiteOpeningPage/>
       </header>
+      
       <main>
         <WeeklyEvents/>
         <MovieSectionF/>
