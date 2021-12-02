@@ -43,7 +43,6 @@ function API() {
   // Returns format "YYYY-MM-DD"
   const [showDate, setShowDate] = useState(localISODate);
 
-
   function handleDateChange(e) {
     setShowDate(e.target.value);
   }

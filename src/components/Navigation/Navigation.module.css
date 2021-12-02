@@ -49,12 +49,12 @@
   align-items: center;
   font-size:1.25rem;
 }
-.nav li:hover {
-  /* background-color: var(--color-nav-li-hover); */
+/* .nav li:hover {
+  background-color: var(--color-nav-li-hover);
 }
 .nav li:hover a {
-  /* color: var(--color-nav-a-hover); */
-}
+  color: var(--color-nav-a-hover);
+} */
 
 .nav button {
   height: 80px;
