@@ -278,7 +278,7 @@ html[data-theme="snowy"] {
 
 body {
   margin: 0;
-  background-color: var(--color-primaryBlueBlackRed);
+  /* background-color: var(--color-primaryBlueBlackRed); */
   font-family: "Roboto" , sans-serif;
 }
 
