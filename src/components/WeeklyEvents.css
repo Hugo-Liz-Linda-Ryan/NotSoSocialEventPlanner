@@ -1,4 +1,5 @@
-.weekCalendar {
+.weekCalendar, 
+.newEvents {
   display: flex;
   flex-direction: column;
   height: auto;
@@ -6,7 +7,8 @@
   background-color: var(--color-primaryBlueBlackRed);
   padding: 3% 0;
 }
-.weekCalendar li {
+.weekCalendar li, 
+.newEvents li {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -21,7 +23,12 @@
   margin:1%;
 }
 
-.EventsWeek {
+.weekCalendar li:last-of-type{
+  display:none;
+}
+
+.EventsWeek, 
+.newEvents {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -30,9 +37,10 @@
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  border: gold solid 2px;
+  /* border: gold solid 2px; */
 }
-.EventsWeek h3 {
+.EventsWeek h3, 
+.newEvents h3{
   text-transform: uppercase;
   font-size: 28px;
   margin-bottom:3%;
@@ -42,11 +50,14 @@
   color:white;
 }
 
-.EventsWeek h4{
+.EventsWeek h4,
+.newEvents h4{
   font-weight:200;
+  margin-bottom: 0;
 }
 
-.weekCalendar h2 {
+.weekCalendar h2,
+.newEvents h2 {
   text-transform: capitalize;
   width: 100%;
   text-align: center;
@@ -55,24 +66,47 @@
   
   }
 
-.EventsWeek li h4::before{
+.EventsWeek li h4::before,
+.newEvents li h4::before{
   content: 'Event Name:';
   display:block;
   text-transform:uppercase;
   font-weight:600;
 }
 
-.EventsWeek p:first-of-type::before{
+.EventsWeek p:first-of-type::before,
+.newEvents p:first-of-type::before{
   content:'Event Type:';
   display:block;
   text-transform:uppercase;
   font-weight:600;
 }
 
-.EventsWeek p:last-of-type::before{
+.EventsWeek p:last-of-type::before,
+.newEvents p:last-of-type::before{
   content:'Party Size:';
   display:block;
   text-transform:uppercase;
   font-weight:600;
+}
+
+.newEvents button{
+  border:none;
+  padding:10px 15px;
+  margin-bottom:5%;
+  border-radius:20px;
+  border:inset 2px solid #3A1879;
+  background-color:white;
+  color:#3A1879;
+  box-shadow: 2px 2px 5px;
+}
+
+.newEvents button:hover,
+.newEvents button:focus,
+.newEvents button:focus-within{
+  background-color: #DED6ED;
+  border:inset 2px solid white;
+  color:#3A1879;
+  box-shadow:inset 2px 2px 5px;
 }
 
