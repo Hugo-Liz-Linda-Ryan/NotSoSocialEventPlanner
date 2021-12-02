@@ -63,7 +63,7 @@
 
 .showNav button:hover, 
 .showNav button:focus {
-  background-color: var(--color-primaryBlueBlackRed);
+  /* background-color: var(--color-primaryBlueBlackRed); */
   cursor: pointer;
   color: #3a1879;
   border: 2px solid #3a1879;

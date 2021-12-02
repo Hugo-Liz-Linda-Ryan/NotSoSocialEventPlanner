@@ -304,7 +304,7 @@ footer{
 footer p{
   margin:0;
   color:#3a1879;
-  font-family:var(--body-font);
+  /* font-family:var(--body-font); */
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;

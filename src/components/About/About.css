@@ -9,12 +9,12 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-about);
+  /* background-color: var(--color-about); */
   color: white;
 }
 
 .aboutSectionWrapper h3 {
-  font-size: var(--font-size-h3);
+  /* font-size: var(--font-size-h3); */
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -26,7 +26,7 @@
 }
 
 .aboutTheApp p {
-  font-family: var(--body-font);
+  /* font-family: var(--body-font); */
   color: white;
   letter-spacing: 1px;
   line-height: 29px;
@@ -36,7 +36,7 @@
 .aboutTheDevs {
   width: 100%;
   padding: 5% 5% 0 5%;
-  background-color: var(--color-devProfiles);
+  /* background-color: var(--color-devProfiles); */
   display:flex;
   flex-wrap:wrap;
 }

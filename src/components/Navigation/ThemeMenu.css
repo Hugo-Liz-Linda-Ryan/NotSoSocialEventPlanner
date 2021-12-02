@@ -4,7 +4,7 @@
   bottom: 0;
   left: 0;
   top: 90px;
-  background-color: var(--color-primaryBlueBlackRed);
+  /* background-color: var(--color-primaryBlueBlackRed); */
   width: 15vw;
   flex-direction: column;
   z-index: -1;
