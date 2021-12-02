@@ -244,10 +244,10 @@ html {
   --color-about: #3a1879;
   --color-devProfiles: #df7980;
   --color-devProfiles-p: white;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
-/* html[data-theme="dark"] {
+html[data-theme="dark"] {
   --color-primaryBlueBlackRed: black;
   --color-nav: #010b13;
   --h1-font-type: Sulphur Point, Arial, Helvetica, sans-serif;
@@ -274,11 +274,11 @@ html[data-theme="snowy"] {
   --color-about: #3a1879;
   --color-devProfiles: white;
   --color-devProfiles-p: black;
-} */
+}
 
 body {
   margin: 0;
-  /* background-color: var(--color-primaryBlueBlackRed); */
+  background-color: var(--color-primaryBlueBlackRed);
   font-family: "Roboto" , sans-serif;
 }
 
