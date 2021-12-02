@@ -43,10 +43,6 @@ function API() {
   // Returns format "YYYY-MM-DD"
   const [showDate, setShowDate] = useState(localISODate);
 
-  const endOfWeek = new Date(today)
-  endOfWeek.setDate(endOfWeek.getDate() + 7)
-  const endOfWeekISODate = endOfWeek.toISOString().substr(0, 10)
-
 
   function handleDateChange(e) {
     setShowDate(e.target.value);
@@ -91,6 +87,7 @@ function API() {
     }).then((response) => {
       setAllListing(response.data);
       setOriginalListing(response.data);
+      console.log(response.data)
 
     });
   }
