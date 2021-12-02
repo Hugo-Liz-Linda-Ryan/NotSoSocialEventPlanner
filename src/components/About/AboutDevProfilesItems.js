@@ -1,11 +1,4 @@
 export const devItems = [
-    {
-        devname: 'Ryan Van Den Eeckhout',
-        pargraph: 'Ryan Van Den Eeckhout is an aspiring Front end Web Developer further works by this developer can be found at portfilio name',
-        url: 'https://via.placeholder.com/150',
-        cName: 'appTagLine'
-
-    },
 
     {
         devname: 'Elizabeth Harris',
@@ -26,7 +19,7 @@ export const devItems = [
 
     {
         devname: 'Linda Columbus',
-        pargraph: 'Linda Columbus is a front-end web developer with experience building clean, accessible and responsive applications with React, JavaScript (ES6+), HTML5, CSS3, and API integration. Lindia brings her experience from her previous career where she managed a team, undertook the analysis of complex problems, and effectively communicated with a wide range of audiences. Linda is an empathetic collaborator who brings curiosity and enthusiasm to each team she joins and each web project she undertakes.',
+        pargraph: 'Linda Columbus is a front-end web developer with experience building clean, accessible and responsive applications with React, JavaScript (ES6+), HTML5, CSS3, and API integration. Linda brings her experience from her previous career where she managed a team, undertook the analysis of complex problems, and effectively communicated with a wide range of audiences. Linda is an empathetic collaborator who brings curiosity and enthusiasm to each team she joins and each web project she undertakes.',
         url: 'https://via.placeholder.com/150',
         cName: 'appTagLine'
 
