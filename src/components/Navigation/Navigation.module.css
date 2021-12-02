@@ -1,5 +1,5 @@
 .nav {
-  position: fixed;
+  position:fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -15,7 +15,7 @@
   border-bottom: gold solid 2px;
 }
 .nav ul {
-  width: 80%;
+  width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,12 +41,13 @@
   text-transform: uppercase;
   color: var(--nav-a-color);
   font-family: var(--body-font);
-  font-weight: bold;
+  font-weight: 200;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size:1.25rem;
 }
 .nav li:hover {
   background-color: var(--color-nav-li-hover);
