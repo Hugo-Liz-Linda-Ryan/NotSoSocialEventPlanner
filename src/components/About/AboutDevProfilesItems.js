@@ -1,11 +1,4 @@
 export const devItems = [
-    {
-        devname: 'Ryan Van Den Eeckhout',
-        pargraph: 'Ryan Van Den Eeckhout is an aspiring Front end Web Developer further works by this developer can be found at portfilio name',
-        url: 'https://via.placeholder.com/150',
-        cName: 'appTagLine'
-
-    },
 
     {
         devname: 'Elizabeth Harris',
