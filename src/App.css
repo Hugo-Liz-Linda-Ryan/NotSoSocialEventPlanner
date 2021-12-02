@@ -4,11 +4,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-body {
-  margin: 0;
-  background-color: var(--color-primaryBlueBlackRed);
-  font-family: "Roboto" , sans-serif;
-}
+
 article,
 aside,
 footer,
@@ -278,6 +274,12 @@ html[data-theme="snowy"] {
   --color-about: #3a1879;
   --color-devProfiles: white;
   --color-devProfiles-p: black;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-primaryBlueBlackRed);
+  font-family: "Roboto" , sans-serif;
 }
 
 @font-face {
