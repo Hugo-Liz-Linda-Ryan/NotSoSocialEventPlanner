@@ -114,29 +114,27 @@ function WeeklyEvents() {
                 )
             })}
         </section>
+        
+        <form className="newEventForm" action="submit">
+            <label htmlFor="newEventDay">Which day of the week?</label>
+            <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect}>
+                <option value="" hidden disabled >Choose a day</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+            </select>
 
-        <form action="submit">
-            <legend>Add a new event to your schedule
-                <label htmlFor="newEventDay">Which day of the week?</label>
-                <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect}>
-                    <option value="" hidden disabled >Choose a day</option>
-                    <option value="Sunday">Sunday</option>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                </select>
-
-                <label htmlFor="newEventName">New event name</label>
-                <input type="text" id="newEventName" onChange={handleChange} value={userInputEventName}/>
-                <label htmlFor="newEventName">New event type</label>
-                <input type="text" id="userInputEventType" onChange={handleChange2} value={userInputEventType}/>
-                <label htmlFor="newEventName">New event party size</label>
-                <input type="text" id="userInputPartySize" onChange={handleChange3} value={userInputPartySize}/>
-                <button onClick={handleClick}>Add event</button>
-            </legend>
+            <label htmlFor="newEventName">What's the name of your event?</label>
+            <input type="text" id="newEventName" onChange={handleChange} value={userInputEventName}/>
+            <label htmlFor="newEventName">What kind of event?</label>
+            <input type="text" id="userInputEventType" onChange={handleChange2} value={userInputEventType}/>
+            <label htmlFor="newEventName">How many people?</label>
+            <input type="text" id="userInputPartySize" onChange={handleChange3} value={userInputPartySize}/>
+            <button onClick={handleClick}>Add event</button>
         </form>
         
         </>
