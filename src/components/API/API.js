@@ -180,6 +180,7 @@ function API() {
                   value={genreChoice}
                   onChange={handleGenreChoice}
                 >
+                  
                   {/* We need to clear the genre choice value before another one is selected!! */}
                   <option value="" disabled >Pick a genre:</option>
                   <option value="Action">Action</option>
