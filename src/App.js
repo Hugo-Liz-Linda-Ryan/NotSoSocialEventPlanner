@@ -23,15 +23,17 @@ function App() {
 
     <div className="App">
       <header>
-        <Navigation />
-        <SiteOpeningPage />
-        <About />
+        <Navigation/>
+        <SiteOpeningPage/>
       </header>
       <main>
-      <About/>
-    <WeeklyEvents/>
-        <MovieSectionF />
+        <WeeklyEvents/>
+        <MovieSectionF/>
+        <About/>
       </main>
+      <footer>
+        <p>Made at <a href="https://www.junocollge.com">Juno College</a> © 2021</p>
+      </footer>
     </div>
 
   );

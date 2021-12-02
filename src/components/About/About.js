@@ -31,15 +31,17 @@ const About = () => {
         </div>
 
         <div className="aboutTheDevs">
+          <h2>Meet the Dev Team</h2>
           {devItems.map((item, index) => {
             return (
               <div className={item.cName} key={index}>
                 <img src={item.url} className="roundimage" alt="Profile Pic" />
                 <div className="paraAboutContainer">
                   <h3>{item.devname}</h3>
-                  <h4>{item.pargraph}</h4>
+                  <p>{item.pargraph}</p>
                 </div>
               </div>
+            
             );
           })}
         </div>
