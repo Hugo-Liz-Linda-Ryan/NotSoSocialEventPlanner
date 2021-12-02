@@ -35,8 +35,13 @@
 }
 .aboutTheDevs {
   width: 100%;
+<<<<<<< HEAD
   padding: 5% 5% 0 5%;
   /* background-color: var(--color-devProfiles); */
+=======
+  padding: 2% 5% 0 5%;
+  background-color: var(--color-devProfiles);
+>>>>>>> 414f530132711788699448b87f1667b6f95e939c
   display:flex;
   flex-wrap:wrap;
 }
@@ -45,21 +50,23 @@
   width:100%;
   text-align:center;
   margin-top:0;
-  margin-bottom:5%;
-  font-size:4rem;
+  margin-bottom:1%;
+  padding-bottom:1%;
+  font-size:2.5rem;
   text-transform:uppercase;
   color: rgb(71, 8, 71);
+  border-bottom:1px solid white;
 }
 .appTagLine {
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 25%;
   justify-content: space-between;
   align-content: center;
   align-items: flex-start;
   text-align: left;
   padding:0 2%;
-  margin-bottom: 4%;
+  margin-bottom: 2%;
 }
 
 .appTagLine p{
@@ -80,6 +87,18 @@
 .appTagLine img {
   margin-right: 5%;
   border-radius: 90%;
+  max-width:100px;
+}
+
+.appTagLine a{
+  text-decoration:none;
+  color:white;
+  cursor:pointer;
+}
+
+.appTagLine a:hover,
+.appTagLine a:focus{
+  text-decoration:underline;
 }
 
 
