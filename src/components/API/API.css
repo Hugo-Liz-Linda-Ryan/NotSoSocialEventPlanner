@@ -234,6 +234,10 @@
   text-align: left;
 }
 
+.showInfoWrapper {
+  overflow: scroll;
+}
+
 .showInfo h3 {
   font-size: 25px;
 }
