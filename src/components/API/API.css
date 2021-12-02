@@ -193,10 +193,10 @@
 
  .details {
   position: fixed;
-  bottom: 15vh;
-  right: 12vw;
-  width: 76vw;
-  height: 70vh;
+  bottom: 10vh;
+  right: 5vw;
+  width: 80vw;
+  height: 80vh;
   background-color: #ded6ed;
   border: 3px solid #3a1879;
   border-radius: 18px;
@@ -207,7 +207,8 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  padding: 5px 10px;
+  font-size: 20px;
+  padding: 10px 15px;
   border-radius: 50%;
   color: #df7980;
   background-color: #3a1879;
@@ -227,7 +228,7 @@
 }
 
 .expandedImage {
-  height: 70vh;
+  height: 80vh;
 }
 
 
