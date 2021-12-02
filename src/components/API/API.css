@@ -43,7 +43,7 @@
 .showNav button, 
 .genreFilter select, 
 .selectShowDate input {
-  border-radius: 18px;
+  border-radius: 0 18px 18px 0;
   border: 2px transparent solid;
   margin-bottom: 2%;
 }
