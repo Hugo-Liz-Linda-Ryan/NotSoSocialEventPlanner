@@ -90,31 +90,8 @@
   font-weight:600;
 }
 
-/* Form styling */
-
-.newEventForm {
-  background-color: var(--color-primaryBlueBlackRed);
-  width: 50%;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.newEventForm label {
-  text-align: right;
-}
-
+.newEvents button,
 .newEventForm button {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  width: 50%;
-  margin: 20px auto;
-  padding: 10px 0;
-  text-transform: uppercase;
-  border: none;
-}
-.newEvents button{
   border:none;
   padding:10px 15px;
   margin-bottom:5%;
@@ -134,3 +111,37 @@
   box-shadow:inset 2px 2px 5px;
 }
 
+/* Form styling */
+
+.newEventForm {
+  width: 50%;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 40px;
+  border: 1.5px solid #3A1879;
+}
+
+.newEventForm label {
+  text-align: right;
+}
+
+.newEventForm select {
+  background-color: white;
+}
+
+.newEventForm input, select {
+  border: none;
+  padding: 5px;
+}
+
+.newEventForm button {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 50%;
+  margin: 20px auto 0 auto;
+  padding: 10px 0;
+  text-transform: uppercase;
+  border: none;
+}
