@@ -11,13 +11,7 @@ const About = () => {
           The Not So Social Planner was created by aspiring front-end web
             developers Hugo Arriojas, Linda Columbus, Elizabeth Harris and Ryan
             Van Den Eeckhout during the 2021 Fall-Winter bootcamp at Juno
-<<<<<<< HEAD
-            developers Hugo Arriojas, Linda Columbus, and Elizabeth Harris during the 2021 Fall-Winter bootcamp at Juno
-            College of Technology. 
-            Not So Social Planner uses CSS, JavaScript,
-=======
             College of Technology. Not So Social Planner uses CSS, JavaScript,
->>>>>>> 414f530132711788699448b87f1667b6f95e939c
             React and HTML5 in its code makeup. The project was built to
             showcase the collaborative efforts of the four students during an
             agency style pair programming project that integrates the use of a

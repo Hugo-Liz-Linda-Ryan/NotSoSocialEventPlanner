@@ -1,7 +1,7 @@
 .landingpage {
   color: white;
-  /* background-color: var(--color-primaryBlueBlackRed); */
-  height: 100vh;
+  background-color: var(--color-primaryBlueBlackRed);
+  height: 85vh;
   width: 100%;
 }
 .homePageTitleContainer {
@@ -16,12 +16,12 @@
 }
 
 .landingpage h1 {
-  /* font-size: var(--font-size-h1); */
+  font-size: var(--font-size-h1);
   background-size: cover;
   -moz-background-clip: text;
   -webkit-background-clip: text;
   background-clip: text;
-  /* color: var(--color-h1); */
+  color: var(--color-h1);
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #3a1879;
   font-family: Sulphur Point, Arial, Helvetica, sans-serif;
@@ -53,7 +53,7 @@ h1 {
   color: gold;
 }
 .landingpage h2 {
-  /* font-size: var(--font-size-h2-landingpage); */
+  font-size: var(--font-size-h2-landingpage);
   font-family: Sulphur Point, Arial, Helvetica, sans-serif;
   font-weight: 400;
   letter-spacing: 2px;
