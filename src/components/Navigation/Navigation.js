@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavItems } from "./NavigationItems";
+// import { NavItems } from "./NavigationItems";
 import classes from "./Navigation.module.css";
 import Castle from "./CastleFunction";
 import "./ThemeMenu.css";
