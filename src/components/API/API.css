@@ -23,7 +23,7 @@
 
 
 .showNav {
-  min-width: 15%;
+  min-width: 125px;
   height: 100%;
   max-width: 20%;
   display: flex;
@@ -31,6 +31,7 @@
   flex-direction: column;
   padding: 5% 0;
   margin: 0;
+  text-align: center;
 }
 
 .showNav button, 
@@ -38,11 +39,18 @@
 .selectShowDate input {
   border-radius: 18px;
   border: 2px transparent solid;
+  margin-bottom: 2%;
 }
+
 
 .clearResults, 
 .genreFilter button {
   margin: 0;
+}
+.dateSearch, 
+.genreListSelect,
+.showNav button {
+  padding: 5% 0;
 }
 
 .showNav button {
@@ -50,7 +58,7 @@
   background-color: #3a1879;
   min-width: 100%;
   border: 2px solid transparent;
-  padding: 5% 0;
+  margin-bottom: 10px;
 }
 
 .showNav button:hover, 
@@ -96,6 +104,19 @@
 .showList li {
   margin-bottom: 3%;
   width: 45%;
+  min-width: 190px;
+  height: 100%;
+  border: solid 2px #3a1879;
+  border-radius: 18px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.descContainer, 
+.showContainer {
+  margin-bottom: 3%;
+  width: 45%;
+  min-width: 190px;
   height: 100%;
   border: solid 2px #3a1879;
   border-radius: 18px;
@@ -111,23 +132,28 @@
   margin: 0 auto;
 }
 
-.image img {
+
+.image img,
+.expandedImage img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-
-}
-
-
-.image img {
+  /* 🚨🚨🚨🚨 Which one is better??? */
+  /* object-fit: contain; */
   object-fit: cover;
+  object-position: 75% 25%;
+
+  /* Below centers alt text */
+  line-height: 50px;
+  text-align: center;
 }
+
 
 .showName {
   margin-top: 10px;
 }
 
-.showContainer p {
+.showContainer p, 
+.expandedShow p {
   margin: 2% 0;
 }
 
@@ -161,11 +187,104 @@
 
  .details {
   position: fixed;
-  bottom: 50px;
-  /* right: 0; */
-  width: 75vw;
-  height: 50vh;
-
-  border: 3px solid #73AD21;
+  bottom: 15vh;
+  right: 12vw;
+  width: 76vw;
+  height: 70vh;
+  background-color: #ded6ed;
+  border: 3px solid #3a1879;
+  border-radius: 18px;
+  overflow: hidden;
 }
+
+.expandedShowDesc {
+  position: relative; 
+}
+
+.closeButton{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  color: #df7980;
+  background-color: #3a1879;
+  border: 2px solid transparent;
+}
+
+.closeButton:hover,
+.closeButton:focus{
+  color: #3a1879;
+  background-color: #df7980;
+  border: 2px solid #3a1879;
+}
+
+.expandedImage {
+  overflow: hidden;
+  width: 50%;
+  height: 200px;
+  border-radius: 0 0 18px 0;
+}
+
+.topExpanded {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.showInfo {
+  padding: 3%;
+}
+
+/* Favourites List Section */
+
+.favouritesGallery {
+  border: 2px solid #3a1879;
+  border-radius: 18px;
+  overflow: hidden;
+  text-align: center;
+  height: 100%;
+}
+
+.removeFavourites,
+.faveDesc {
+  width: 100%;
+  padding: 5%; 
+  background-color: #3a1879;
+  border: 2px solid #3a1879;
+  border: none;
+  color: #ded6ed;
+}
+
+.removeFavourites:focus, 
+.removeFavourites:hover {
+  background-color: #df7980;
+  color: #3a1879;
+}
+
+.favourites h3 {
+  margin-top: 5%;
+}
+
+.favouritesList {
+  padding: 0;
+}
+
+.favouritesList li {
+  list-style-type: none;
+  margin: 3% auto;
+  width: 80%;
+}
+
+
+
+
+
 

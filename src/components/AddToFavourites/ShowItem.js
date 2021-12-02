@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import ExtraDetails from '../ExtraDetails';
 
-function ShowItem( props ) {
+function ShowItem(props) {
 
     const [descOpen, setDescOpen] = useState(false);
 
@@ -12,47 +12,54 @@ function ShowItem( props ) {
     }
 
     return (
-            
-        <li key={props.key}>
-            <div className="showContainer product">
-            <p className="schedule">{props.schedule}</p>
+        <>
+            <li key={props.key} className="descContainer product">
                 <div className="image">
-                    <img src={props.image ? props.image.original:null} alt={`Poster of ${props.name}`} />
+                    <img src={props.image ? props.image.original : null} alt={`Poster of ${props.name}`} />
                 </div>
                 <div className="info content">
                     <h3 className="showName">{props.name}</h3>
-                    <p className="episodeName">{props.episodeName}</p>
-                    <p className="showRuntime">Runtime: {props.runtime} minutes</p>
-                    {/* 🚨🚨🚨 This conditional does not work, will need to find alternative */}
-                    <p className="showGenre">Genre: {props.genre ? props.genre: "No genre listed"}</p>
+                    <p className="episodeName">Episode: {props.episodeName}</p>
+                    <p className="showRuntime">{props.runtime ? `Runtime: ${props.runtime} minutes` : null}</p>
+                    {/* if there is a genre associated with the show, render the genre(s); if not, display nothing */}
+                    {props.genre.length > 0
+                        ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
+                        : null}
                     {/* 🚨 change onClick from button to div*/}
-                    <button className="showDesc"
-                        onClick={toggleShowDesc}>More information</button>
+                        <button className="faveDesc"
+                            onClick={toggleShowDesc}>More information</button>
                 </div>
-            </div>
+            </li>
 
             {/* if descOpen is true, show the expanded info */}
             {descOpen ?
                 <ExtraDetails content={
                     <>
                         <div className="expandedShow">
-                            <div className="poster-image">
-                                <img src={props.image ? props.image.original:null}
-                                    alt={`Movie poster for ${props.name}`}
-                                />
-                            </div>
-                            <div className="filmInfo">
-                                <div className="description">
-                                    <h2>{props.name}</h2>
-                                    <p className="episodeName">{props.episodeName}</p>
-                                    <p>{props.summary}</p>
+                            <div className="topExpanded">
+                                <div className="expandedImage">
+                                    <img src={props.image ? props.image.original : null}
+                                        alt={`Poster for ${props.name}`}
+                                    />
                                 </div>
+                                <div className="description">
+                                    <h3>{props.name}</h3>
+                                    <p className="episodeName">Episode: {props.episodeName}</p>
+                                    {props.genre.length > 0
+                                        ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
+                                        : null}
+
+                                </div>
+                            </div>
+
+                            <div className="showInfo">
                                 <div className="info">
-                                    <p>Genre: {props.genre? props.genre: "No genre listed"}</p>
+                                    <h3 className="expandedSumTitle">Summary</h3>
+                                    <p>{props.summary}</p>
                                     <p>Language: {props.language}</p>
                                 </div>
                                 <div className="dates">
-                                    <p>Runtime: {props.runtime}</p>
+                                    <p>{props.runtime ? `Runtime:${props.runtime} minutes` : null}</p>
                                 </div>
                             </div>
                         </div>
@@ -62,10 +69,10 @@ function ShowItem( props ) {
                 />
                 : null // basically show nothing if it isn't clicked
             }
-
-        </li>
+        </>
     )
 }
+
 
 export default ShowItem;
 
