@@ -174,10 +174,8 @@
 
 .EventsWeek p, 
 .EventsWeek h4,
-.EventsWeek h3,
 .weekCalendar h2,
 .newEvents p,
-.newEvents h3,
 .newEvents h4,
 .newEvents h2,
 .newEventForm label{
@@ -185,6 +183,13 @@
 }
 
 /* Media queries */
+
+@media (max-width:850px) {
+  .weeklycalendar h2,
+  .newEvents h2{
+    font-size:30px;
+  }
+}
 
 @media (max-width: 630px) {
   .newEventForm {
