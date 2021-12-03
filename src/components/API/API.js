@@ -81,7 +81,6 @@ function API() {
       setOriginalListing(response.data);
     });
   }
-
   
   return (
     <div className="contentAPISectionContainer">
