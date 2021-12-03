@@ -8,6 +8,12 @@
   padding: 5% 0;
 }
 
+.contentAPISectionContainer h2 {
+  width: 100%;
+  text-align: center;
+
+}
+
 .APISection {
   width: 100%;
   height: 100%;
@@ -37,7 +43,7 @@
 .showNav button, 
 .genreFilter select, 
 .selectShowDate input {
-  border-radius: 18px;
+  border-radius: 0 18px 18px 0;
   border: 2px transparent solid;
   margin-bottom: 2%;
 }
@@ -110,6 +116,7 @@
   border-radius: 18px;
   text-align: center;
   overflow: hidden;
+  background-color: #ded6ed;
 }
 
 .descContainer, 
@@ -137,8 +144,6 @@
 .expandedImage img {
   width: 100%;
   height: 100%;
-  /* 🚨🚨🚨🚨 Which one is better??? */
-  /* object-fit: contain; */
   object-fit: cover;
   object-position: 75% 25%;
 
@@ -187,10 +192,10 @@
 
  .details {
   position: fixed;
-  bottom: 15vh;
-  right: 12vw;
-  width: 76vw;
-  height: 70vh;
+  bottom: 10vh;
+  right: 5vw;
+  width: 80vw;
+  height: 80vh;
   background-color: #ded6ed;
   border: 3px solid #3a1879;
   border-radius: 18px;
@@ -201,7 +206,8 @@
   position: absolute;
   top: 5px;
   right: 5px;
-  padding: 5px 10px;
+  font-size: 20px;
+  padding: 10px 15px;
   border-radius: 50%;
   color: #df7980;
   background-color: #3a1879;
@@ -221,7 +227,7 @@
 }
 
 .expandedImage {
-  height: 70vh;
+  height: 80vh;
 }
 
 
@@ -232,10 +238,6 @@
   align-items: center;
   justify-content: center;
   text-align: left;
-}
-
-.showInfoWrapper {
-  overflow: scroll;
 }
 
 .showInfo h3 {
@@ -255,17 +257,22 @@
   overflow: hidden;
   text-align: center;
   height: 100%;
+  position: relative;
+  margin-bottom: 2%;
 }
 
 .removeFavourites,
 .airdate,
 .faveDesc {
-  width: 100%;
-  padding: 5%; 
   background-color: #3a1879;
   border: 2px solid #3a1879;
   border: none;
   color: #ded6ed;
+}
+.airdate,
+.faveDesc {
+  padding: 5%; 
+  width: 100%;
 }
 
 .removeFavourites:focus, 
@@ -276,22 +283,75 @@
   color: #3a1879;
 }
 
+.removeFavourites{ 
+  margin-right: auto;
+  padding: 1% 3%;
+  border-radius: 0 0 18px 18px;
+}
+
+
 .favourites h3 {
-  margin-top: 5%;
+  margin: 1%;
+  width: 100%;
 }
 
 .favouritesList {
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
-.favouritesList li {
+.descContainer {
   list-style-type: none;
-  margin: 3% auto;
-  width: 80%;
+  margin: 5px auto;
+  width: 50%;
+  max-width: 50px;
+}
+
+.favouritesList .image {
+  height: 50px;
+}
+
+.favouritesList img {
+  object-position: center;
 }
 
 
+.favouritesList p {
+  margin: 1%;
+  font-size: 14px;
+}
 
+
+@media screen and (max-width: 992px) {
+  .favouritesList .image {
+    display: none;
+  }
+
+  
+  .descContainer {
+    min-width: 140px;
+  }
+
+  .details {
+    bottom: 5vh;
+  }
+
+  .expandedImage {
+    width: 30%;
+  }
+
+  .showInfo {
+    padding: 1%;
+    width: 70%;
+  }
+
+  .expandedShow h3 {
+    font-size: 20px;
+  }
+
+}
 
 
 

@@ -23,7 +23,6 @@
   padding: 5% 10% 3% 10%;
   border-top: 2px solid gold ;
   border-bottom: 2px solid gold;
-  
 }
 
 .aboutTheApp p {
@@ -34,6 +33,7 @@
   font-size: 16px;
   margin-bottom: 2%;
 }
+
 .aboutTheDevs {
   width: 100%;
   padding: 2% 5% 0 5%;
@@ -44,16 +44,16 @@
   border-bottom: 2px solid gold;
 }
 
-.aboutTheDevs h2{
-  width:100%;
-  text-align:center;
-  margin-top:0;
-  margin-bottom:1%;
-  padding-bottom:1%;
-  font-size:2.5rem;
-  text-transform:uppercase;
+.aboutTheDevs h2 {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  font-size: 2.5rem;
+  text-transform: uppercase;
   color: rgb(71, 8, 71);
-  border-bottom:1px solid white;
+  border-bottom: 1px solid white;
 }
 .appTagLine {
   display: flex;
@@ -62,13 +62,11 @@
   align-content: center;
   align-items: flex-start;
   text-align: left;
-  padding:0 2%;
+  padding: 0 2%;
   margin-bottom: 2%;
-  
-  
 }
 
-.appTagLine p{
+.appTagLine p {
   font-family: var(--body-font);
   color: var(--color-devProfiles-p);
   letter-spacing: 1px;
@@ -86,18 +84,18 @@
 .appTagLine img {
   margin-right: 5%;
   border-radius: 90%;
-  max-width:100px;
+  max-width: 100px;
 }
 
-.appTagLine a{
-  text-decoration:none;
-  color:white;
-  cursor:pointer;
+.appTagLine a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 
 .appTagLine a:hover,
-.appTagLine a:focus{
-  text-decoration:underline;
+.appTagLine a:focus {
+  text-decoration: underline;
 }
 
 @media (max-width:1300px){
@@ -132,6 +130,14 @@
     margin: 2% 0;
     justify-content:flex-start;
 
+@media (max-width: 1100px) {
+  .aboutTheDevs {
+    flex-direction: column;
+    align-items: space-evenly;
+  }
+
+  .appTagLine {
+    width: 100%;
   }
 }
 

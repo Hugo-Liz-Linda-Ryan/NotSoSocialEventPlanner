@@ -101,8 +101,7 @@ function WeeklyEvents() {
         </section>
 
         <section className="newEvents">
-            <h2>Don't like the way your week is shaping up?</h2>
-            <h2> Add new events to your schedule:</h2>
+            <h4> Add new events to your schedule:</h4>
             {newEvents.map((newEvent) => {
                return (
                     <li key={newEvent.key}>
