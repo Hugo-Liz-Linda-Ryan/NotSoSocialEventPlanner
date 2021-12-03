@@ -1,6 +1,6 @@
 
-   export const devItems = [
-   {
+export const devItems = [
+    {
         devname:'Linda Columbus',
         paragraph: '',
         url: '/images/4.png',
@@ -25,4 +25,3 @@
         cName: 'appTagLine'
     },
 ];
-
