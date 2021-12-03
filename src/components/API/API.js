@@ -29,8 +29,6 @@ function API() {
     setSelectedItems([...selectedItems]);
   }
 
-
-
   const today = new Date()
   // Returns in format "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
   const timeOffset = today.getTimezoneOffset() * 50000;
@@ -80,37 +78,6 @@ function API() {
         country: `${country}`,
         date: `${showDate}`,
       },
-    }).then((response) => {
-      setAllListing(response.data);
-      setOriginalListing(response.data);
-    });
-  }
-
-  function USSearch() {
-    const userchoice1 = document.getElementById("us").value;
-    let country = userchoice1;
-    let date = "";
-
-    axios({
-      method: "GET",
-      url: ` https://api.tvmaze.com/schedule/web`,
-      responseType: "json",
-      params: {
-        country: `${country}`,
-        date: `${date}`,
-      },
-    }).then((response) => {
-      setAllListing(response.data);
-      setOriginalListing(response.data);
-    });
-  }
-
-  function All() {
-    axios({
-      method: "GET",
-      url: ` https://api.tvmaze.com/schedule/web`,
-      responseType: "json",
-      params: {},
     }).then((response) => {
       setAllListing(response.data);
       setOriginalListing(response.data);
@@ -189,10 +156,6 @@ function API() {
               : null}
           </div>
           {/* </ genreFilter> */}
-
-          <p className ="openButton">Other Search Methods:</p>
-          <button className ="openButton" onClick={USSearch}>All U.S. Shows</button>
-          <button className ="openButton" onClick={All}>International</button>
         </nav>
 
         <div className="showGallery">

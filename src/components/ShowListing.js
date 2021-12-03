@@ -49,7 +49,8 @@ function ShowListing(props) {
                                     <h3>{props.name}</h3>
                                     <p className="episodeName">Episode: {props.episodeName}</p>
                                     <h3 className="expandedSumTitle">Summary</h3>
-                                    <p classNam="summaryDesc">{props.summary}</p>
+                                    {/* Received text in props.summary is in HTML format, can't remove the tags from text */}
+                                    <p className="summaryDesc">{props.summary}</p>
                                     {props.genre.length > 0
                                         ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
                                         : null}
