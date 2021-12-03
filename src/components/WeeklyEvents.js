@@ -84,7 +84,7 @@ function WeeklyEvents() {
             {/* destructuring, to access each key-value pair within each weekday object */}
             <h2>This is what your schedule looks like this week...</h2>
             <ul className="EventsWeek">
-            {socialEvents.map(({ day, eventName, eventType, partySize }) => {
+            {socialEvents.slice(0, 7).map(({ day, eventName, eventType, partySize }) => {
                 return (
                 <li key={Math.random()}>
                     <h3>{day}</h3>
