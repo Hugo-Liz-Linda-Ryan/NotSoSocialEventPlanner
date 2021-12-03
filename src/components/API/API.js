@@ -25,7 +25,6 @@ function API() {
 
   // empties out "favourites" section by removing everything in state
   const remove = () => {
-    console.log(selectedItems);
     selectedItems.shift();
     setSelectedItems([...selectedItems]);
   }
@@ -33,10 +32,7 @@ function API() {
 
 
   const today = new Date()
-  // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
-  // const todayDayName = today.getDay()
-  // gets today's weekday as a numerical value
-  // Ex. Sunday=0, Monday=1, Tuesday=2 etc.
+  // Returns in format "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
   const timeOffset = today.getTimezoneOffset() * 50000;
   //offset in milliseconds
   const localISODate = (new Date(Date.now() - timeOffset)).toISOString().substr(0, 10);
@@ -51,7 +47,6 @@ function API() {
 
   function handleGenreChoice(e) {
     setGenreChoice(e.target.value);
-    console.log(genreChoice)
   }
 
   function filterByGenre(e, genreChoice) {
@@ -84,25 +79,6 @@ function API() {
       params: {
         country: `${country}`,
         date: `${showDate}`,
-      },
-    }).then((response) => {
-      setAllListing(response.data);
-      setOriginalListing(response.data);
-
-    });
-  }
-
-  function internationalSearch() {
-    let country = "";
-    let date = "";
-
-    axios({
-      method: "GET",
-      url: ` https://api.tvmaze.com/schedule/web`,
-      responseType: "json",
-      params: {
-        country: `${country}`,
-        date: `${date}`,
       },
     }).then((response) => {
       setAllListing(response.data);
@@ -145,71 +121,78 @@ function API() {
   return (
 
     <div className="contentAPISectionContainer">
-      <h3>Select A Show Section</h3>
+      <h2>Don't want to make any plans? </h2>
+      <h2>Find a show to watch instead!</h2>
 
+      <div className="favouritesGallery">
+          <button className="removeFavourites" onClick={remove}>Remove First Added</button>
+          <FavouriteShowGallery
+            className="lookbookGallery"
+            selectedItems={selectedItems}
+          />
+      </div>
       <div className="APISection">
         <nav className="showNav">
 
-            <div className="selectShowDate">
-              <label htmlFor="chooseDate">Choose show date:</label>
-              <input
-                className="dateSearch"
-                type="date"
-                id="chooseDate"
-                name="searchDate"
-                value={showDate}
-                min={localISODate}
-                onChange={handleDateChange}
-              />
-              <button onClick={searchByDate}>Search by date</button>
-            </div>
+          <div className="selectShowDate">
+            <label htmlFor="chooseDate">Choose show date:</label>
+            <input
+              className="dateSearch"
+              type="date"
+              id="chooseDate"
+              name="searchDate"
+              value={showDate}
+              min={localISODate}
+              onChange={handleDateChange}
+            />
+            <button onClick={searchByDate}>Search by date</button>
+          </div>
 
-      
-            <div className="genreFilter">
-              {/* Genre filter */}
-              <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
-                {/* <form action="submit"> */}
-                <label htmlFor="genreList">Please select which genre to filter by:</label>
-                <select
-                  className="genreListSelect"
-                  name="genreList"
-                  id="genreList"
-                  value={genreChoice}
-                  onChange={handleGenreChoice}
-                >
-                  
-                  {/* We need to clear the genre choice value before another one is selected!! */}
-                  <option value="" disabled >Pick a genre:</option>
-                  <option value="Action">Action</option>
-                  <option value="Anime">Anime</option>
-                  <option value="Adventure">Adventure</option>
-                  <option value="Children">Children</option>
-                  <option value="Comedy">Comedy</option>
-                  <option value="Drama">Drama</option>
-                  <option value="Food">Food</option>
-                  <option value="Music"> Music</option>
-                  <option value="Romance">Romance</option>
-                  <option value="Supernatural">Supernatural</option>
-                  <option value="Thriller">Thriller</option>
-                </select>
-                <button className="genreFilterButton" type="submit">Genre Filter!</button>
-              </form>
-              <button className="clearResults" onClick={clearFilter}>Clear Filter</button>
 
-              {/* render to the page the user's current genre search*/}
-              {currentGenreSearch === true
-                ?
-                <div>
-                  <p>You're currently searching for: {genreChoice}</p>
-                </div>
-                : null}
-            </div>
-            {/* </ genreFilter> */}
+          <div className="genreFilter">
+            {/* Genre filter */}
+            <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
+              {/* <form action="submit"> */}
+              <label htmlFor="genreList">Please select which genre to filter by:</label>
+              <select
+                className="genreListSelect"
+                name="genreList"
+                id="genreList"
+                value={genreChoice}
+                onChange={handleGenreChoice}
+              >
 
-            <p>Other Search Methods:</p>
-            <button id="us" onClick={internationalSearch} value="US">All Shows In All Countries/Date</button>
-            <button onClick={USSearch}>All U.S. Shows</button>
-            <button onClick={All}>International</button>
+                {/* We need to clear the genre choice value before another one is selected!! */}
+                <option value="" disabled >Pick a genre:</option>
+                <option value="Action">Action</option>
+                <option value="Anime">Anime</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Children">Children</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Food">Food</option>
+                <option value="Music"> Music</option>
+                <option value="Romance">Romance</option>
+                <option value="Supernatural">Supernatural</option>
+                <option value="Thriller">Thriller</option>
+              </select>
+              <button className="genreFilterButton" type="submit">Genre Filter!</button>
+            </form>
+            <button className="clearResults" onClick={clearFilter}>Clear Filter</button>
+
+            {/* render to the page the user's current genre search*/}
+            {currentGenreSearch === true
+              ?
+              <div>
+                <p>You're currently searching for: {genreChoice}</p>
+              </div>
+              : null}
+          </div>
+          {/* </ genreFilter> */}
+
+          <p className ="openButton">Other Search Methods:</p>
+          <button className ="openButton" onClick={USSearch}>All U.S. Shows</button>
+          <button className ="openButton" onClick={All}>International</button>
         </nav>
 
         <div className="showGallery">
@@ -237,13 +220,6 @@ function API() {
           {errorMessage === true
             ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
             : null}
-        </div>
-        <div className="favouritesGallery">
-          <button className="removeFavourites" onClick={remove}>Remove Favourites</button>
-          <FavouriteShowGallery
-            className="lookbookGallery"
-            selectedItems={selectedItems}
-          />
         </div>
       </div>
     </div>

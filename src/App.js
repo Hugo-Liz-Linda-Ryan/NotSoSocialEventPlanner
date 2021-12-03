@@ -8,8 +8,6 @@ import WeeklyEvents from './components/WeeklyEvents';
 function App() {
   
 
- 
-
   return (
 
     <div className="App">
