@@ -83,7 +83,7 @@ function WeeklyEvents() {
         <section className="weekCalendar" id="EventPlanner">
             {/* destructuring, to access each key-value pair within each weekday object */}
             <h2>This is what your schedule looks like this week...</h2>
-            <div className="EventsWeek">
+            <ul className="EventsWeek">
             {socialEvents.map(({ day, eventName, eventType, partySize }) => {
                 return (
                 <li key={Math.random()}>
@@ -94,11 +94,12 @@ function WeeklyEvents() {
                 </li>
                 )
             })}
-            </div>
+            </ul>
         </section>
 
-        <section className="newEvents">
+        <section className="allNewEvents">
             <h4> Add new events to your schedule:</h4>
+            <ul className="newEvents">
             {newEvents.map((newEvent) => {
                return (
                     <li key={newEvent.key}>
@@ -110,6 +111,8 @@ function WeeklyEvents() {
                     </li>
                 )
             })}
+            </ul>
+            
         </section>
         
         <form className="newEventForm" action="submit">

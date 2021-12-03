@@ -1,5 +1,6 @@
 .weekCalendar{
   border-top: 2px solid gold;
+  margin-top:10%;
 }
 .weekCalendar, 
 .newEvents,
@@ -91,8 +92,8 @@
   margin:5px;
 }
 
-.newEvents h4{
-  font-size:40px;
+.newEvents li h4{
+  font-size:16px;
 }
 
 .weekCalendar h2,
@@ -152,6 +153,24 @@
   box-shadow:inset 2px 2px 5px;
 }
 
+.eventListItems{
+  width:100%;
+  display:flex;
+}
+
+.allNewEvents{
+  background-color:#845dcc;
+}
+
+.newEvents{
+  margin-bottom:0;
+}
+
+.allNewEvents h4{
+  text-align:center;
+  font-size:40px;
+}
+
 /* Form styling */
 
 .newEventForm {
@@ -207,10 +226,13 @@
 /* Media queries */
 
 @media (max-width:850px) {
-  .weeklycalendar h2,
-  .newEvents h2{
+  .weekCalendar h2,
+  .newEvents h2,
+  .allNewEvents h4{
     font-size:30px;
+    
   }
+
 }
 
 @media (max-width: 630px) {
