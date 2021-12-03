@@ -113,6 +113,7 @@ function API() {
     });
   }
 
+
   return (
     <div className="contentAPISectionContainer">
       <h2>Don't want to make any plans? </h2>
@@ -189,6 +190,7 @@ function API() {
           <p className ="openButton">Other Search Methods:</p>
           <button className ="openButton" onClick={USSearch}>All U.S. Shows</button>
           <button className ="openButton" onClick={All}>International</button>
+
         </nav>
 
         <div className="showGallery">
