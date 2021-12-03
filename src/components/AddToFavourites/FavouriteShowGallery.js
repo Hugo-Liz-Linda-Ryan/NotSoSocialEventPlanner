@@ -7,7 +7,7 @@ const FavouriteShowGallery = (props) => {
 
     return (
         <div className="favourites">
-            <h3>Your Favourites</h3>
+            <h3>Your Watchlist</h3>
             <ul className ="favouritesList">
                 {
                     chosenArray.map((show) => {

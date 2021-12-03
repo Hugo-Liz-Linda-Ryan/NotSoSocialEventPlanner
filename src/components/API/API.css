@@ -262,6 +262,7 @@
   overflow: hidden;
   text-align: center;
   height: 100%;
+  position: relative;
 }
 
 .removeFavourites,
@@ -283,20 +284,42 @@
   color: #3a1879;
 }
 
+.removeFavourites{ 
+  position: absolute;
+  top: left;
+}
+
+
 .favourites h3 {
-  margin-top: 5%;
+  margin: 1%;
 }
 
 .favouritesList {
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
 .favouritesList li {
   list-style-type: none;
-  margin: 3% auto;
-  width: 80%;
+  margin: 3px;
+  width: 50%;
+  max-width: 50px;
 }
 
+.favouritesList .image {
+  height: 50px;
+}
+.favouritesList img {
+  object-position: center;
+}
+
+
+.favouritesList p {
+  margin: 1%;
+  font-size: 14px;
+}
 
 
 
