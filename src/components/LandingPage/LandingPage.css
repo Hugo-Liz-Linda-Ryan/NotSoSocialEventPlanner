@@ -63,3 +63,16 @@ h1 {
 }
 
 
+@media (max-width:855px){
+
+  .landingpage h1{
+    font-size: 100px;
+  }
+
+  .landingpage h2{
+    font-size:50px;
+  }
+
+}
+
+
