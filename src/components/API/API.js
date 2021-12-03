@@ -195,9 +195,9 @@ function API() {
           </div>
           {/* </ genreFilter> */}
 
-          <p>Other Search Methods:</p>
-          <button onClick={USSearch}>All U.S. Shows</button>
-          <button onClick={All}>International</button>
+          <p className ="openButton">Other Search Methods:</p>
+          <button className ="openButton" onClick={USSearch}>All U.S. Shows</button>
+          <button className ="openButton" onClick={All}>International</button>
         </nav>
 
         <div className="showGallery">
