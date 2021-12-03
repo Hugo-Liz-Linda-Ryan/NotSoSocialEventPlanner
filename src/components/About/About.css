@@ -27,19 +27,19 @@
 
 .aboutTheApp p {
   font-family: var(--body-font);
-  color: white;
   letter-spacing: 1px;
   line-height: 29px;
   font-size: 16px;
+  color: white;
   margin-bottom: 2%;
 }
 
 .aboutTheDevs {
   width: 100%;
-  padding: 2% 5% 0 5%;
   background-color: var(--color-devProfiles);
   display:flex;
   flex-wrap:wrap;
+  padding: 2% 5% 0 5%;
   margin:0 auto;
   border-bottom: 2px solid gold;
 }
@@ -47,32 +47,32 @@
 .aboutTheDevs h2 {
   width: 100%;
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 1%;
-  padding-bottom: 1%;
   font-size: 2.5rem;
   text-transform: uppercase;
   color: rgb(71, 8, 71);
+  padding-bottom: 1%;
+  margin-top: 0;
+  margin-bottom: 1%;
   border-bottom: 1px solid white;
 }
 .appTagLine {
-  display: flex;
   width: calc(100%/3);
+  text-align: left;
+  display: flex;
   justify-content: flex-start;
   align-content: center;
   align-items: flex-start;
-  text-align: left;
   padding: 0 2%;
   margin-bottom: 2%;
 }
 
 .appTagLine p {
   font-family: var(--body-font);
-  color: var(--color-devProfiles-p);
   letter-spacing: 1px;
   line-height: 29px;
   font-size: 16px;
   font-weight: 300;
+  color: var(--color-devProfiles-p);
 }
 
 .appTagLine h3 {
@@ -82,9 +82,9 @@
   margin-bottom: 2%;
 }
 .appTagLine img {
+  max-width: 100px;
   margin-right: 5%;
   border-radius: 90%;
-  max-width: 100px;
 }
 
 .appTagLine a {
@@ -105,8 +105,7 @@
 
   .appTagLine{
     width:50%;
-    margin:1% auto;
-    
+    margin:1% auto; 
   }
 }
 
@@ -127,8 +126,8 @@
 @media (max-width:400px){
   
   .appTagLine{
-    margin: 2% 0;
     justify-content:flex-start;
+    margin: 2% 0;
   }
 }
 

@@ -31,12 +31,12 @@
   min-width: 125px;
   height: 100%;
   max-width: 20%;
+  text-align: center;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   padding: 0 0 5% 0;
   margin: 0;
-  text-align: center;
 }
 
 .showNav button, 
@@ -59,27 +59,27 @@
 }
 
 .showNav button {
+  min-width: 100%;
   color: #ded6ed;
   background-color: #3a1879;
-  min-width: 100%;
-  border: 2px solid transparent;
   margin-bottom: 10px;
+  border: 2px solid transparent;
 }
 
 .showNav button:hover, 
 .showNav button:focus {
-  background-color: var(--color-primaryBlueBlackRed);
-  cursor: pointer;
   color: #3a1879;
+  background-color: var(--color-primaryBlueBlackRed);
   border: 2px solid #3a1879;
+  cursor: pointer;
 }
 
 .genreFilter select, 
 .selectShowDate input {
-  margin: 5% 0;
   width: 100%;
   font-size: 14px;
   text-align: center;
+  margin: 5% 0;
   border: 2px solid #3a187936;
 }
 .genreFilter select:focus, 
@@ -92,8 +92,8 @@
 
 .showGallery {
   height: 100%;
-  padding: 0%;
   max-width: 75%;
+  padding: 0%;
 }
 
 .showList {
@@ -106,16 +106,16 @@
 }
 
 .showContainer {
-  margin-bottom: 3%;
   width: 45%;
   min-width: 190px;
   max-width: 300px;
   height: 100%;
+  text-align: center;
+  background-color: #ded6ed;
+  margin-bottom: 3%;
   border: solid 2px #3a1879;
   border-radius: 18px;
-  text-align: center;
   overflow: hidden;
-  background-color: #ded6ed;
 }
 
 .descContainer, 
@@ -132,9 +132,9 @@
 
 
 .image {
-  overflow: hidden;
   height: 150px;
   width: 100%;
+  overflow: hidden;
   margin: 0 auto;
 }
 
@@ -231,11 +231,11 @@
 
 .showInfo {
   width: 60%;
-  padding: 3%;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  padding: 3%;
 }
 
 .showInfo h3 {
@@ -246,16 +246,14 @@
   font-size: 14px;
 }
 
-
-
 /* Favourites List Section */
 
 .favouritesGallery {
+  height: 100%;
+  text-align: center;
   border: 2px solid #3a1879;
   border-radius: 18px;
   overflow: hidden;
-  text-align: center;
-  height: 100%;
   position: relative;
   margin: 2% auto;
 }
@@ -263,49 +261,50 @@
 .removeFavourites,
 .airdate,
 .faveDesc {
-  background-color: #3a1879;
-  border: 2px solid #3a1879;
-  border: none;
   color: #ded6ed;
+  background-color: #3a1879;
+  border: none;
+  border: 2px solid #3a1879;
 }
 .airdate,
 .faveDesc {
-  padding: 5%; 
   width: 100%;
+  padding: 5%; 
 }
 
 .removeFavourites:focus, 
 .removeFavourites:hover,
 .faveDesc:focus,
 .faveDesc:hover {
-  background-color: #df7980;
   color: #3a1879;
+  background-color: #df7980;
 }
 
 .removeFavourites{ 
-  margin-right: auto;
   padding: 1% 3%;
+  margin-right: auto;
   border-radius: 0 0 18px 18px;
+  cursor:pointer;
 }
 
 
 .favourites h3 {
-  margin: 1%;
   width: 100%;
+  margin: 1%;
 }
 
 .favouritesList {
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
+  padding: 0;
   margin: 0;
 }
 
 .descContainer {
-  list-style-type: none;
-  margin: 5px auto;
   width: 50%;
   max-width: 50px;
+  list-style-type: none;
+  margin: 5px auto;
 }
 
 .favouritesList .image {
@@ -318,8 +317,8 @@
 
 
 .favouritesList p {
-  margin: 1%;
   font-size: 14px;
+  margin: 1%;
 }
 
 
@@ -333,8 +332,8 @@
   }
 
   .showNav {
-    max-width: none;
     width: 95%;
+    max-width: none;
     padding: 3% 0;
   }
   
@@ -352,8 +351,8 @@
   }
 
   .showInfo {
-    padding: 1%;
     width: 70%;
+    padding: 1%;
   }
 
   .expandedShow h3 {
