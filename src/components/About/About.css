@@ -64,7 +64,7 @@
   text-align: left;
   padding:0 2%;
   margin-bottom: 2%;
-  border: 2px solid purple;
+  
   
 }
 
@@ -100,12 +100,8 @@
   text-decoration:underline;
 }
 
-
-/* there are weird things happening at this size */
 @media (max-width:1300px){
   .aboutTheDevs{
-    /* flex-direction:column; */
-    /* align-items:space-evenly; */
     justify-items:center;
   }
 

@@ -154,12 +154,17 @@
 
 .EventsWeek p, 
 .EventsWeek h4,
-.EventsWeek h3,
 .weekCalendar h2,
 .newEvents p,
-.newEvents h3,
 .newEvents h4,
 .newEvents h2,
 .newEventForm label{
   color:var(--eventsweekfont);
+}
+
+@media (max-width:855px){
+    .weekCalendar h2,
+    .newEvents h2{
+      font-size:30px;
+    }
 }
