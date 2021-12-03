@@ -1,4 +1,3 @@
-// NPM Modules
 import { useState } from 'react';
 import ExtraDetails from './ExtraDetails';
 
@@ -13,7 +12,7 @@ function ShowListing(props) {
 
     return (
         <>
-            <li key={props.key} className="showContainer product">
+            <li key={Math.random()} className="showContainer product">
                 <div className="image">
                     <img src={props.image ? props.image.original : null} alt={`Poster of ${props.name}`} />
                 </div>
@@ -49,6 +48,7 @@ function ShowListing(props) {
                                     <h3>{props.name}</h3>
                                     <p className="episodeName">Episode: {props.episodeName}</p>
                                     <h3 className="expandedSumTitle">Summary</h3>
+                                    
                                     {/* Received text in props.summary is in HTML format, can't remove the tags from text */}
                                     <p className="summaryDesc">{props.summary}</p>
                                     {props.genre.length > 0

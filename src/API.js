@@ -1,31 +1,24 @@
 import "./App.css";
+import "./API.css";
 import axios from "axios";
 import { useState } from "react";
 import ShowListing from "./components/ShowListing";
-import "./API.css";
 
 function API() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
-  // const [filteredShows, setFilteredShows] = useState([]);
-
-
-
   const today = new Date()
   // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
-  // const todayDayName = today.getDay()
-  // gets today's weekday as a numerical value
-  // Ex. Sunday=0, Monday=1, Tuesday=2 etc.
   const timeOffset = today.getTimezoneOffset() * 50000;
   //offset in milliseconds
   const localISODate = (new Date(Date.now() - timeOffset)).toISOString().substr(0, 10);
   // Returns format "YYYY-MM-DD"
+
   const [showDate, setShowDate] = useState(localISODate);
 
   const endOfWeek = new Date(today)
   endOfWeek.setDate(endOfWeek.getDate() + 7)
   const endOfWeekISODate = endOfWeek.toISOString().substr(0, 10)
-
 
   function handleDateChange(e) {
     setShowDate(e.target.value);
@@ -37,16 +30,10 @@ function API() {
 
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
-    const copyOfListings = [...allListings];
-    
+    const copyOfListings = [...allListings];  
     const filteredShows = copyOfListings.filter(show => show._embedded.show.genres.some((g) => g === genreChoice))
-
-    // 🚨🚨🚨 need to add error handling for blank, also switching filters
-    // 🚨🚨🚨 also need to add "current filter" display
-    // setFilteredShows(filteredShows)
       setAllListing(filteredShows)
   }
-
 
   function searchByDate() {
     let country = "US";
@@ -64,14 +51,13 @@ function API() {
     });
   }
 
-
   function hello() {
     let country = "";
     let date = "";
 
     axios({
       method: "GET",
-      url: ` https://api.tvmaze.com/schedule/web`,
+      url: `https://api.tvmaze.com/schedule/web`,
       responseType: "json",
       params: {
         country: `${country}`,
@@ -83,8 +69,8 @@ function API() {
   }
 
   function lolo() {
-    const userchoice1 = document.getElementById("us").value;
-    let country = userchoice1;
+    const userChoice1 = document.getElementById("us").value;
+    let country = userChoice1;
     let date = "";
 
     axios({
@@ -111,9 +97,7 @@ function API() {
     });
   }
 
-
   return (
-
     <div className="contentAPISectionContainer">
 
       {/* Genre filter */}
@@ -148,7 +132,6 @@ function API() {
         </form>
       <div className="APISection">
 
-        {/* <h2>Select A Movie Section</h2> */}
         <nav className="NavAids">
           <ul>
             <div className="selectShowDate">
@@ -186,8 +169,6 @@ function API() {
                   image={show._embedded.show.image}
                   site={show.url}
                   language={show._embedded.show.language}
-                  // schedule = {show.schedule.days}
-                  // time = {show.schedule.time}
                   summary={show._embedded.show.summary}
                 />
               );

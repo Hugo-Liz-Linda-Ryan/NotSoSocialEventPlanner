@@ -23,11 +23,9 @@ const FavouriteShowGallery = (props) => {
                                 language={show._embedded.show.language}
                                 summary={show._embedded.show.summary}
                             />
-
                         )
                     })
                 }
-
             </ul>
         </div>
     );

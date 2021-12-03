@@ -1,8 +1,8 @@
 import "../../App.css";
+import "./API.css";
 import axios from "axios";
 import { useState } from "react";
 import ShowListing from "../ShowListing";
-import "./API.css";
 import FavouriteShowGallery from "../AddToFavourites/FavouriteShowGallery";
 
 function API() {
@@ -37,8 +37,6 @@ function API() {
   // Returns format "YYYY-MM-DD"
   const [showDate, setShowDate] = useState(localISODate);
 
-
-
   function handleDateChange(e) {
     setShowDate(e.target.value);
   }
@@ -72,7 +70,7 @@ function API() {
 
     axios({
       method: "GET",
-      url: ` https://api.tvmaze.com/schedule/web`,
+      url: `https://api.tvmaze.com/schedule/web`,
       responseType: "json",
       params: {
         country: `${country}`,
@@ -84,9 +82,39 @@ function API() {
     });
   }
 
+  function USSearch() {
+    const userChoice1 = document.getElementById("us").value;
+    let country = userChoice1;
+    let date = "";
+
+    axios({
+      method: "GET",
+      url: `https://api.tvmaze.com/schedule/web`,
+      responseType: "json",
+      params: {
+        country: `${country}`,
+        date: `${date}`,
+      },
+    }).then((response) => {
+      setAllListing(response.data);
+      setOriginalListing(response.data);
+    });
+  }
+
+  function All() {
+    axios({
+      method: "GET",
+      url: `https://api.tvmaze.com/schedule/web`,
+      responseType: "json",
+      params: {},
+    }).then((response) => {
+      setAllListing(response.data);
+      setOriginalListing(response.data);
+    });
+  }
+
 
   return (
-
     <div className="contentAPISectionContainer">
       <h2>Don't want to make any plans? </h2>
       <h2>Find a show to watch instead!</h2>
@@ -115,11 +143,9 @@ function API() {
             <button onClick={searchByDate}>Search by date</button>
           </div>
 
-
           <div className="genreFilter">
             {/* Genre filter */}
             <form onSubmit={(e) => { filterByGenre(e, genreChoice) }} className="genreFilter">
-              {/* <form action="submit"> */}
               <label htmlFor="genreList">Please select which genre to filter by:</label>
               <select
                 className="genreListSelect"
@@ -129,19 +155,24 @@ function API() {
                 onChange={handleGenreChoice}
               >
 
-                {/* We need to clear the genre choice value before another one is selected!! */}
                 <option value="" disabled >Pick a genre:</option>
                 <option value="Action">Action</option>
                 <option value="Anime">Anime</option>
                 <option value="Adventure">Adventure</option>
                 <option value="Children">Children</option>
                 <option value="Comedy">Comedy</option>
+                <option value="Crime">Crime</option>
                 <option value="Drama">Drama</option>
+                <option value="Fantasy">Fantasy</option>
                 <option value="Food">Food</option>
-                <option value="Music"> Music</option>
+                <option value="Music">Music</option>
+                <option value="Mystery">Mystery</option>
                 <option value="Romance">Romance</option>
+                <option value="Science-Fiction">Science-Fiction</option>
+                <option value="Sports">Sports</option>
                 <option value="Supernatural">Supernatural</option>
                 <option value="Thriller">Thriller</option>
+                <option value="Travel">Travel</option>
               </select>
               <button className="genreFilterButton" type="submit">Genre Filter!</button>
             </form>
@@ -155,7 +186,11 @@ function API() {
               </div>
               : null}
           </div>
-          {/* </ genreFilter> */}
+
+          <p className ="openButton">Other Search Methods:</p>
+          <button className ="openButton" onClick={USSearch}>All U.S. Shows</button>
+          <button className ="openButton" onClick={All}>International</button>
+
         </nav>
 
         <div className="showGallery">
@@ -172,7 +207,6 @@ function API() {
                   image={show._embedded.show.image}
                   site={show.url}
                   language={show._embedded.show.language}
-                  // time = {show.schedule.time}
                   summary={show._embedded.show.summary}
                   clickHandler={addToShowGallery}
                 />
