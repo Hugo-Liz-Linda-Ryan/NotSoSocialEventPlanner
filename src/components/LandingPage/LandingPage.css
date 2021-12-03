@@ -41,6 +41,8 @@ h1 {
   opacity: 0;
   position: relative;
   padding: 0 5%;
+  margin-top:10%;
+
 }
 
 @keyframes slideIn {
@@ -61,7 +63,7 @@ h1 {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
   color: #c1b3dd;
-  padding:0 5%;
+  padding-bottom:5%;
 }
 
 
