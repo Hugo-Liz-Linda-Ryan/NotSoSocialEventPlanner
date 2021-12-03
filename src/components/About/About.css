@@ -21,9 +21,13 @@
 .aboutTheApp {
   width: 100%;
   padding: 5% 10% 3% 10%;
+<<<<<<< HEAD
   border-top: 2px solid gold ;
   border-bottom: 2px solid gold;
   
+=======
+  border-bottom: gold solid 2px;
+>>>>>>> 5b517dfe1b73ff3171f05a57daaa21eada74cb1b
 }
 
 .aboutTheApp p {
@@ -38,22 +42,28 @@
   width: 100%;
   padding: 2% 5% 0 5%;
   background-color: var(--color-devProfiles);
+<<<<<<< HEAD
   display:flex;
   flex-wrap:wrap;
   margin:0 auto;
   border-bottom: 2px solid gold;
+=======
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+>>>>>>> 5b517dfe1b73ff3171f05a57daaa21eada74cb1b
 }
 
-.aboutTheDevs h2{
-  width:100%;
-  text-align:center;
-  margin-top:0;
-  margin-bottom:1%;
-  padding-bottom:1%;
-  font-size:2.5rem;
-  text-transform:uppercase;
+.aboutTheDevs h2 {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  font-size: 2.5rem;
+  text-transform: uppercase;
   color: rgb(71, 8, 71);
-  border-bottom:1px solid white;
+  border-bottom: 1px solid white;
 }
 .appTagLine {
   display: flex;
@@ -62,13 +72,13 @@
   align-content: center;
   align-items: flex-start;
   text-align: left;
-  padding:0 2%;
+  padding: 0 2%;
   margin-bottom: 2%;
   border: 2px solid purple;
   
 }
 
-.appTagLine p{
+.appTagLine p {
   font-family: var(--body-font);
   color: var(--color-devProfiles-p);
   letter-spacing: 1px;
@@ -86,22 +96,22 @@
 .appTagLine img {
   margin-right: 5%;
   border-radius: 90%;
-  max-width:100px;
+  max-width: 100px;
 }
 
-.appTagLine a{
-  text-decoration:none;
-  color:white;
-  cursor:pointer;
+.appTagLine a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 
 .appTagLine a:hover,
-.appTagLine a:focus{
-  text-decoration:underline;
+.appTagLine a:focus {
+  text-decoration: underline;
 }
 
-
 /* there are weird things happening at this size */
+<<<<<<< HEAD
 @media (max-width:1300px){
   .aboutTheDevs{
     /* flex-direction:column; */
@@ -136,6 +146,16 @@
     margin: 2% 0;
     justify-content:flex-start;
 
+=======
+@media (max-width: 1100px) {
+  .aboutTheDevs {
+    flex-direction: column;
+    align-items: space-evenly;
+  }
+
+  .appTagLine {
+    width: 100%;
+>>>>>>> 5b517dfe1b73ff3171f05a57daaa21eada74cb1b
   }
 }
 
