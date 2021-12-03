@@ -21,13 +21,8 @@
 .aboutTheApp {
   width: 100%;
   padding: 5% 10% 3% 10%;
-<<<<<<< HEAD
   border-top: 2px solid gold ;
   border-bottom: 2px solid gold;
-  
-=======
-  border-bottom: gold solid 2px;
->>>>>>> 5b517dfe1b73ff3171f05a57daaa21eada74cb1b
 }
 
 .aboutTheApp p {
@@ -38,20 +33,15 @@
   font-size: 16px;
   margin-bottom: 2%;
 }
+
 .aboutTheDevs {
   width: 100%;
   padding: 2% 5% 0 5%;
   background-color: var(--color-devProfiles);
-<<<<<<< HEAD
   display:flex;
   flex-wrap:wrap;
   margin:0 auto;
   border-bottom: 2px solid gold;
-=======
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
->>>>>>> 5b517dfe1b73ff3171f05a57daaa21eada74cb1b
 }
 
 .aboutTheDevs h2 {
@@ -74,8 +64,6 @@
   text-align: left;
   padding: 0 2%;
   margin-bottom: 2%;
-  border: 2px solid purple;
-  
 }
 
 .appTagLine p {
@@ -110,12 +98,8 @@
   text-decoration: underline;
 }
 
-/* there are weird things happening at this size */
-<<<<<<< HEAD
 @media (max-width:1300px){
   .aboutTheDevs{
-    /* flex-direction:column; */
-    /* align-items:space-evenly; */
     justify-items:center;
   }
 
@@ -146,7 +130,6 @@
     margin: 2% 0;
     justify-content:flex-start;
 
-=======
 @media (max-width: 1100px) {
   .aboutTheDevs {
     flex-direction: column;
@@ -155,7 +138,6 @@
 
   .appTagLine {
     width: 100%;
->>>>>>> 5b517dfe1b73ff3171f05a57daaa21eada74cb1b
   }
 }
 
