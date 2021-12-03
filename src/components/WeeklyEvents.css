@@ -1,20 +1,49 @@
 .weekCalendar, 
+.newEvents,
+.weekCalendar li, 
+.newEvents li,
+.EventsWeek, 
 .newEvents {
   display: flex;
+}
+
+.weekCalendar, 
+.newEvents,
+.weekCalendar li, 
+.newEvents li {
   flex-direction: column;
-  height: auto;
+}
+
+.weekCalendar li, 
+.newEvents li,
+.EventsWeek, 
+.newEvents {
+  align-items: center;
+  align-content: center;
+}
+
+.weekCalendar, 
+.newEvents,
+.EventsWeek, 
+.newEvents,
+.EventsWeek h3, 
+.newEvents h3,
+.weekCalendar h2,
+.newEvents h2 {
   width: 100%;
+}
+
+.weekCalendar, 
+.newEvents {
+  height: auto;
   background-color: var(--color-primaryBlueBlackRed);
   padding: 3% 0;
 }
+
 .weekCalendar li, 
 .newEvents li {
   list-style: none;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  align-content: center;
   text-align:center;
   width: calc(86%/7);
   border:2px solid #3A1879;
@@ -30,23 +59,18 @@
 
 .EventsWeek, 
 .newEvents {
-  display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: space-evenly;
   padding: 2% 5% 0 5%;
-  align-items: center;
-  align-content: center;
   flex-wrap: wrap;
-  /* border: gold solid 2px; */
 }
+
 .EventsWeek h3, 
 .newEvents h3{
   text-transform: uppercase;
   font-size: 28px;
   margin-bottom:3%;
   background-color:#3A1879;
-  width:100%;
   border-radius:16px 16px 0 0;
   color:white;
 }
@@ -60,7 +84,6 @@
 .weekCalendar h2,
 .newEvents h2 {
   text-transform: capitalize;
-  width: 100%;
   text-align: center;
   font-family: var(--heading-font);
   font-size: 48px;
@@ -68,27 +91,26 @@
   }
 
 .EventsWeek li h4::before,
-.newEvents li h4::before{
-  content: 'Event Name:';
+.newEvents li h4::before,
+.EventsWeek p:first-of-type::before,
+.newEvents p:first-of-type::before,
+.EventsWeek p:last-of-type::before,
+.newEvents p:last-of-type::before {
   display:block;
   text-transform:uppercase;
   font-weight:600;
 }
 
+.EventsWeek li h4::before,
+.newEvents li h4::before,
 .EventsWeek p:first-of-type::before,
 .newEvents p:first-of-type::before{
-  content:'Event Type:';
-  display:block;
-  text-transform:uppercase;
-  font-weight:600;
+  content: 'Event Name:';
 }
 
 .EventsWeek p:last-of-type::before,
 .newEvents p:last-of-type::before{
   content:'Party Size:';
-  display:block;
-  text-transform:uppercase;
-  font-weight:600;
 }
 
 .newEvents button,
