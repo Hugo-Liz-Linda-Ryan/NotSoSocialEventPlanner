@@ -58,10 +58,6 @@
   background-color:#ded6ed;
 }
 
-.weekCalendar li:last-of-type{
-  display:none;
-}
-
 .EventsWeek, 
 .newEvents {
   flex-direction: row;
