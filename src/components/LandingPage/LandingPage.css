@@ -1,7 +1,7 @@
 .landingpage {
   color: white;
   background-color: var(--color-primaryBlueBlackRed);
-  height: 100vh;
+  height: 80vh;
   width: 100%;
 }
 .homePageTitleContainer {

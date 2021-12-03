@@ -248,6 +248,7 @@ html {
   --color-devProfiles: #df7980;
   --color-devProfiles-p: white;
   overflow-x: hidden;
+  --eventsweekfont: black;
 }
 
 html[data-theme="dark"] {
@@ -260,6 +261,7 @@ html[data-theme="dark"] {
   --color-about: #2c2c2c;
   --color-devProfiles: rgb(90, 90, 90);
   --color-devProfiles-p: white;
+  --eventsweekfont:white;
 }
 
 html[data-theme="colorful"] {
