@@ -122,8 +122,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 40px;
-  /* border: 1.5px solid #3A1879; */
-  
 }
 
 .newEventForm label {
@@ -163,4 +161,23 @@
 .newEvents h2,
 .newEventForm label{
   color:var(--eventsweekfont);
+}
+
+/* Media queries */
+
+@media (max-width: 630px) {
+  .newEventForm {
+    display: block;
+  }
+
+  .newEventForm label,
+  .newEventForm select,
+  .newEventForm input {
+    width: 100%;
+  }
+
+  .newEventForm input,
+  .newEventForm select {
+    margin: 10px 0;
+  }
 }
