@@ -1,3 +1,6 @@
+.weekCalendar{
+  border-top: 2px solid gold;
+}
 .weekCalendar, 
 .newEvents,
 .weekCalendar li, 
@@ -36,7 +39,7 @@
 .weekCalendar, 
 .newEvents {
   height: auto;
-  background-color: var(--color-primaryBlueBlackRed);
+  background-color: #845dcc;
   padding: 3% 0;
 }
 
@@ -51,6 +54,7 @@
   border-radius:20px;
   margin:1%;
   min-width:200px;
+  background-color:#ded6ed;
 }
 
 .weekCalendar li:last-of-type{
@@ -75,10 +79,20 @@
   color:white;
 }
 
-.EventsWeek h4,
-.newEvents h4{
+.EventsWeek h4{
   font-weight:200;
   margin-bottom: 0;
+}
+
+.EventsWeek p,
+.newEvents p,
+.EventsWeek h4,
+.newEvents h4{
+  margin:5px;
+}
+
+.newEvents h4{
+  font-size:40px;
 }
 
 .weekCalendar h2,
@@ -102,10 +116,13 @@
 }
 
 .EventsWeek li h4::before,
-.newEvents li h4::before,
+.newEvents li h4::before{
+  content: 'Event Name:'
+}
+
 .EventsWeek p:first-of-type::before,
 .newEvents p:first-of-type::before{
-  content: 'Event Name:';
+  content: 'Event Type:';
 }
 
 .EventsWeek p:last-of-type::before,
@@ -140,10 +157,13 @@
 .newEventForm {
   width: 100%;
   margin: 40px auto;
+  margin-top:0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 40px;
+  background-color: #845dcc;
+  border-bottom: 2px solid gold;
 }
 
 .newEventForm label {
@@ -157,6 +177,7 @@
 .newEventForm input, 
 .newEventForm select {
   border: 1px solid #3A1879;
+  border-radius:20px;
   padding: 5px;
   width:50%;
   min-width:300px;
@@ -208,3 +229,4 @@
     margin: 10px 0;
   }
 }
+

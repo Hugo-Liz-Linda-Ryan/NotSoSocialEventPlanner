@@ -1,12 +1,3 @@
-export const devItems = [
-    {
-        devname:'Hugo Arriojas',
-        paragraph: '',
-        url: '/images/1.png',
-        website: 'https://www.hugoa.dev/' ,
-        github: 'https://github.com/HugoArriojas/hugoArriojasProject03',
-        cName: 'appTagLine'
-    },    
 
     {
         devname:'Linda Columbus',
@@ -16,11 +7,18 @@ export const devItems = [
         github: 'https://github.com/lindacolumbus',
         cName: 'appTagLine'
     },
-
+    {
+        devname:'Hugo Arriojas',
+        paragraph: '',
+        url: '/images/1.png',
+        website: 'https://www.hugoa.dev/' ,
+        github: 'https://github.com/HugoArriojas/hugoArriojasProject03',
+        cName: 'appTagLine'
+    },    
     {
         devname:'Elizabeth Harris',
         paragraph: '',
-        url: '/images/3.png',
+        url: '/images/2.png',
         website: 'https://www.elizabethharris.dev' ,
         github: 'https://github.com/lizzy-bird',
         cName: 'appTagLine'
