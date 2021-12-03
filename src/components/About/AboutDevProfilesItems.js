@@ -1,5 +1,4 @@
-export const devItems = [
-    
+
     {
         devname:'Linda Columbus',
         paragraph: '',
