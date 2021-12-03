@@ -25,7 +25,6 @@ function API() {
 
   // empties out "favourites" section by removing everything in state
   const remove = () => {
-    console.log(selectedItems);
     selectedItems.shift();
     setSelectedItems([...selectedItems]);
   }
@@ -33,10 +32,7 @@ function API() {
 
 
   const today = new Date()
-  // Returns "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
-  // const todayDayName = today.getDay()
-  // gets today's weekday as a numerical value
-  // Ex. Sunday=0, Monday=1, Tuesday=2 etc.
+  // Returns in format "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
   const timeOffset = today.getTimezoneOffset() * 50000;
   //offset in milliseconds
   const localISODate = (new Date(Date.now() - timeOffset)).toISOString().substr(0, 10);
@@ -49,7 +45,6 @@ function API() {
 
   function handleGenreChoice(e) {
     setGenreChoice(e.target.value);
-    console.log(genreChoice)
   }
 
   function filterByGenre(e, genreChoice) {
@@ -86,8 +81,6 @@ function API() {
     }).then((response) => {
       setAllListing(response.data);
       setOriginalListing(response.data);
-      console.log(response.data)
-
     });
   }
 
@@ -130,7 +123,7 @@ function API() {
       <h2>Find a show to watch instead!</h2>
 
       <div className="favouritesGallery">
-          <button className="removeFavourites" onClick={remove}>Remove Favourites</button>
+          <button className="removeFavourites" onClick={remove}>Remove First Added</button>
           <FavouriteShowGallery
             className="lookbookGallery"
             selectedItems={selectedItems}

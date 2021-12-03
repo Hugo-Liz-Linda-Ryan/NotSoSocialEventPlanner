@@ -143,8 +143,6 @@
 .expandedImage img {
   width: 100%;
   height: 100%;
-  /* 🚨🚨🚨🚨 Which one is better??? */
-  /* object-fit: contain; */
   object-fit: cover;
   object-position: 75% 25%;
 
@@ -268,12 +266,15 @@
 .removeFavourites,
 .airdate,
 .faveDesc {
-  width: 100%;
-  padding: 5%; 
   background-color: #3a1879;
   border: 2px solid #3a1879;
   border: none;
   color: #ded6ed;
+}
+.airdate,
+.faveDesc {
+  padding: 5%; 
+  width: 100%;
 }
 
 .removeFavourites:focus, 
@@ -285,14 +286,15 @@
 }
 
 .removeFavourites{ 
-  position: absolute;
-  top: 0;
-  left: 0;
+  margin-right: auto;
+  padding: 1% 3%;
+  border-radius: 0 0 18px 18px;
 }
 
 
 .favourites h3 {
   margin: 1%;
+  width: 100%;
 }
 
 .favouritesList {
