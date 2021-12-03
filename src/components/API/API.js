@@ -82,6 +82,7 @@ function API() {
     });
   }
 
+  
   return (
     <div className="contentAPISectionContainer">
       <h2>Don't want to make any plans? </h2>
