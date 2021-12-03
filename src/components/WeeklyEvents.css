@@ -162,6 +162,13 @@
 
 /* Media queries */
 
+@media (max-width:850px) {
+  .weeklycalendar h2,
+  .newEvents h2{
+    font-size:30px;
+  }
+}
+
 @media (max-width: 630px) {
   .newEventForm {
     display: block;
