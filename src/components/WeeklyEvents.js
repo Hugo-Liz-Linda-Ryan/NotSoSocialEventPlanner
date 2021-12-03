@@ -117,8 +117,8 @@ function WeeklyEvents() {
         
         <form className="newEventForm" action="submit">
             <label htmlFor="newEventDay">Which day of the week?</label>
-            <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect}>
-                <option value="" hidden disabled >Choose a day</option>
+            <select name="newEventDay" id="newEventDay"  value={userDaySelect} onChange={handleUserDaySelect} >
+                <option value="" hidden disabled>Choose a day</option>
                 <option value="Sunday">Sunday</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>

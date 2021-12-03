@@ -1,7 +1,11 @@
 .landingpage {
   color: white;
   background-color: var(--color-primaryBlueBlackRed);
+<<<<<<< HEAD
   height: 85vh;
+=======
+  height: 80vh;
+>>>>>>> a576bbcfb945ff44a04359e77fabc722761c17bf
   width: 100%;
 }
 .homePageTitleContainer {
