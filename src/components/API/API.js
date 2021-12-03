@@ -82,38 +82,6 @@ function API() {
     });
   }
 
-  function USSearch() {
-    const userChoice1 = document.getElementById("us").value;
-    let country = userChoice1;
-    let date = "";
-
-    axios({
-      method: "GET",
-      url: `https://api.tvmaze.com/schedule/web`,
-      responseType: "json",
-      params: {
-        country: `${country}`,
-        date: `${date}`,
-      },
-    }).then((response) => {
-      setAllListing(response.data);
-      setOriginalListing(response.data);
-    });
-  }
-
-  function All() {
-    axios({
-      method: "GET",
-      url: `https://api.tvmaze.com/schedule/web`,
-      responseType: "json",
-      params: {},
-    }).then((response) => {
-      setAllListing(response.data);
-      setOriginalListing(response.data);
-    });
-  }
-
-
   return (
     <div className="contentAPISectionContainer">
       <h2>Don't want to make any plans? </h2>
@@ -186,11 +154,6 @@ function API() {
               </div>
               : null}
           </div>
-
-          <p className ="openButton">Other Search Methods:</p>
-          <button className ="openButton" onClick={USSearch}>All U.S. Shows</button>
-          <button className ="openButton" onClick={All}>International</button>
-
         </nav>
 
         <div className="showGallery">
