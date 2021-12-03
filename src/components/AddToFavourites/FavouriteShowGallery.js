@@ -1,9 +1,7 @@
 import ShowItem from './ShowItem';
 
 const FavouriteShowGallery = (props) => {
-    console.log(props.selectedItems);
     const chosenArray = props.selectedItems;
-
 
     return (
         <div className="favourites">
@@ -12,8 +10,6 @@ const FavouriteShowGallery = (props) => {
                 {
                     chosenArray.map((show) => {
                         return (
-
-                            // 🚨🚨🚨🚨 Why is this returning with a add faves button?
                             <ShowItem
                                 key={show.id}
                                 id={show.id}
@@ -25,18 +21,11 @@ const FavouriteShowGallery = (props) => {
                                 site={show.url}
                                 airdate = {show.airdate}
                                 language={show._embedded.show.language}
-                                // schedule = {show.schedule.days}
-                                // time = {show.schedule.time}
                                 summary={show._embedded.show.summary}
                             />
-
                         )
                     })
-
-
-
                 }
-
             </ul>
         </div>
     );

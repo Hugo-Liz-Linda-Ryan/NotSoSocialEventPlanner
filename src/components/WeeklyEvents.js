@@ -59,7 +59,6 @@ function WeeklyEvents() {
                 newState.push({key: key, name: data[key]});}
                 // only render the most recently created 7 events to the page
                 const slicedArray = newState.slice(newState.length - 7, newState.length)
-                console.log(slicedArray)
                 setNewEvents(slicedArray);
             });
         }
@@ -74,8 +73,6 @@ function WeeklyEvents() {
     }
     // 
     
-
-    // 🚨 needs to be updated; needs to be delete the entire day object in Firebase
     const removeUserEvent = (eventID) => {
         const dbRef = firebase.database().ref('New User Events');
         dbRef.child(eventID).remove();
@@ -117,7 +114,7 @@ function WeeklyEvents() {
         
         <form className="newEventForm" action="submit">
             <label htmlFor="newEventDay">Which day of the week?</label>
-            <select name="newEventDay" id="newEventDay"  value={userDaySelect} onChange={handleUserDaySelect} required>
+            <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect} required>
                 <option value="" hidden disabled>Choose a day</option>
                 <option value="Sunday">Sunday</option>
                 <option value="Monday">Monday</option>

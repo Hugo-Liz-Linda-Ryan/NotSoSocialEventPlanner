@@ -1,4 +1,3 @@
-// NPM Modules
 import { useState } from 'react';
 import ExtraDetails from '../ExtraDetails';
 
@@ -13,7 +12,7 @@ function ShowItem(props) {
 
     return (
         <>
-            <li key={props.key} className="descContainer product">
+            <li key={Math.random()} className="descContainer product">
                 <h4 className="airdate">{props.airdate}</h4>
                 <div className="image">
                     <img src={props.image ? props.image.original : null} alt={`Poster of ${props.name}`} />
@@ -26,7 +25,6 @@ function ShowItem(props) {
                     {props.genre.length > 0
                         ? <p className="showGenre">Genre: {props.genre.join(", ")}</p>
                         : null}
-                    {/* 🚨 change onClick from button to div*/}
                     <button className="faveDesc"
                         onClick={toggleShowDesc}>More information</button>
                 </div>
@@ -39,8 +37,7 @@ function ShowItem(props) {
                         <div className="expandedShow">
                             <div className="expandedImage">
                                 <img src={props.image ? props.image.original : null}
-                                    alt={`Poster for ${props.name}`}
-                                />
+                                    alt={`Poster for ${props.name}`} />
                             </div>
                             <div className="showInfo">
                                 <div className="shoInfoWrapper">
@@ -66,7 +63,4 @@ function ShowItem(props) {
     )
 }
 
-
 export default ShowItem;
-
-
