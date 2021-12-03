@@ -161,28 +161,20 @@
 }
 
 /* Media queries */
-@media (max-width:855px){
-    .weekCalendar h2,
-    .newEvents h2{
-      font-size:30px;
-    }
+
+@media (max-width: 630px) {
+  .newEventForm {
+    display: block;
   }
 
-  @media (max-width: 630px) {
-    .newEventForm {
-      display: block;
-    }
-  
-    .newEventForm label,
-    .newEventForm select,
-    .newEventForm input {
-      width: 100%;
-    }
-  
-    .newEventForm input,
-    .newEventForm select {
-      margin: 10px 0;
-    }
+  .newEventForm label,
+  .newEventForm select,
+  .newEventForm input {
+    width: 100%;
   }
-  
 
+  .newEventForm input,
+  .newEventForm select {
+    margin: 10px 0;
+  }
+}

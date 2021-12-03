@@ -118,7 +118,7 @@ function WeeklyEvents() {
         
         <form className="newEventForm" action="submit">
             <label htmlFor="newEventDay">Which day of the week?</label>
-            <select name="newEventDay" id="newEventDay"  value={userDaySelect} onChange={handleUserDaySelect} >
+            <select name="newEventDay" id="newEventDay"  value={userDaySelect} onChange={handleUserDaySelect} required>
                 <option value="" hidden disabled>Choose a day</option>
                 <option value="Sunday">Sunday</option>
                 <option value="Monday">Monday</option>
@@ -130,11 +130,11 @@ function WeeklyEvents() {
             </select>
 
             <label htmlFor="newEventName">What's the name of your event?</label>
-            <input type="text" id="newEventName" onChange={handleChange} value={userInputEventName}/>
+            <input type="text" id="newEventName" placeholder="Pinata party, ballroom dancing, etc." onChange={handleChange} value={userInputEventName}/>
             <label htmlFor="newEventName">What kind of event?</label>
-            <input type="text" id="userInputEventType" onChange={handleChange2} value={userInputEventType}/>
+            <input type="text" id="userInputEventType" placeholder="Social, relaxing, learning, etc." onChange={handleChange2} value={userInputEventType}/>
             <label htmlFor="newEventName">How many people?</label>
-            <input type="text" id="userInputPartySize" onChange={handleChange3} value={userInputPartySize}/>
+            <input type="text" id="userInputPartySize" placeholder="By yourself, with a buddy, group of 4, etc." onChange={handleChange3} value={userInputPartySize}/>
             <button onClick={handleClick}>Add event</button>
         </form>
         
