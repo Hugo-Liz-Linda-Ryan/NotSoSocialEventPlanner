@@ -57,15 +57,5 @@ export const devItems = [
         github: 'https://github.com/lizzy-bird',
         cName: 'appTagLine'
     },
-    {
-        devname:'Ryan Van Den Eeckhout',
-        paragraph: '',
-        url: '/images/2.png',
-        // website: 'https://www.lindacolumbus.ca ,
-        github: 'https://github.com/Ryan-Vandeneeckhout',
-        cName: 'appTagLine'
-    }
-        
-
 ];
 
