@@ -6,7 +6,6 @@ const About = () => {
     {
         devname:'Linda Columbus',
         paragraph: '',
-        url: '/src/stylesheets/assets/bunnyBrown.png',
         url: './devicons/bunnyBrown.png',
         website: 'https://www.lindacolumbus.ca' ,
         github: 'https://github.com/lindacolumbus',
