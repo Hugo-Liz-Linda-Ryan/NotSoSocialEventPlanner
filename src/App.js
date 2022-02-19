@@ -1,8 +1,8 @@
-import './App.css';
-import SiteOpeningPage from './components/LandingPage/LandingPage'
-import About from './components/About/About';
-import MovieSectionF from './components/MovieSection';
+import './stylesheets/App.css';
+import About from './components/About';
+import GetMovies from './components/GetMovies';
 import WeeklyEvents from './components/WeeklyEvents';
+import LandingPage from './components/LandingPage';
 
 function App() {
   
@@ -10,11 +10,11 @@ function App() {
 
     <div className="App">
       <header>
-        <SiteOpeningPage/>
+        <LandingPage/>
       </header>
       <main>
         <WeeklyEvents/>
-        <MovieSectionF/>
+        <GetMovies/>
         <About/>
       </main>
       <footer>

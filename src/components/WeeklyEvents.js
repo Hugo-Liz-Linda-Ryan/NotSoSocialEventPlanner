@@ -1,6 +1,6 @@
 import firebase from './firebase'
 import {useState, useEffect} from 'react';
-import "./WeeklyEvents.css";
+import "../stylesheets/WeeklyEvents.css";
 
 function WeeklyEvents() {
     const [socialEvents, setSocialEvents] = useState([]);
@@ -129,11 +129,11 @@ function WeeklyEvents() {
             </select>
 
             <label htmlFor="newEventName">What's the name of your event?</label>
-            <input type="text" id="newEventName" placeholder="Pinata party, ballroom dancing, etc." onChange={handleChange} value={userInputEventName}/>
+            <input type="text" id="newEventName" placeholder="Pinata party, ballroom dancing, etc." onChange={handleChange} value={userInputEventName} required />
             <label htmlFor="newEventName">What kind of event?</label>
-            <input type="text" id="userInputEventType" placeholder="Social, relaxing, learning, etc." onChange={handleChange2} value={userInputEventType}/>
+            <input type="text" id="userInputEventType" placeholder="Social, relaxing, learning, etc." onChange={handleChange2} value={userInputEventType} required />
             <label htmlFor="newEventName">How many people?</label>
-            <input type="text" id="userInputPartySize" placeholder="By yourself, with a buddy, group of 4, etc." onChange={handleChange3} value={userInputPartySize}/>
+            <input type="text" id="userInputPartySize" placeholder="By yourself, with a buddy, group of 4, etc." onChange={handleChange3} value={userInputPartySize} required />
             <button onClick={handleClick}>Add event</button>
         </form>
         

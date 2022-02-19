@@ -1,11 +1,12 @@
-import "../../App.css";
-import "./API.css";
+import "../stylesheets/App.css";
+import "../stylesheets/GetMovies.css"
 import axios from "axios";
 import { useState } from "react";
-import ShowListing from "../ShowListing";
-import FavouriteShowGallery from "../AddToFavourites/FavouriteShowGallery";
+import ShowListing from "./ShowListing";
+import Watchlist from "./Watchlist";
 
-function API() {
+// Component makes API call and holds FavouritesList component (saved movies) and the ShowListing component (shows results)
+function GetMovies() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
   const [selectedItems, setSelectedItems] = useState([]);
@@ -86,14 +87,18 @@ function API() {
     <div className="contentAPISectionContainer">
       <h2>Don't want to make any plans? </h2>
       <h2>Find a show to watch instead!</h2>
-
-      <div className="favouritesGallery">
+      {/* Setting a ternary conditional to hide watchlist section if there are no items in it */}
+      {selectedItems.length > 0 ? 
+      <div className="watchlist">
           <button className="removeFavourites" onClick={remove}>Remove First Added</button>
-          <FavouriteShowGallery
+            <Watchlist
             className="lookbookGallery"
             selectedItems={selectedItems}
-          />
+            />
       </div>
+      :
+      null
+      }
       <div className="APISection">
         <nav className="showNav">
 
@@ -142,7 +147,7 @@ function API() {
                 <option value="Thriller">Thriller</option>
                 <option value="Travel">Travel</option>
               </select>
-              <button className="genreFilterButton" type="submit">Genre Filter!</button>
+              <button className="genreFilterButton" type="submit">Filter by genre</button>
             </form>
             <button className="clearResults" onClick={clearFilter}>Clear Filter</button>
 
@@ -170,7 +175,8 @@ function API() {
                   image={show._embedded.show.image}
                   site={show.url}
                   language={show._embedded.show.language}
-                  summary={show._embedded.show.summary}
+                  // summaries come with HTML tags included, removing them before passing through as component
+                  summary={show._embedded.show.summary.replace(/(<([^>]+)>)/gi, "")}
                   clickHandler={addToShowGallery}
                 />
               );
@@ -186,4 +192,4 @@ function API() {
   );
 }
 
-export default API;
+export default GetMovies;

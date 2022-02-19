@@ -1,7 +1,35 @@
-import "./About.css";
-import { devItems } from "./AboutDevProfilesItems";
+import "../stylesheets/About.css";
 
 const About = () => {
+
+  const devItems = [
+    {
+        devname:'Linda Columbus',
+        paragraph: '',
+        url: '/src/stylesheets/assets/bunnyBrown.png',
+        url: './devicons/bunnyBrown.png',
+        website: 'https://www.lindacolumbus.ca' ,
+        github: 'https://github.com/lindacolumbus',
+        cName: 'appTagLine'
+    },
+    {
+        devname:'Hugo Arriojas',
+        paragraph: '',
+        url: './devicons/cat.png',
+        website: 'https://www.hugoa.dev/' ,
+        github: 'https://www.github.com/HugoArriojas',
+        cName: 'appTagLine'
+    },    
+    {
+        devname:'Elizabeth Harris',
+        paragraph: '',
+        url: './devicons/bunnyBlack.png',
+        website: 'https://www.elizabethharris.dev' ,
+        github: 'https://github.com/lizzy-bird',
+        cName: 'appTagLine'
+    },
+];
+
   return (
     <section id="aboutSection">
       <div className="aboutSectionWrapper">
