@@ -48,15 +48,18 @@ function WeeklyEvents() {
     const handleClick = (event) => {
         event.preventDefault();
 
-        // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
-        const pushNewEvent = () => {
-            const dbRef = firebase.database().ref('New User Events');
-            dbRef.push({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
-            dbRef.on('value', (response) => {
-                const newState = [];
+        // required tag does not work on form as form is not being "submitted". 
+            // Checking state in order to make sure that there is information in the required fields
+        if (userDaySelect && userInputEventName && userInputEventType && userInputPartySize !== "") {
+            // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
+            const pushNewEvent = () => {
+                const dbRef = firebase.database().ref('New User Events');
+                dbRef.push({userDaySelect, userInputEventName, userInputEventType, userInputPartySize});
+                dbRef.on('value', (response) => {
+                    const newState = [];
                 const data = response.val();
                 for (let key in data) {
-                newState.push({key: key, name: data[key]});}
+                    newState.push({key: key, name: data[key]});}
                 // only render the most recently created 7 events to the page
                 const slicedArray = newState.slice(newState.length - 7, newState.length)
                 setNewEvents(slicedArray);
@@ -65,11 +68,14 @@ function WeeklyEvents() {
 
         // call the function
         pushNewEvent();
-
+        
         // reset user input to empty string
         setUserInputEventName('');
         setUserInputEventType('');
         setUserInputPartySize(''); 
+        } else {
+            alert("Please fill out all fields before submitting new event!")
+        }
     }
     // 
     
