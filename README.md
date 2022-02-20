@@ -1,3 +1,15 @@
+# The (Not So) Social Event Planner
+
+An agency-style project created from a given client brief, made as part of the [Juno College](https://junocollege.com/) curriculum.
+
+The Not So Social Planner works as an event calendar where users can submit recurring weekly events which are then stored in Firebase.
+Should the user choose to forgo their scheduled event, they can look for TV shows that are streaming at the same time in case they'd rather spend a night indoors.
+
+Come see the project in action here: [Live Link](https://notsosocialplanner.netlify.app/)
+
+
+*****************************************************************************************************
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
