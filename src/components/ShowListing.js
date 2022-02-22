@@ -28,7 +28,7 @@ function ShowListing(props) {
                     <div className="showButtons">
                         <button className="showDesc"
                             onClick={toggleShowDesc}>More information</button>
-                        <button onClick={() => props.clickHandler(props.id)}>Click to Add to Favourites</button>
+                        <button onClick={() => props.clickHandler(props.id)}>Add to Watchlist</button>
                     </div>
                 </div>
             </li>

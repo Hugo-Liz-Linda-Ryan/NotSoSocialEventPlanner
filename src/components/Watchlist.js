@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ExtraDetails from './ExtraDetails';
 
 const Watchlist = (props) => {
-    const chosenArray = props.selectedItems;
+    const chosenArray = props.watchlist;
 
     const [descOpen, setDescOpen] = useState(false);
 
@@ -10,6 +10,7 @@ const Watchlist = (props) => {
     const toggleShowDesc = () => {
         setDescOpen(!descOpen);
     }
+    
     return (
         <div className="favourites">
             <h3>Your Watchlist</h3>
@@ -70,8 +71,8 @@ const Watchlist = (props) => {
                         )
                     })
                 }
-            </ul>
-        </div>
+            </ul> {/* /favouritesList  */}
+        </div>   // favourites
     );
 };
 
