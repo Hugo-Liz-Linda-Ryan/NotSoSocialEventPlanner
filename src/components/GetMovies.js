@@ -102,7 +102,7 @@ function GetMovies() {
 
 
   return (
-    <div className="contentAPISectionContainer">
+    <section className="apiResponse">
       <h2>Don't want to make any plans? </h2>
       <h2>Find a show to watch instead!</h2>
       {/* Setting a ternary conditional to hide watchlist section if there are no items in it */}
@@ -129,7 +129,7 @@ function GetMovies() {
         </>
         : null
       }
-      <div className="APISection">
+      <div className="apiShows">
         <nav className="showNav">
 
           <div className="selectShowDate">
@@ -218,7 +218,7 @@ function GetMovies() {
             : null}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

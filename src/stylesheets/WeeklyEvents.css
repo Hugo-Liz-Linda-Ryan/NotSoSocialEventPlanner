@@ -1,10 +1,4 @@
 /* Styling for repeating calendar */
-.allNewEvents {
-  border-top: 2px solid gold;
-  border-bottom: 2px solid gold;
-  margin-top:10%;
-}
-
 .allNewEvents, 
 .newEvents,
 .newEvents li,
@@ -58,6 +52,12 @@
   margin:1%;
   min-width:200px;
   background-color:#ded6ed;
+}
+
+.allNewEvents {
+  border-top: 2px solid gold;
+  border-bottom: 2px solid gold;
+  margin-top:10%;
 }
 
 .EventsWeek, 

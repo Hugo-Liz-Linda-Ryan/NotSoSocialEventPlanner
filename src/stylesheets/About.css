@@ -1,4 +1,4 @@
-#aboutSection {
+.aboutSection {
   width: 100%;
   height: 100%;
   color: white;
@@ -13,11 +13,13 @@
   color: white;
 }
 
-.aboutSectionWrapper h3 {
+.aboutIntro,
+.devNames {
   font-size: var(--font-size-h3);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 .aboutTheApp {
   width: 100%;
   padding: 5% 10% 3% 10%;
@@ -55,6 +57,7 @@
   margin-bottom: 1%;
   border-bottom: 1px solid white;
 }
+
 .appTagLine {
   width: calc(100%/3);
   text-align: left;

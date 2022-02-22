@@ -28,7 +28,7 @@
   font-family: Sulphur Point, Arial, Helvetica, sans-serif;
   background-image: url("./assets/rainbow.gif");
 }
-.h12nd {
+.socialPlanner {
   color: white;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #3a1879;
@@ -53,7 +53,7 @@ h1 {
   }
 }
 
-.h22nd {
+.socialIntrovert {
   color: gold;
 }
 .landingpage h2 {

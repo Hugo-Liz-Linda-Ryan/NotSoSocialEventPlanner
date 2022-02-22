@@ -1,0 +1,273 @@
+/* ShowListing */
+.showContainer {
+    width: 45%;
+    min-width: 190px;
+    max-width: 300px;
+    height: 100%;
+    text-align: center;
+    background-color: #ded6ed;
+    margin-bottom: 3%;
+    border: solid 2px #3a1879;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.descContainer,
+.showContainer {
+    margin-bottom: 3%;
+    width: 45%;
+    min-width: 190px;
+    height: 100%;
+    border: solid 2px #3a1879;
+    border-radius: 18px;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.image {
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+
+.image img,
+.expandedImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 75% 25%;
+    /* Below centers alt text */
+    line-height: 50px;
+    text-align: center;
+}
+
+
+.showName {
+    margin-top: 10px;
+}
+
+.showContainer p,
+.expandedShow p {
+    margin: 2% 0;
+}
+
+.showButtons {
+    display: flex;
+}
+
+.showContainer button {
+    width: 50%;
+    color: #ded6ed;
+    padding: 3%;
+    border: none;
+    background-color: #3a1879;
+}
+
+.showContainer button:hover,
+.showContainer button:focus {
+    color: #3a1879;
+    background-color: #df7980;
+}
+
+.showContainer button:first-of-type {
+    border-radius: 0 18px 0 0;
+}
+
+.showContainer button:last-of-type {
+    border-radius: 18px 0 0 0;
+}
+
+
+/* Extra details section */
+
+.details {
+    position: fixed;
+    bottom: 10vh;
+    right: 5vw;
+    width: 80vw;
+    height: 80vh;
+    background-color: #ded6ed;
+    border: 3px solid #3a1879;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  
+  .closeButton{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    color: #df7980;
+    background-color: #3a1879;
+    border: 2px solid transparent;
+  }
+  
+  .closeButton:hover,
+  .closeButton:focus{
+    color: #3a1879;
+    background-color: #df7980;
+    border: 2px solid #3a1879;
+  }
+  
+  .expandedShow {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .expandedImage {
+    height: 80vh;
+  }
+  
+  
+  .showInfo {
+    width: 60%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+  }
+  
+  .showInfo h3 {
+    font-size: 25px;
+  }
+  
+  .summaryDesc {
+    font-size: 14px;
+  }
+  
+  /* Watchist Section */
+  
+  .watchlistButton,
+  .toggledWatchlistButton {
+    padding: 1%;
+  }
+  
+  .toggledWatchlistButton {
+    content: "Close Watchlist";
+    color: #ded6ed;
+    background-color: #3a1879;
+  }
+  
+  
+  .watchlist {
+    height: 100%;
+    text-align: center;
+    border: 2px solid #3a1879;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    margin: 2% auto;
+  }
+  
+  .removeFavourites,
+  .airdate,
+  .faveDesc {
+    color: #ded6ed;
+    background-color: #3a1879;
+    border: none;
+    border: 2px solid #3a1879;
+  }
+  .airdate,
+  .faveDesc {
+    width: 100%;
+    padding: 5%; 
+  }
+  
+  .removeFavourites:focus, 
+  .removeFavourites:hover,
+  .faveDesc:focus,
+  .faveDesc:hover {
+    color: #3a1879;
+    background-color: #df7980;
+  }
+  
+  .removeFavourites{ 
+    padding: 1% 3%;
+    margin-right: auto;
+    border-radius: 0 0 18px 18px;
+    cursor:pointer;
+  }
+  
+  
+  .favourites h3 {
+    width: 100%;
+    margin: 1%;
+  }
+  
+  .favouritesList {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .descContainer {
+    width: 50%;
+    max-width: 50px;
+    list-style-type: none;
+    margin: 5px auto;
+  }
+  
+  .favouritesList .image {
+    height: 50px;
+  }
+  
+  .favouritesList img {
+    object-position: center;
+  }
+  
+  
+  .favouritesList p {
+    font-size: 14px;
+    margin: 1%;
+  }
+  
+  
+  @media screen and (max-width: 480px) {
+    .favouritesList .image {
+      display: none;
+    }
+  
+    .apiShows {
+      flex-direction: column;
+    }
+  
+    .showNav {
+      width: 95%;
+      max-width: none;
+      padding: 3% 0;
+    }
+    
+    .showGallery {
+      max-width: none;
+    }
+    
+    .descContainer {
+      min-width: 140px;
+    }
+  
+  
+    .expandedImage {
+      width: 30%;
+    }
+  
+    .showInfo {
+      width: 70%;
+      padding: 1%;
+    }
+  
+    .expandedShow h3 {
+      font-size: 20px;
+    }
+  
+  }
+  
+  
+  
+  

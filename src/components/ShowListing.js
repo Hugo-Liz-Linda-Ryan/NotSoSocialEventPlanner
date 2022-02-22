@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ExtraDetails from './ExtraDetails';
+import "../stylesheets/ShowListing.css"
 
 function ShowListing(props) {
 

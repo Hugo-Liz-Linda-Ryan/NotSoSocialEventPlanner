@@ -281,6 +281,8 @@ h4 {
 }
 
 
+/* Extra universal styling */
+
 html {
   --color-primaryBlueBlackRed: rgb(5, 5, 49);
   --color-nav: #3a1879;

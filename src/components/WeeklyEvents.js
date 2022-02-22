@@ -129,15 +129,20 @@ function WeeklyEvents() {
             <h4 className='formHeader'> Add new events to your schedule:</h4>
             <form className="newEventForm" action="submit">
                 <label htmlFor="newEventDay">Which day of the week?</label>
-                <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect} required>
-                    <option value="" hidden disabled>Choose a day</option>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
+                <select 
+                    name="newEventDay" 
+                    id="newEventDay" 
+                    value={userDaySelect} 
+                    onChange={handleUserDaySelect} 
+                    required>
+                        <option value="" hidden disabled>Choose a day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
                 </select>
 
                 <label htmlFor="newEventName">What's the name of your event?</label>
