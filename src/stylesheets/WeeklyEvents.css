@@ -1,25 +1,26 @@
 /* Styling for repeating calendar */
-.weekCalendar{
+.allNewEvents {
   border-top: 2px solid gold;
+  border-bottom: 2px solid gold;
   margin-top:10%;
 }
-.weekCalendar, 
+
+.allNewEvents, 
 .newEvents,
-.weekCalendar li, 
 .newEvents li,
 .EventsWeek, 
 .newEvents {
   display: flex;
 }
 
-.weekCalendar, 
+.allNewEvents, 
 .newEvents,
-.weekCalendar li, 
+.allNewEvents li, 
 .newEvents li {
   flex-direction: column;
 }
 
-.weekCalendar li, 
+.allNewEvents li, 
 .newEvents li,
 .EventsWeek, 
 .newEvents {
@@ -27,25 +28,25 @@
   align-content: center;
 }
 
-.weekCalendar, 
+.allNewEvents, 
 .newEvents,
 .EventsWeek, 
 .newEvents,
 .EventsWeek h3, 
 .newEvents h3,
-.weekCalendar h2,
+.allNewEvents h2,
 .newEvents h2 {
   width: 100%;
 }
 
-.weekCalendar, 
+.allNewEvents, 
 .newEvents {
   height: auto;
   background-color: #845dcc;
   padding: 3% 0;
 }
 
-.weekCalendar li, 
+.allNewEvents li, 
 .newEvents li {
   list-style: none;
   justify-content: center;
@@ -93,7 +94,7 @@
   font-size:16px;
 }
 
-.weekCalendar h2,
+.allNewEvents h2,
 .newEvents h2 {
   text-transform: capitalize;
   text-align: center;
@@ -172,14 +173,12 @@
 
 .newEventForm {
   width: 100%;
-  margin: 40px auto;
   margin-top:0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 40px;
   background-color: #845dcc;
-  border-bottom: 2px solid gold;
 }
 
 .newEventForm label {
@@ -212,7 +211,7 @@
 
 .EventsWeek p, 
 .EventsWeek h4,
-.weekCalendar h2,
+.allNewEvents h2,
 .newEvents p,
 .newEvents h4,
 .newEvents h2,
@@ -223,7 +222,7 @@
 /* Media queries */
 
 @media (max-width:850px) {
-  .weekCalendar h2,
+  .allNewEvents h2,
   .newEvents h2,
   .allNewEvents h4{
     font-size:30px;
