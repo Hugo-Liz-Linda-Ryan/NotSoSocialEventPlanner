@@ -2,10 +2,8 @@ import "../stylesheets/App.css";
 import "../stylesheets/GetMovies.css"
 import axios from "axios";
 import { useState, useEffect } from "react";
-import firebase from './firebase'
 import ShowListing from "./ShowListing";
 import Watchlist from "./Watchlist";
-import { buildQueries } from "@testing-library/react";
 
 // Component makes API call and holds FavouritesList component (saved movies) and the ShowListing component (shows results)
 function GetMovies() {
