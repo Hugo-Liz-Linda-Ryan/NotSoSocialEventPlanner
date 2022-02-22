@@ -1,35 +1,23 @@
 import "../stylesheets/App.css";
 import "../stylesheets/GetMovies.css"
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import firebase from './firebase'
 import ShowListing from "./ShowListing";
 import Watchlist from "./Watchlist";
+import { buildQueries } from "@testing-library/react";
 
 // Component makes API call and holds FavouritesList component (saved movies) and the ShowListing component (shows results)
 function GetMovies() {
   const [allListings, setAllListing] = useState([]);
   const [genreChoice, setGenreChoice] = useState("placeholder");
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
+  const [watchlistClassActive, setWatchlistClassActive] = useState(true);
+  const [watchlistOpen, setWatchlistOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [currentGenreSearch, setCurrentGenreSearch] = useState(false);
   const [originalListing, setOriginalListing] = useState([]);
-
-  const addToShowGallery = (id) => {
-    // Pushes the id parameter into  an array and returns the object with the matching ID from the allListings state
-    const ids = [];
-    ids.push(id);
-    let filteredArray = allListings.filter((showObject) => {
-      return ids.includes(showObject.id)
-    });
-    setSelectedItems([...selectedItems, ...filteredArray]);
-  }
-
-  // empties out "favourites" section by removing everything in state
-  const remove = () => {
-    selectedItems.shift();
-    setSelectedItems([...selectedItems]);
-  }
-
+  // Preparing for showDate useState
   const today = new Date()
   // Returns in format "Mon Nov 29 2021 14:47:24 GMT-0500 (Eastern Standard Time)"
   const timeOffset = today.getTimezoneOffset() * 50000;
@@ -38,14 +26,35 @@ function GetMovies() {
   // Returns format "YYYY-MM-DD"
   const [showDate, setShowDate] = useState(localISODate);
 
+  // Function searches tvMaze API using axios
+  useEffect(() => {
+    let country = "US";
+    axios({
+      method: "GET",
+      url: `https://api.tvmaze.com/schedule/web`,
+      responseType: "json",
+      params: {
+        country: `${country}`,
+        date: `${showDate}`,
+      },
+    }).then((response) => {
+      setAllListing(response.data);
+      setOriginalListing(response.data);
+    });
+  }, [showDate])
+
+
+  // stores selected date
   function handleDateChange(e) {
     setShowDate(e.target.value);
   }
 
+  // Stores selected genre
   function handleGenreChoice(e) {
     setGenreChoice(e.target.value);
   }
 
+  // Function filters search results by genre
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
     const copyOfListings = [...allListings];
@@ -62,42 +71,65 @@ function GetMovies() {
     setAllListing(filteredShows)
   }
 
+  // Clears the genre filter from the search
   function clearFilter() {
     setAllListing(originalListing);
   }
 
-  function searchByDate() {
-    let country = "US";
 
-    axios({
-      method: "GET",
-      url: `https://api.tvmaze.com/schedule/web`,
-      responseType: "json",
-      params: {
-        country: `${country}`,
-        date: `${showDate}`,
-      },
-    }).then((response) => {
-      setAllListing(response.data);
-      setOriginalListing(response.data);
+  // Adds the selected show to the watchlist
+  const addToWatchlist = (id) => {
+    // Pushes the id parameter into  an array and returns the object with the matching ID from the allListings state
+    const ids = [];
+    ids.push(id);
+    let filteredArray = allListings.filter((showObject) => {
+      return ids.includes(showObject.id)
     });
+    setWatchlist([...watchlist, ...filteredArray]);
   }
-  
+
+
+  // empties out "watchlist" section by removing everything in state
+  const remove = () => {
+    watchlist.shift();
+    setWatchlist([...watchlist]);
+  }
+
+  // Opens the watchlist and toggles the class
+  const toggleWatchlist = () => {
+    setWatchlistOpen(!watchlistOpen)
+    setWatchlistClassActive(!watchlistClassActive)
+
+  }
+
+
   return (
     <div className="contentAPISectionContainer">
       <h2>Don't want to make any plans? </h2>
       <h2>Find a show to watch instead!</h2>
       {/* Setting a ternary conditional to hide watchlist section if there are no items in it */}
-      {selectedItems.length > 0 ? 
-      <div className="watchlist">
-          <button className="removeFavourites" onClick={remove}>Remove First Added</button>
-            <Watchlist
-            className="lookbookGallery"
-            selectedItems={selectedItems}
-            />
-      </div>
-      :
-      null
+      {watchlist.length > 0 ?
+        <>
+          <button
+            className={watchlistClassActive? "watchlistButton watchlist" : "toggledWatchlistButton watchlist"}
+            onClick={toggleWatchlist}>
+              {watchlistOpen ?
+                "Close Watchlist"
+                : "Open Watchlist"
+              }
+          </button>
+          {watchlistOpen ?
+            <div className="watchlist">
+              <button className="removeFavourites" onClick={remove}>Remove First Added</button>
+              <Watchlist
+                className="lookbookGallery"
+                watchlist={watchlist}
+              />
+            </div>
+            : null
+          }
+        </>
+        : null
       }
       <div className="APISection">
         <nav className="showNav">
@@ -113,7 +145,7 @@ function GetMovies() {
               min={localISODate}
               onChange={handleDateChange}
             />
-            <button onClick={searchByDate}>Search by date</button>
+            {/* <button onClick={searchByDate}>Search</button> */}
           </div>
 
           <div className="genreFilter">
@@ -177,7 +209,7 @@ function GetMovies() {
                   language={show._embedded.show.language}
                   // summaries come with HTML tags included, removing them before passing through as component
                   summary={show._embedded.show.summary.replace(/(<([^>]+)>)/gi, "")}
-                  clickHandler={addToShowGallery}
+                  clickHandler={addToWatchlist}
                 />
               );
             })}

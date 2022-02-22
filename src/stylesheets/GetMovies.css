@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5% 0;
@@ -250,6 +250,18 @@
 }
 
 /* Watchist Section */
+
+.watchlistButton,
+.toggledWatchlistButton {
+  padding: 1%;
+}
+
+.toggledWatchlistButton {
+  content: "Close Watchlist";
+  color: #ded6ed;
+  background-color: #3a1879;
+}
+
 
 .watchlist {
   height: 100%;
