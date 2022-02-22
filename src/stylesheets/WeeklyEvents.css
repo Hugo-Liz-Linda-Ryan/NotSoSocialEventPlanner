@@ -126,7 +126,7 @@
 
 .EventsWeek p:last-of-type::before,
 .newEvents p:last-of-type::before{
-  content:'Party Size:';
+  content:'Event Time:';
 }
 
 .newEvents button,
@@ -170,6 +170,10 @@
 }
 
 /* Form styling */
+
+.formHeader {
+  margin-top: 5%;
+}
 
 .newEventForm {
   width: 100%;

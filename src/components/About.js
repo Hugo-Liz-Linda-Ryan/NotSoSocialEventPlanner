@@ -34,7 +34,7 @@ const About = () => {
       <div className="aboutSectionWrapper">
         <div className="aboutTheApp">
           <h3>About the App</h3>
-          <p>The Not So Social Planner was created by aspiring front-end web developers Hugo Arriojas, Linda Columbus, and Elizabeth Harris during the 2021 Fall-Winter bootcamp at Juno College of Technology. Not So Social Planner uses CSS, JavaScript, React and HTML5 in its code makeup. The project was built to showcase the collaborative efforts of the four students during an agency style pair programming project that integrates the use of a REST API and Firebase during the period.</p>
+          <p>The Not So Social Planner was created by aspiring front-end web developers Hugo Arriojas, Linda Columbus, and Elizabeth Harris during the 2021 Fall-Winter bootcamp at Juno College of Technology. Not So Social Planner uses CSS, JavaScript, React and HTML5 in its code makeup. The project was built to showcase the collaborative efforts of the three students during an agency style project that integrates the use of a REST API and Firebase during the period.</p>
           
           <h3>What Can the App do?</h3>
           <p>The API data for the Not So Social Planner app was supplied by TVMaze API which supplies data on a variety of movies from around

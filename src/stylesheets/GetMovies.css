@@ -11,7 +11,10 @@
 .contentAPISectionContainer h2 {
   width: 100%;
   text-align: center;
+}
 
+.contentAPISectionContainer h2:last-of-type {
+  margin-bottom: 3%;
 }
 
 .APISection {

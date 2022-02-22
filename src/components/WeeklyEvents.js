@@ -7,7 +7,7 @@ function WeeklyEvents() {
     let [userDaySelect, setUserDaySelect] = useState('');
     let [userInputEventName, setUserInputEventName] = useState('');
     let [userInputEventType, setUserInputEventType] = useState('');
-    let [userInputPartySize, setUserInputPartySize] = useState('');
+    let [userInputTime, setUserInputTime] = useState('');
 
     // useEffect for weekly events
         // 🚨 To change: make useEffect run on event submission
@@ -24,8 +24,8 @@ function WeeklyEvents() {
                 // push each item to an array 
                 newState.push({ key: key, name: data[key] });
             }
-           
-            sortByDay(newState)
+            // Only displays the last 10 events submitted to the calendar
+            sortByDay(newState.slice(-10))
         })
     }, [])
 
@@ -58,8 +58,8 @@ function WeeklyEvents() {
         setUserInputEventType(event.target.value);
     }
 
-    const handleSizeChange = (event) => {
-        setUserInputPartySize(event.target.value);
+    const handleTimeChange = (event) => {
+        setUserInputTime(event.target.value);
     }
 
     const handleUserDaySelect = (event) => {
@@ -67,24 +67,24 @@ function WeeklyEvents() {
     }
 
     // event handler for user creating a new event
-    const handleClick = (event) => {
+    const handleEventSubmit = (event) => {
         event.preventDefault();
 
-        // required tag does not work on form as form is not being "submitted". 
         // Checking state in order to make sure that there is information in the required fields
-        if (userDaySelect && userInputEventName && userInputEventType && userInputPartySize !== "") {
+            // 🚨: required tag does not work on form as form is not being "submitted". 
+        if (userDaySelect && userInputEventName && userInputEventType && userInputTime !== "") {
             // depending on the day the user selects, push the data to the corresponding day's node in Firebase and render to the page
             const pushNewEvent = () => {
                 const dbRef = firebase.database().ref('New User Events');
-                dbRef.push({ userDaySelect, userInputEventName, userInputEventType, userInputPartySize });
+                dbRef.push({ userDaySelect, userInputEventName, userInputEventType, userInputTime });
                 dbRef.on('value', (response) => {
                     const newState = [];
                     const data = response.val();
                     for (let key in data) {
                         newState.push({ key: key, name: data[key] });
                     }
-
-                    sortByDay(newState)
+                    // Only displays the last 10 events submitted to the user calendar
+                    sortByDay(newState.slice(-10))
                 });
             }
 
@@ -92,9 +92,10 @@ function WeeklyEvents() {
             pushNewEvent();
 
             // reset user input to empty string
+            setUserDaySelect('');
             setUserInputEventName('');
             setUserInputEventType('');
-            setUserInputPartySize('');
+            setUserInputTime('');
         } else {
             alert("Please fill out all fields before submitting new event!")
         }
@@ -118,14 +119,14 @@ function WeeklyEvents() {
                             <h3>{newEvent.name.userDaySelect}</h3>
                             <h4>{newEvent.name.userInputEventName}</h4>
                             <p>{newEvent.name.userInputEventType}</p>
-                            <p>{newEvent.name.userInputPartySize}</p>
+                            <p>{newEvent.name.userInputTime}</p>
                             <button onClick={() => removeUserEvent(newEvent.key)}> Remove </button>
                         </li>
                     )
                 })}
             </ul>
 
-            <h4> Add new events to your schedule:</h4>
+            <h4 className='formHeader'> Add new events to your schedule:</h4>
             <form className="newEventForm" action="submit">
                 <label htmlFor="newEventDay">Which day of the week?</label>
                 <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect} required>
@@ -156,12 +157,12 @@ function WeeklyEvents() {
                     value={userInputEventType} 
                     required />
                 <label htmlFor="newEventName">How many people?</label>
-                <input type="text" id="userInputPartySize" 
-                    placeholder="By yourself, with a buddy, group of 4, etc." 
-                    onChange={handleSizeChange} 
-                    value={userInputPartySize} 
+                <input type="text" id="userInputTime" 
+                    placeholder="AM, PM" 
+                    onChange={handleTimeChange} 
+                    value={userInputTime} 
                     required />
-                <button onClick={handleClick}>Add event</button>
+                <button onClick={handleEventSubmit}>Add event</button>
             </form>
         </section>
     )
