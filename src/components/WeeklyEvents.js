@@ -9,10 +9,10 @@ function WeeklyEvents() {
     let [userInputEventType, setUserInputEventType] = useState('');
     let [userInputPartySize, setUserInputPartySize] = useState('');
 
-    // useEffect for set weekly events
+    // useEffect for weekly events
+        // 🚨 To change: make useEffect run on event submission
     useEffect(() => {
         // variable that refers to database
-        // const dbRef = firebase.database().ref();
         const dbRef = firebase.database().ref('New User Events');
         // event listener to get our data from the database ('response')
         dbRef.on('value', (response) => {
@@ -24,9 +24,29 @@ function WeeklyEvents() {
                 // push each item to an array 
                 newState.push({ key: key, name: data[key] });
             }
-            setNewEvents(newState)
+           
+            sortByDay(newState)
         })
     }, [])
+
+    // Sorting function for the user event arrays
+    const sortByDay = (eventArr) => {
+         // Sorting the saved user events by day (starting with Monday)
+         const days = {
+            "Monday": 1,
+            "Tuesday": 2,
+            "Wednesday": 3,
+            "Thursday": 4,
+            "Friday": 5,
+            "Saturday": 6,
+            "Sunday": 7
+            };
+
+        eventArr.sort((a, b) => {
+            return days[a.name.userDaySelect] - days[b.name.userDaySelect];
+        });
+        setNewEvents(eventArr)
+    }
 
 
     // event handler for when there is a change in the add event input
@@ -63,7 +83,8 @@ function WeeklyEvents() {
                     for (let key in data) {
                         newState.push({ key: key, name: data[key] });
                     }
-                    setNewEvents(newState)
+
+                    sortByDay(newState)
                 });
             }
 
@@ -90,7 +111,7 @@ function WeeklyEvents() {
             <h2>This is what your schedule looks like this week...</h2>
             <ul className="newEvents">
                 {/* Slicing so that only 7 events show up in the calendar (first is just placeholder)*/}
-                {newEvents.slice(1).slice(-7).map((newEvent) => {
+                {newEvents.map((newEvent) => {
                 // {newEvents.slice(Math.max(newEvents.length - 7, 1)).map((newEvent) => {
                     return (
                         <li key={newEvent.key}>
@@ -109,13 +130,13 @@ function WeeklyEvents() {
                 <label htmlFor="newEventDay">Which day of the week?</label>
                 <select name="newEventDay" id="newEventDay" value={userDaySelect} onChange={handleUserDaySelect} required>
                     <option value="" hidden disabled>Choose a day</option>
-                    <option value="Sunday">Sunday</option>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
                     <option value="Thursday">Thursday</option>
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
                 </select>
 
                 <label htmlFor="newEventName">What's the name of your event?</label>
