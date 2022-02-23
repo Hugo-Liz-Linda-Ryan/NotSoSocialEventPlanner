@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import ShowListing from "./ShowListing";
 import Watchlist from "./Watchlist";
+import firebase from './firebase';
 
 // Component makes API call and holds FavouritesList component (saved movies) and the ShowListing component (shows results)
 function GetMovies() {
@@ -75,6 +76,26 @@ function GetMovies() {
   }
 
 
+  // useEffect for watchlist
+  useEffect(() => {
+    // variable that refers to database
+    const dbRef = firebase.database().ref('Watchlist');
+    // event listener to get our data from the database ('response')
+    dbRef.on('value', (response) => {
+      // variable to store the new state
+      const newWatchlist = [];
+      // store the response from Firebase inside of a variable
+      const data = response.val();
+      for (let key in data) {
+        // push each item to an array 
+        newWatchlist.push({ key: key, name: data[key] });
+      }
+      // Only displays the last 10 events submitted to the calendar
+      setWatchlist(newWatchlist)
+    })
+  }, [])
+
+
   // Adds the selected show to the watchlist
   const addToWatchlist = (id) => {
     // Pushes the id parameter into  an array and returns the object with the matching ID from the allListings state
@@ -83,15 +104,13 @@ function GetMovies() {
     let filteredArray = allListings.filter((showObject) => {
       return ids.includes(showObject.id)
     });
-    setWatchlist([...watchlist, ...filteredArray]);
+
+    // make a reference to firebase
+    const dbRef = firebase.database().ref('Watchlist');
+    // pushes the selected item into the firebase array
+    dbRef.push(...filteredArray)
   }
 
-
-  // empties out "watchlist" section by removing everything in state
-  const remove = () => {
-    watchlist.shift();
-    setWatchlist([...watchlist]);
-  }
 
   // Opens the watchlist and toggles the class
   const toggleWatchlist = () => {
@@ -109,18 +128,16 @@ function GetMovies() {
       {watchlist.length > 0 ?
         <>
           <button
-            className={watchlistClassActive? "watchlistButton watchlist" : "toggledWatchlistButton watchlist"}
+            className={watchlistClassActive ? "watchlistButton watchlist" : "toggledWatchlistButton watchlist"}
             onClick={toggleWatchlist}>
-              {watchlistOpen ?
-                "Close Watchlist"
-                : "Open Watchlist"
-              }
+            {watchlistOpen ?
+              "Close Watchlist"
+              : "Open Watchlist"
+            }
           </button>
           {watchlistOpen ?
             <div className="watchlist">
-              <button className="removeFavourites" onClick={remove}>Remove First Added</button>
               <Watchlist
-                className="lookbookGallery"
                 watchlist={watchlist}
               />
             </div>
@@ -143,7 +160,6 @@ function GetMovies() {
               min={localISODate}
               onChange={handleDateChange}
             />
-            {/* <button onClick={searchByDate}>Search</button> */}
           </div>
 
           <div className="genreFilter">

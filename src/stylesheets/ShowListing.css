@@ -211,7 +211,7 @@
     width: 50%;
     max-width: 50px;
     list-style-type: none;
-    margin: 5px auto;
+    margin: 5px;
   }
   
   .favouritesList .image {
