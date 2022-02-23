@@ -9,7 +9,7 @@ import firebase from './firebase';
 // Component makes API call and holds FavouritesList component (saved movies) and the ShowListing component (shows results)
 function GetMovies() {
   const [allListings, setAllListing] = useState([]);
-  const [genreChoice, setGenreChoice] = useState("placeholder");
+  const [genreChoice, setGenreChoice] = useState("");
   const [watchlist, setWatchlist] = useState([]);
   const [watchlistClassActive, setWatchlistClassActive] = useState(true);
   const [watchlistOpen, setWatchlistOpen] = useState(false);
@@ -50,9 +50,10 @@ function GetMovies() {
 
   // Stores selected genre
   function handleGenreChoice(e) {
+    console.log(e.target.value)
     setGenreChoice(e.target.value);
   }
-
+  
   // Function filters search results by genre
   function filterByGenre(e, genreChoice) {
     e.preventDefault()
@@ -63,15 +64,18 @@ function GetMovies() {
     if (filteredShows.length === 0) {
       setErrorMessage(true)
     }
+
     // if the genre filter is running, display what genre the user is currently searching for
     if (genreChoice) {
-      setCurrentGenreSearch(true)
+      setCurrentGenreSearch(genreChoice)
     }
     setAllListing(filteredShows)
   }
 
   // Clears the genre filter from the search
   function clearFilter() {
+    setErrorMessage(false)
+    setGenreChoice("")
     setAllListing(originalListing);
   }
 
@@ -198,10 +202,9 @@ function GetMovies() {
             <button className="clearResults" onClick={clearFilter}>Clear Filter</button>
 
             {/* render to the page the user's current genre search*/}
-            {currentGenreSearch === true
-              ?
+            {currentGenreSearch ?
               <div>
-                <p>You're currently searching for: {genreChoice}</p>
+                <p>You're currently searching for: {currentGenreSearch}</p>
               </div>
               : null}
           </div>
@@ -229,7 +232,7 @@ function GetMovies() {
             })}
           </ul>
           {/* if there are no results from the genre filter, render error message to the page */}
-          {errorMessage === true
+          {errorMessage
             ? <p>Sorry, looks like there's nothing to watch. Try another genre!</p>
             : null}
         </div>

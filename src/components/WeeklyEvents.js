@@ -161,7 +161,7 @@ function WeeklyEvents() {
                     onChange={handleTypeChange} 
                     value={userInputEventType} 
                     required />
-                <label htmlFor="newEventName">How many people?</label>
+                <label htmlFor="newEventName">What Time?</label>
                 <input type="text" id="userInputTime" 
                     placeholder="AM, PM" 
                     onChange={handleTimeChange} 
