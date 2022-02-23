@@ -79,9 +79,9 @@ function GetMovies() {
   // useEffect for watchlist
   useEffect(() => {
     // variable that refers to database
-    const dbRef = firebase.database().ref('Watchlist');
+    const watchlistDbRef = firebase.database().ref('Watchlist');
     // event listener to get our data from the database ('response')
-    dbRef.on('value', (response) => {
+    watchlistDbRef.on('value', (response) => {
       // variable to store the new state
       const newWatchlist = [];
       // store the response from Firebase inside of a variable
@@ -106,9 +106,9 @@ function GetMovies() {
     });
 
     // make a reference to firebase
-    const dbRef = firebase.database().ref('Watchlist');
+    const watchlistDbRef = firebase.database().ref('Watchlist');
     // pushes the selected item into the firebase array
-    dbRef.push(...filteredArray)
+    watchlistDbRef.push(...filteredArray)
   }
 
 

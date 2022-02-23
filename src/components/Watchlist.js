@@ -4,23 +4,26 @@ import firebase from 'firebase';
 
 const Watchlist = (watchlistArr) => {
     const [descOpen, setDescOpen] = useState(false);
+    const [descItem, setDescItem] = useState("");
+
+
+    // Making the general reference to the firebase watchlist
+    const watchlistDbRef = firebase.database().ref('Watchlist');
 
     const chosenArray = watchlistArr.watchlist;
     // Toggles the descOpen from true to false or vice versa every time the button is clicked
-    const toggleShowDesc = (e) => {
+    const toggleShowDesc = (show) => {
+        setDescItem(show.name)
         setDescOpen(!descOpen);
-        console.log("chosenArr", chosenArray)
+    }
 
-        // const index = [...el.parentElement.children].indexOf(el)
-
-        // console.log(e)
-        // console.log(...chosenArray)
+    const closeDesc = () => {
+        setDescOpen(false);
     }
 
     // this function takes an argument, which is the ID of the item we want to remove
     const removeShow = (showID) => {
-        const dbRef = firebase.database().ref('Watchlist');
-        dbRef.child(showID).remove();
+        watchlistDbRef.child(showID).remove();
     }
 
 
@@ -46,10 +49,10 @@ const Watchlist = (watchlistArr) => {
                                             ? <p className="showGenre">Genre: {props.name._embedded.show.genres.join(", ")}</p>
                                             : null}
                                         <button className="faveDesc"
-                                                onClick={toggleShowDesc}>More information
+                                            onClick={() => toggleShowDesc(props)}>More information
                                         </button>
                                         <button className="faveDesc"
-                                                onClick={() => removeShow(props.key)}>Remove
+                                            onClick={() => removeShow(props.key)}>Remove
                                         </button>
                                     </div>
                                 </li>
@@ -60,26 +63,26 @@ const Watchlist = (watchlistArr) => {
                                         <>
                                             <div className="expandedShow">
                                                 <div className="expandedImage">
-                                                    <img src={props.name._embedded.show.image ? props.name._embedded.show.image.original : null}
-                                                        alt={`Poster for ${props.name._embedded.show.name}`} />
-                                                </div>
+                                                    <img src={descItem._embedded.show.image ? descItem._embedded.show.image.original : null}
+                                                        alt={`Poster for ${descItem._embedded.show.name}`} />
+                                                </div> {/* /expandedImage  */}
                                                 <div className="showInfo">
-                                                    <div className="shoInfoWrapper">
-                                                        <h3>{props.name._embedded.show.name}</h3>
-                                                        <p className="episodeName">Episode: {props.name.name}</p>
+                                                    <div className="showInfoWrapper">
+                                                        <h3>{descItem._embedded.show.name}</h3>
+                                                        <p className="episodeName">Episode: {descItem.name}</p>
                                                         <h3 className="expandedSumTitle">Summary</h3>
-                                                        <p className="summaryDesc">{props.name._embedded.show.summary.replace(/(<([^>]+)>)/gi, "")}</p>
-                                                        {props.name._embedded.show.genres.length > 0
-                                                            ? <p className="showGenre">Genre: {props.name._embedded.show.genres.join(", ")}</p>
+                                                        <p className="summaryDesc">{descItem._embedded.show.summary.replace(/(<([^>]+)>)/gi, "")}</p>
+                                                        {descItem._embedded.show.genres.length > 0
+                                                            ? <p className="showGenre">Genre: {descItem._embedded.show.genres.join(", ")}</p>
                                                             : null}
-                                                        <p>Language: {props.name._embedded.show.language}</p>
-                                                        <p>{props.name.runtime ? `Runtime: ${props.name.runtime} minutes` : null}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                        <p>Language: {descItem._embedded.show.language}</p>
+                                                        <p>{descItem.runtime ? `Runtime: ${descItem.runtime} minutes` : null}</p>
+                                                    </div> {/* /showInfoWrapper  */}
+                                                </div> {/* /showInfo  */}
+                                            </div> {/* /expandedShow  */}
                                         </>
                                     }
-                                        handleClose={toggleShowDesc}
+                                        handleClose={closeDesc}
                                     />
                                     : null // basically show nothing if it isn't clicked
                                 }
