@@ -85,6 +85,7 @@
 
 .details {
     position: fixed;
+    z-index: 5;
     bottom: 10vh;
     right: 5vw;
     width: 80vw;

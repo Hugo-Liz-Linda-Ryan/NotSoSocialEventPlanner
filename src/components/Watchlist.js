@@ -45,7 +45,7 @@ const Watchlist = (watchlistArr) => {
                                         <p className="episodeName">Episode: {props.name.name}</p>
                                         <p className="showRuntime">{props.name.runtime ? `Runtime: ${props.name.runtime} minutes` : null}</p>
                                         {/* if there is a genre associated with the show, render the genre(s); if not, display nothing */}
-                                        {props.name._embedded.show.genres.length > 0
+                                        {props.name._embedded.show.genres
                                             ? <p className="showGenre">Genre: {props.name._embedded.show.genres.join(", ")}</p>
                                             : null}
                                         <button className="faveDesc"
@@ -72,7 +72,7 @@ const Watchlist = (watchlistArr) => {
                                                         <p className="episodeName">Episode: {descItem.name}</p>
                                                         <h3 className="expandedSumTitle">Summary</h3>
                                                         <p className="summaryDesc">{descItem._embedded.show.summary.replace(/(<([^>]+)>)/gi, "")}</p>
-                                                        {descItem._embedded.show.genres.length > 0
+                                                        {descItem._embedded.show.genres
                                                             ? <p className="showGenre">Genre: {descItem._embedded.show.genres.join(", ")}</p>
                                                             : null}
                                                         <p>Language: {descItem._embedded.show.language}</p>
